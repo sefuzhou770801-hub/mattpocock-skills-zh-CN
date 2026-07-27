@@ -188,11 +188,11 @@ AI 时代也是一样。你和 agent 之间存在沟通缺口。修复方式是�
 
 更重要的是，[`/improve-codebase-architecture`](./skills/engineering/improve-codebase-architecture/SKILL.md) 能帮助你拯救已经变成 ball of mud 的 codebase。我建议每隔几天就在你的 codebase 上跑一次。
 
-#### Summary
+#### 小结
 
 软件工程基本功比以往任何时候都更重要。这些 skills 是我把这些基本功压缩成可重复实践的一次尝试，目标是帮你交付职业生涯中最好的应用。
 
-### Reference
+### 参考
 
 这些 skills 按一个维度区分：谁能调用它们。**User-invoked** skills 只有在你输入名称时才能触达（例如 `/grill-me`）；它们的工作是编排。**Model-invoked** skills 可以由你调用，也可以在任务匹配时由 agent 自动触达；它们承载可复用纪律。User-invoked skill 可以调用 model-invoked skills，但不能调用另一个 user-invoked skill。
 
