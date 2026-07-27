@@ -14,13 +14,13 @@ npx skills update to-spec
 
 `to-spec` 把当前 conversation 和你对 codebase 的理解整理成一份 spec（你可能把这份文档称为 PRD），然后发布到你的 issue tracker。
 
-它**不会**再次访谈你。当你调用它时，alignment 工作已经完成——`to-spec` 综合的是已经知道的内容，而不是再问一轮问题。
+它**不会**再次访谈你。当你取用它时，alignment 工作已经完成——`to-spec` 综合的是已经知道的内容，而不是再问一轮问题。
 
 ## When to reach for it
 
-你通过输入 `/to-spec` 调用它——agent 不会自行触发。
+你通过输入 `/to-spec` 来调用它——agent 不会自己主动去拿它。
 
-当一个 change 已经充分讨论、domain language 已经确定，并且你希望在写任何代码之前把这份共同理解写下来时，就使用它。如果你*还*没有对齐，先 grill——为此使用 [grill-with-docs](https://aihero.dev/skills-grill-with-docs)。要把完成的 spec 拆成 tickets，使用 [to-tickets](https://aihero.dev/skills-to-tickets)。
+当一个 change 已经充分讨论、domain language 已经确定，并且你希望在写任何代码之前把这份共同理解写下来时，就使用它。如果你*还*没有对齐，那就先 grill——为此使用 [grill-with-docs](https://aihero.dev/skills-grill-with-docs)。要把完成的 spec 拆成 tickets，使用 [to-tickets](https://aihero.dev/skills-to-tickets)。
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ npx skills update to-spec
 ## What the spec includes
 
 - **Problem statement** — 用项目自己的词汇说明什么坏了或缺失了，以及为什么值得解决。
-- **Solution** — 高层的修复形状，在任何 implementation detail 之前。
+- **Solution** — 高层的修复形状，先于任何 implementation detail。
 - **User stories** — 一份详尽、编号的具体 behaviors 列表，即这个 change 必须支持的内容，每一条都可独立检查。
 - **Implementation decisions** — 对话期间已经确定的选择，这样它们之后不会被重新争论。
 - **Testing decisions** — feature 将在哪些 seams 处被测试，以及 “done” 是什么样子。

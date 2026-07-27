@@ -1,15 +1,15 @@
 ---
 name: edit-article
-description: 通过重组章节、提升清晰度、收紧文字来编辑并改进文章。适用于用户想编辑、修订或改进文章草稿时。
+description: 通过重组章节、提升清晰度、收紧文字来编辑和改进文章。当用户想要编辑、修订或改进文章草稿时使用。
 disable-model-invocation: true
 ---
 
-1. 首先，根据 headings 把文章分成 sections。思考每个 section 中你想表达的 main points。
+1. 首先，根据文章的标题将其划分为若干章节。思考你想在这些章节中表达的要点。
 
-把信息看作 directed acyclic graph：一部分信息可能依赖另一部分信息。确保 sections 的顺序及其内容尊重这些依赖关系。
+把信息视为一个 directed acyclic graph（有向无环图），各个信息片段之间可能相互依赖。确保章节的顺序及其内容尊重这些依赖关系。
 
-与用户确认 sections。
+与用户确认章节划分。
 
-2. 对每个 section：
+2. 对每个章节：
 
-2a. 重写该 section，提高 clarity、coherence 和 flow。每段最多 240 个字符。
+2a. 重写该章节，以提升清晰度、连贯性和 flow。每段最多使用 240 个字符。

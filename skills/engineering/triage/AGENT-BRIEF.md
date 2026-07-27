@@ -1,24 +1,24 @@
 # Writing Agent Briefs
 
-Agent brief 是 GitHub issue 或 PR 移动到 `ready-for-agent` 时发布在其上的结构化 comment。它是 AFK agent 后续工作的权威 spec。原始 body 和讨论是 context；agent brief 是 contract。
+Agent brief 是在 GitHub issue 或 PR 转入 `ready-for-agent` 时发布在其上的一条结构化评论。它是 AFK agent 开展工作所依据的权威 spec。原始的 issue 正文和讨论只是上下文——agent brief 才是契约。
 
-Brief 说明 **agent 应该做什么**，这延伸到两种 surface：对 issue，是从零构建 change；对 PR，是*在现有 diff 上*还剩什么要做——完成它、补齐缺口、处理 review 意见。两种情况原则相同；下面的 PR 示例展示了差异。
+Brief 要说明 **agent 应该做什么**，这一点在两种场景下都成立：对于 issue，是从零开始构建变更；对于 PR，是*在现有 diff 上*还需要做什么——完成它、补齐缺口、处理 review 意见。两种场景遵循相同的原则；下面的 PR 示例展示了其中的差异。
 
 ## Principles
 
 ### Durability over precision
 
-Issue 可能会在 `ready-for-agent` 中停留数天或数周。期间 codebase 会变化。写 brief 时要让它在文件被重命名、移动或 refactor 后仍然有用。
+Issue 可能会在 `ready-for-agent` 中停留数天甚至数周。在此期间代码库会发生变化。写 brief 时要确保即使文件被重命名、移动或 refactor，它依然有用。
 
-- **Do** 描述 interfaces、types 和 behavioral contracts
-- **Do** 命名 agent 应该查找或修改的具体 types、function signatures 或 config shapes
-- **Don't** 引用 file paths；它们会过期
-- **Don't** 引用 line numbers
-- **Don't** 假设当前 implementation structure 会保持不变
+- **Do** 描述 interface、类型和行为契约
+- **Do** 点名 agent 应查找或修改的具体类型、函数签名或配置形状
+- **Don't** 引用文件路径——它们会过时
+- **Don't** 引用行号
+- **Don't** 假设当前的实现结构会保持不变
 
 ### Behavioral, not procedural
 
-描述系统应该做**什么**，而不是**如何**实现。Agent 会重新探索 codebase，并做出自己的 implementation decisions。
+描述系统应该做**什么**，而不是**如何**实现。Agent 会重新探索代码库，并自行做出实现决策。
 
 - **Good:** "The `SkillConfig` type should accept an optional `schedule` field of type `CronExpression`"
 - **Bad:** "Open src/types/skill.ts and add a schedule field on line 42"
@@ -27,14 +27,14 @@ Issue 可能会在 `ready-for-agent` 中停留数天或数周。期间 codebase 
 
 ### Complete acceptance criteria
 
-Agent 需要知道什么时候算完成。每个 agent brief 都必须有具体、可测试的 acceptance criteria。每条 criterion 都应该能独立验证。
+Agent 需要知道什么时候算完成。每个 agent brief 都必须有具体、可测试的验收标准。每条标准都应可独立验证。
 
 - **Good:** "Running `gh issue list --label needs-triage` returns issues that have been through initial classification"
 - **Bad:** "Triage should work correctly"
 
 ### Explicit scope boundaries
 
-说明什么不在范围内。这可以防止 agent gold-plating 或对相邻功能做假设。
+说明什么不在范围内。这可以防止 agent 过度打磨（gold-plating），或对相邻功能做出假设。
 
 ## Template
 
@@ -147,7 +147,7 @@ checked for matches.
 
 ### Good agent brief (PR)
 
-对 PR 而言，“Current behavior” 描述的是 diff 的状态，brief 要求 agent 完成或修复它，而不是从零构建。
+对于 PR，"Current behavior" 描述的是 diff 的状态，brief 要求 agent 完成或修复它，而不是从零构建。
 
 ```markdown
 ## Agent Brief
@@ -198,11 +198,11 @@ The function around line 150 has the issue.
 - src/types.ts (line 42)
 ```
 
-它不好，因为：
+这是一个反面示例，原因如下：
 
 - 没有 category
-- 描述含糊（“the triage thing is broken”）
-- 引用了会过期的 file paths 和 line numbers
-- 没有 acceptance criteria
-- 没有 scope boundaries
-- 没有说明 current vs desired behavior
+- 描述含糊（"the triage thing is broken"）
+- 引用了会过时的文件路径和行号
+- 没有验收标准
+- 没有范围边界
+- 没有描述当前行为与期望行为

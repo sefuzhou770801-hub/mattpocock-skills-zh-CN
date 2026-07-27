@@ -1,23 +1,23 @@
 ---
 name: ubiquitous-language
-description: 从当前对话提取 DDD 风格的 ubiquitous language glossary，标记歧义并提出标准术语。保存到 UBIQUITOUS_LANGUAGE.md。适用于用户想定义领域术语、构建词汇表、收紧术语、创建通用语言，或提到 “domain model” / “DDD” 时。
+description: 从当前对话中提取 DDD 风格的 ubiquitous language 词汇表，标记歧义并提出规范术语。保存到 UBIQUITOUS_LANGUAGE.md。适用于用户想定义领域术语、构建词汇表、固化术语、创建 ubiquitous language，或提到 “domain model” 或 “DDD” 时。
 disable-model-invocation: true
 ---
 
 # Ubiquitous Language
 
-从当前 conversation 中提取并形式化 domain terminology，整理成一致 glossary，并保存到本地文件。
+从当前对话中提取并规范化领域术语，整理成一份一致的词汇表，保存到本地文件。
 
 ## Process
 
-1. **Scan the conversation**，寻找 domain-relevant nouns、verbs 和 concepts
-2. **Identify problems**：
-   - 同一个词被用于不同 concepts（ambiguity）
-   - 不同词被用于同一个 concept（synonyms）
-   - 模糊或 overloaded terms
-3. **Propose a canonical glossary**，对 term 选择保持 opinionated
-4. **Write to `UBIQUITOUS_LANGUAGE.md`**，在 working directory 中使用下面格式
-5. **Output a summary**，在 conversation 中内联总结
+1. **扫描对话**，找出与领域相关的名词、动词和概念
+2. **识别问题**：
+   - 同一个词被用于不同概念（歧义）
+   - 不同词被用于同一个概念（同义词）
+   - 含糊或一词多义的术语
+3. **提出一份规范词汇表**，对术语选择给出明确主张
+4. **写入工作目录下的 `UBIQUITOUS_LANGUAGE.md`**，使用下面的格式
+5. **在对话中输出摘要**
 
 ## Output Format
 
@@ -59,14 +59,14 @@ disable-model-invocation: true
 
 ## Rules
 
-- **Be opinionated.** 同一概念有多个词时，选择最好的一个，并把其他列为 aliases to avoid。
-- **Flag conflicts explicitly.** 如果 term 在 conversation 中被模糊使用，在 "Flagged ambiguities" section 中指出，并给出明确 recommendation。
-- **Only include terms relevant for domain experts.** 除非 module 或 class 名在 domain language 中有意义，否则跳过。
-- **Keep definitions tight.** 最多一句。定义它是什么，不定义它做什么。
-- **Show relationships.** 使用粗体 term names，并在明显时表达 cardinality。
-- **Only include domain terms.** 跳过 generic programming concepts（array、function、endpoint），除非它们有 domain-specific meaning。
-- **Group terms into multiple tables**，当自然 clusters 出现时使用（例如按 subdomain、lifecycle 或 actor）。每组有自己的 heading 和 table。如果所有 terms 属于一个 cohesive domain，一个 table 就够，不要强行分组。
-- **Write an example dialogue.** 写一段 dev 与 domain expert 之间的短对话（3-5 exchanges），展示 terms 如何自然互动。对话应澄清相关 concepts 的边界，并展示精确使用 terms。
+- **要有主张。** 当同一个概念存在多个词时，选出最好的一个，并把其余列为应避免的别名。
+- **明确标出冲突。** 如果某个术语在对话中被含糊使用，在 “Flagged ambiguities” 一节中指出，并给出明确建议。
+- **只收录对领域专家有意义的术语。** 跳过 module 或 class 的名称，除非它们在领域语言中具有含义。
+- **定义要精炼。** 最多一句话。定义它“是什么”，而不是它“做什么”。
+- **展示关系。** 使用加粗的术语名，并在显而易见时表达基数关系。
+- **只收录领域术语。** 跳过通用编程概念（array、function、endpoint），除非它们具有领域特定的含义。
+- **当出现自然的聚类时，把术语分组到多个表格中**（例如按子领域、生命周期或参与者）。每一组有自己的标题和表格。如果所有术语都属于同一个内聚的领域，用一个表格即可——不要强行分组。
+- **写一段示例对话。** 一段 dev 与领域专家之间的简短对话（3-5 轮往返），自然地展示这些术语如何相互作用。对话应澄清相关概念之间的边界，并展示术语被精确使用。
 
 <example>
 
@@ -84,10 +84,10 @@ disable-model-invocation: true
 
 ## Re-running
 
-在同一 conversation 中再次调用时：
+当在同一对话中再次被调用时：
 
-1. 读取已有 `UBIQUITOUS_LANGUAGE.md`
-2. 合并后续讨论中的新 terms
-3. 如果理解演进，更新 definitions
-4. 重新标记任何新 ambiguities
-5. 重写 example dialogue 以纳入新 terms
+1. 读取已有的 `UBIQUITOUS_LANGUAGE.md`
+2. 纳入后续讨论中出现的新术语
+3. 如果理解有所演进，更新定义
+4. 重新标记任何新的歧义
+5. 重写示例对话以纳入新术语

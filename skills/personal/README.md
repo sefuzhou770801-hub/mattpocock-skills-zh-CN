@@ -1,11 +1,6 @@
-# Personal Skills
+# Personal
 
-绑定我自己设置的 skills，不在主 README 中推广。
+绑定我自己设置的 skills，不在 plugin 中推广。
 
-## User-invoked
-
-- [edit-article](./edit-article/SKILL.md) — 编辑并改进文章草稿。
-
-## Model-invoked
-
-- [obsidian-vault](./obsidian-vault/SKILL.md) — 管理个人 Obsidian vault。
+- **[edit-article](./edit-article/SKILL.md)** — 通过重组章节、提升清晰度、收紧文字来编辑和改进文章。
+- **[obsidian-vault](./obsidian-vault/SKILL.md)** — 在 Obsidian vault 中搜索、创建和管理 note，使用 wikilink 和 index note。

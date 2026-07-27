@@ -18,7 +18,7 @@ npx skills update triage
 
 ## When to reach for it
 
-你通过输入 `/triage` 并用自然语言描述你想要什么来调用它——agent 不会自行触发。“Show me anything that needs my attention”、“let's look at #42”、“move #42 to ready-for-agent”。
+你通过输入 `/triage` 并用自然语言描述你想要什么来调用它——agent 不会自己主动去拿它。“Show me anything that needs my attention”、“let's look at #42”、“move #42 to ready-for-agent”。
 
 当你的 issue tracker 里有原始的、未经评估的 reports，而你想把它们分拣、验证，并变成 agent 或人类可以领取的工作时，就使用它。要把一次已定稿的 conversation 变成一份全新的 spec，使用 [to-spec](https://aihero.dev/skills-to-spec)；要把一份已有的 spec 拆成 tickets，使用 [to-tickets](https://aihero.dev/skills-to-tickets)。`triage` 是相反的方向——它处理*已经*落到 tracker 里的东西。
 

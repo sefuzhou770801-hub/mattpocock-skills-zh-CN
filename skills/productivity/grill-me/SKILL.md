@@ -1,6 +1,6 @@
 ---
 name: grill-me
-description: 一个用来打磨计划或设计的持续追问式访谈。
+description: 一场持续的追问，用来打磨一个计划或 design。
 disable-model-invocation: true
 ---
 

@@ -16,7 +16,7 @@ npx skills update wayfinder
 
 ## When to reach for it
 
-你通过输入 `/wayfinder` 调用它——agent 不会自行触发。
+你通过输入 `/wayfinder` 来调用它——agent 不会自己主动去拿它。
 
 当一个 effort **超出单个 agent session 所能容纳的范围**、并且通往其 **destination** 的路线仍然有 fog 时使用它——你能感觉到工作的形状，却还无法把它写成一份 spec 或 plan。要把一条*已经清晰*的 thread 变成 spec，使用 [to-spec](https://aihero.dev/skills-to-spec)；要把一个已经理解的 plan 切成可构建的 tickets，使用 [to-tickets](https://aihero.dev/skills-to-tickets)。Wayfinder 位于两者上游：它是当 fog 太多、无法直接写 spec 时你所运行的东西。
 

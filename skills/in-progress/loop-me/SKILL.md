@@ -1,32 +1,32 @@
 ---
 name: loop-me
-description: 在这个工作区中，就我想构建的工作流规格访谈我。
+description: 在这个 workspace 内，就我想要构建的 workflows 的 specs 对我进行 grilling。
 disable-model-invocation: true
-argument-hint: "一个待设计的工作流；也可以留空，让我去找一个"
+argument-hint: "一个要设计的 workflow，或者留空让我去找一个"
 ---
 
-运行一个 stateful `/grilling` session，唯一输出是 **workflow** specs。使用 grilling discipline：持续追问、一次一个问题、每个问题都附推荐答案。围绕下面的 vocabulary 和 goal 来访谈。随着 grilling 解决问题，创建、编辑、删除 specs。
+运行一个有状态的 `/grilling` session，它唯一的输出是 **workflow** specs。使用 grilling 的纪律 —— 不留情面、一次一个问题、每个问题都附上一个推荐答案 —— 瞄准下面的 vocabulary 和 goal。随着 grilling 把事情敲定，创建、编辑和删除 specs。
 
 ## The loop lens
 
-**Loop** 是用户生活中的重复模式：career、week、morning，或单个重复活动。把生活看成 loops within loops，会揭示活动到底有多 predictable，也因此揭示哪些值得 **delegating**。用这个 lens 找到值得写 spec 的 loops，并提出用户尚未注意到的 loops。
+一个 **loop** 是用户生活中的一种重复模式：他们的 career、他们的 week、他们的 morning，或某一项重复的活动。把生活想象成 loops 之中嵌套的 loops，就能看出它的各项活动到底有多可预测 —— 而这正是它们值得被 **delegating** 的原因。用这个 lens 去发现值得写 spec 的 loops，并提出用户自己没注意到的那些。
 
-**Workflow** 是一个 loop 的 spec，并让它变得可执行。你在 loop 上运行 workflow；loop 是它的运行实例。Workflows 存在 `workflows/*.md` 中，并作为 source of truth。
+一个 **workflow** 就是某一个 loop 的 spec，被落到实处。你在一个 loop 上运行一个 workflow —— 这个 loop 就是它正在运行的实例。Workflows 存放在 `workflows/*.md` 中，是 source of truth。
 
 ## Vocabulary
 
-只有当 workflow 需要时才使用 shared language；它不是 checklist。**不要强制任何结构**：除非 grilling 表明需要，否则 workflow 不需要 AI、不需要 checkpoint，也不需要 schedule。
+一套共享的语言，只在某个 workflow 需要时才去取用 —— 绝不是一份 checklist。**不要强制任何结构性内容**：除非 grilling 表明确实需要，否则一个 workflow 不需要 AI、不需要 checkpoint，也不需要 schedule。
 
-- **Trigger** - 每次运行的触发物：一个 **event**（新 email、新 issue）或一个 **schedule**（每天早晨）。Event-triggering 通常更高效。
-- **Checkpoint** - human-in-the-loop 点，用户在这里验证或决策。有些 workflows 没有 checkpoint，可自主运行；有些完全不使用 AI。
-- **Push right** - 尽可能延后 checkpoint。在涉及人之前先完成最大量工作，让用户只被晚些时候问一次，并且一切都已准备好。
-- **Brief** - checkpoint 展示的内容：紧凑、decision-ready 的 summary，说明产出了什么、为什么、并链接到底层 asset；永远不是 raw output。用户读 brief，不读 draft。Review 速度至关重要。
+- **Trigger** —— 每一次运行由什么触发：一个 **event**（一封新 email、一个新 issue）或一个 **schedule**（每天早晨）。Event-triggering 通常更高效。
+- **Checkpoint** —— 一个 human-in-the-loop 的点，在这里请用户去验证或决策。有些 workflows 一个都没有，完全自主运行；有些根本不用 AI。
+- **Push right** —— 把 checkpoint 尽可能往后推。在牵涉人之前先做掉最大量的工作，这样他们只会在很晚的时候被问一次，而一切都已准备就绪。
+- **Brief** —— 一个 checkpoint 所呈现的东西：一份紧凑、可直接决策的 summary —— 产出了什么、为什么，以及一个直达 asset 本身的链接 —— 绝不是原始输出。用户读的是一份 brief，而不是一份 draft。Review 的速度至关重要。
 
 ## Definition of done
 
-当 implementer agent 能在不问任何问题的情况下构建它时，workflow spec 才算 done。持续 grilling 到那时；只要还有问题，就不算完成。
+当一个 implementer agent 能在不问任何一个问题的情况下把它构建出来时，一个 workflow spec 才算完成。一直 grill 到那时为止；只要还有一个问题悬着，就什么都没完成。
 
 ## The workspace
 
-- `workflows/*.md` - 每个 workflow 一个 spec。
-- `NOTES.md` - 关于用户世界的 raw notes：他们使用的 tools、处理的 channels，以及他们对两者的自有术语。当它为空或很薄时，先访谈用户的世界，再写任何 spec。随着 fuzzy terms 浮现，把它们打磨成 canonical terms，并记录在这里。
+- `workflows/*.md` —— 每个 workflow 一个 spec。
+- `NOTES.md` —— 关于用户世界的原始笔记：他们使用的 tools、他们处理的 channels，以及他们对这两者的自有术语。当它为空或单薄时，先就他们的世界访谈他们，再去写任何 spec。当模糊的术语浮现时，把它们打磨成规范术语，并记录在这里。

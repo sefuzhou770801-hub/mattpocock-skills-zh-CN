@@ -1,13 +1,8 @@
-# Deprecated Skills
+# Deprecated
 
-这些 skills 已不再使用，保留仅作参考。
+我不再使用的 skills。
 
-## User-invoked
-
-- [ubiquitous-language](./ubiquitous-language/SKILL.md) — 提取 DDD ubiquitous language glossary。
-
-## Model-invoked
-
-- [design-an-interface](./design-an-interface/SKILL.md) — 生成多个 interface 设计方案。
-- [qa](./qa/SKILL.md) — 交互式 QA session。
-- [request-refactor-plan](./request-refactor-plan/SKILL.md) — 创建 refactor plan。
+- **[design-an-interface](./design-an-interface/SKILL.md)** — 使用并行 sub-agents 为某个 module 生成多个截然不同的 interface 设计。
+- **[qa](./qa/SKILL.md)** — 交互式 QA session：用户以对话方式报告 bug，agent 负责创建 GitHub issues。
+- **[request-refactor-plan](./request-refactor-plan/SKILL.md)** — 通过用户访谈，创建一份由极小 commits 构成的详细 refactor 计划，然后作为 GitHub issue 提交。
+- **[ubiquitous-language](./ubiquitous-language/SKILL.md)** — 从当前对话中提取 DDD 风格的 ubiquitous language 词汇表。

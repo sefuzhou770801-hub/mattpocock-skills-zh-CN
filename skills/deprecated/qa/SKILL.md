@@ -1,54 +1,54 @@
 ---
 name: qa
-description: 交互式 QA 会话，用户以对话方式报告缺陷或问题，代理创建 GitHub issues。后台探索代码库以获取上下文和领域语言。适用于用户想报告缺陷、执行 QA、以对话方式提交 issues，或提到 “QA session” 时。
+description: 交互式 QA session：用户以对话方式报告 bug 或问题，agent 负责创建 GitHub issues。同时在后台探索 codebase 以获取上下文和领域语言。适用于用户想报告 bug、做 QA、以对话方式提 issues，或提到 “QA session” 时。
 ---
 
 # QA Session
 
-运行交互式 QA session。用户描述遇到的问题。你负责澄清、探索 codebase 获取 context，并创建 durable、user-focused 且使用项目 domain language 的 GitHub issues。
+运行一个交互式 QA session。用户描述他们遇到的问题。你负责澄清、在后台探索 codebase 获取上下文，并创建持久、以用户为中心、使用项目领域语言的 GitHub issues。
 
 ## For each issue the user raises
 
 ### 1. Listen and lightly clarify
 
-让用户用自己的话描述问题。最多问 **2-3 个简短 clarifying questions**，聚焦：
+让用户用自己的话描述问题。**最多问 2-3 个简短的澄清性问题**，聚焦于：
 
 - 他们期望什么，实际发生了什么
-- Steps to reproduce（如果不明显）
-- 是否稳定复现，还是 intermittent
+- 复现步骤（如果不明显）
+- 是稳定复现还是偶发
 
-不要过度访谈。如果描述足够清楚，可以直接 file。
+不要过度盘问。如果描述已经足够清楚可以立 issue，就直接往下走。
 
 ### 2. Explore the codebase in the background
 
-与用户对话时，在后台启动 Agent（subagent_type=Explore）理解相关区域。目标不是找 fix，而是：
+在与用户交谈的同时，在后台启动一个 Agent（subagent_type=Explore）来理解相关区域。目标不是找修复方案，而是：
 
-- 学习该区域使用的 domain language（检查 UBIQUITOUS_LANGUAGE.md）
-- 理解 feature 本应做什么
-- 识别 user-facing behavior boundary
+- 学习该区域使用的领域语言（检查 UBIQUITOUS_LANGUAGE.md）
+- 理解这个 feature 本应做什么
+- 确定面向用户的行为边界
 
-这些 context 帮助你写出更好的 issue，但 issue 本身不应引用具体 files、line numbers 或 internal implementation details。
+这些上下文能帮你写出更好的 issue——但 issue 本身不应引用具体文件、行号或内部实现细节。
 
 ### 3. Assess scope: single issue or breakdown?
 
-file 前判断这是**单个 issue**，还是需要**拆成多个 issues**。
+在创建之前，判断这是一个**单一 issue**，还是需要**拆分**成多个 issues。
 
-拆分条件：
+需要拆分的情况：
 
-- fix 跨多个 independent areas（例如 “form validation is wrong AND success message is missing AND redirect is broken”）
-- 存在清晰可分离 concerns，不同人可以并行处理
-- 用户描述了多个不同 failure modes 或 symptoms
+- 修复跨越多个相互独立的区域（例如 “表单校验有问题，而且成功提示缺失，而且跳转坏了”）
+- 存在明显可分离、可由不同人并行处理的关注点
+- 用户描述的东西有多种不同的失败模式或症状
 
-保持单个 issue 的条件：
+保持单一 issue 的情况：
 
-- 一个地方的一个 behavior 错了
-- symptoms 都来自同一个 root behavior
+- 同一处有一个行为出错
+- 所有症状都源于同一个根行为
 
 ### 4. File the GitHub issue(s)
 
-使用 `gh issue create` 创建 issues。不要先要求用户 review；直接 file 并分享 URLs。
+用 `gh issue create` 创建 issues。不要先让用户审阅——直接创建并分享 URL。
 
-Issues 必须 **durable**，即 major refactors 后仍有意义。从用户视角写。
+Issues 必须**持久**——在大型 refactor 之后仍应说得通。从用户视角来写。
 
 #### For a single issue
 
@@ -57,74 +57,74 @@ Issues 必须 **durable**，即 major refactors 后仍有意义。从用户视�
 ```
 ## What happened
 
-[用普通语言描述用户经历的实际行为]
+[Describe the actual behavior the user experienced, in plain language]
 
 ## What I expected
 
-[描述期望行为]
+[Describe the expected behavior]
 
 ## Steps to reproduce
 
-1. [developer 可执行的具体编号步骤]
-2. [使用 codebase 的 domain terms，不用 internal module names]
-3. [包含相关 inputs、flags 或 configuration]
+1. [Concrete, numbered steps a developer can follow]
+2. [Use domain terms from the codebase, not internal module names]
+3. [Include relevant inputs, flags, or configuration]
 
 ## Additional context
 
-[来自用户或 codebase exploration 的额外观察，用来帮助 framing — 例如 “this only happens when using the Docker layer, not the filesystem layer” — 使用 domain language，但不引用 files]
+[Any extra observations from the user or from codebase exploration that help frame the issue — e.g. "this only happens when using the Docker layer, not the filesystem layer" — use domain language but don't cite files]
 ```
 
 #### For a breakdown (multiple issues)
 
-按 dependency order 创建 issues（blockers first），这样可以引用真实 issue numbers。
+按依赖顺序创建 issues（blocker 优先），这样就可以引用真实的 issue 编号。
 
-每个 sub-issue 使用这个模板：
+每个子 issue 使用这个模板：
 
 ```
 ## Parent issue
 
-#<parent-issue-number>（如果你创建了 tracking issue）或 "Reported during QA session"
+#<parent-issue-number> (if you created a tracking issue) or "Reported during QA session"
 
 ## What's wrong
 
-[描述这个 specific behavior problem — 只描述这个 slice，而非整个 report]
+[Describe this specific behavior problem — just this slice, not the whole report]
 
 ## What I expected
 
-[这个 slice 的 expected behavior]
+[Expected behavior for this specific slice]
 
 ## Steps to reproduce
 
-1. [只针对这个 issue 的步骤]
+1. [Steps specific to THIS issue]
 
 ## Blocked by
 
-- #<issue-number>（如果必须等另一个 issue 解决）
+- #<issue-number> (if this issue can't be fixed until another is resolved)
 
-如果没有 blockers，写 "None — can start immediately"。
+Or "None — can start immediately" if no blockers.
 
 ## Additional context
 
-[与这个 slice 相关的额外观察]
+[Any extra observations relevant to this slice]
 ```
 
-创建 breakdown 时：
+做拆分时：
 
-- **Prefer many thin issues over few thick ones** — 每个都应能独立 fix 和 verify
-- **Mark blocking relationships honestly** — 如果 B 确实必须等 A 才能测试，就说明。如果独立，两个都写 “None — can start immediately”
-- **Create issues in dependency order**，这样可以在 “Blocked by” 中引用真实 issue numbers
-- **Maximize parallelism** — 目标是让多人（或 agents）能同时领取不同 issues
+- **宁多勿厚**——每个 issue 都应可独立修复、独立验证
+- **如实标注阻塞关系**——如果 issue B 确实要等 issue A 修好才能测试，就写明。如果它们相互独立，两个都标 “None — can start immediately”
+- **按依赖顺序创建 issues**，这样才能在 “Blocked by” 中引用真实的 issue 编号
+- **最大化并行度**——目标是让多个人（或 agents）能同时领取不同的 issues
 
 #### Rules for all issue bodies
 
-- **No file paths or line numbers** — 它们会过时
-- **Use the project's domain language**（如果存在，检查 UBIQUITOUS_LANGUAGE.md）
-- **Describe behaviors, not code** — 写 “the sync service fails to apply the patch”，不要写 “applyPatch() throws on line 42”
-- **Reproduction steps are mandatory** — 如果无法确定，询问用户
-- **Keep it concise** — developer 应能 30 秒内读完 issue
+- **不写文件路径或行号**——它们会过时
+- **使用项目的领域语言**（如有 UBIQUITOUS_LANGUAGE.md 就检查它）
+- **描述行为，而非代码**——写 “the sync service fails to apply the patch”，而不是 “applyPatch() throws on line 42”
+- **复现步骤是必填项**——如果无法确定，就问用户
+- **保持简洁**——开发者应能在 30 秒内读完这个 issue
 
-file 后，打印所有 issue URLs（并总结 blocking relationships），然后问：“Next issue, or are we done?”
+创建完毕后，打印所有 issue URL（并概述阻塞关系），然后问：“Next issue, or are we done?”
 
 ### 5. Continue the session
 
-持续进行，直到用户说结束。每个 issue 都独立处理，不要 batch。
+持续进行，直到用户说完成。每个 issue 都是独立的——不要批量处理。

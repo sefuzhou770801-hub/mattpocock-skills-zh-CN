@@ -18,9 +18,9 @@ npx skills update to-tickets
 
 ## When to reach for it
 
-你通过输入 `/to-tickets` 调用它——agent 不会自行触发。
+你通过输入 `/to-tickets` 来调用它——agent 不会自己主动去拿它。
 
-当你已经有了一份 agreed plan 或 written spec、并希望把它拆成 tickets 时使用它。把它指向 conversation，或者传入一个 spec 或 issue reference，它会先抓取 body 和 comments。如果这个 change 还没有被写成 spec，先产出一份——为此使用 [to-spec](https://aihero.dev/skills-to-spec)。
+当你已经有了一份 agreed plan 或 written spec、并希望把它拆成 tickets 时使用它。把它指向 conversation，或者传入一个 spec 或 issue reference，它会先抓取 body 和 comments。如果这个 change 还没有被写成 spec，那就先产出一份——为此使用 [to-spec](https://aihero.dev/skills-to-spec)。
 
 ## Prerequisites
 

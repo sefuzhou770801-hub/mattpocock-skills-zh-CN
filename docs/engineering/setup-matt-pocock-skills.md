@@ -18,7 +18,7 @@ npx skills update setup-matt-pocock-skills
 
 ## When to reach for it
 
-你通过输入 `/setup-matt-pocock-skills` 调用它——agent 不会自行触发。
+你通过输入 `/setup-matt-pocock-skills` 来调用它——agent 不会自己主动去拿它。
 
 **每个 repo 使用一次，在首次使用任何其他 engineering skill 之前**。如果 [triage](https://aihero.dev/skills-triage)、[to-spec](https://aihero.dev/skills-to-spec) 或 [to-tickets](https://aihero.dev/skills-to-tickets) 开始猜测你的 issues 放在哪里，或套用并不存在的 labels，说明它们还没有在这里完成配置。只有在切换 issue tracker 或想从头来过时才重新运行——日常的微调只是编辑 `docs/agents/*.md`。
 

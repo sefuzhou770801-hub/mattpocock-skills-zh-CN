@@ -1,6 +1,6 @@
 # RESOURCES.md Format
 
-`RESOURCES.md` 是这个 topic 的 trusted sources curated set。Explainers 中的 knowledge 应来自这里，而不是 parametric guesses。Wisdom 来自这里列出的 communities。
+`RESOURCES.md` 是这一主题经过精选的可信来源集合。Explainers 中的知识应当取自这里，而不是取自 parametric 的猜测。Wisdom 则来自这里列出的各个 community。
 
 ## Structure
 
@@ -24,9 +24,9 @@
 
 ## Rules
 
-- **High-trust only.** 优先使用 primary sources、recognized experts、peer-reviewed work，以及 moderation 强的 communities。如果一个 resource 是披着教育外衣的 marketing，就不要放进来。
-- **Annotate every entry.** 只有裸 link，三个月后毫无用处。加一行说明：它覆盖什么，以及什么时候使用它。
-- **Group by Knowledge / Wisdom.** 与 [SKILL.md](./SKILL.md) 中的 philosophy 保持一致。一个 resource 只出现在其中一组也可以。
-- **Surface gaps explicitly.** 如果 mission 需要的某个领域没有好 resource，写一个 `## Gaps` section，列出缺失内容。这会推动 future search。
-- **Prune ruthlessly.** 如果一个 resource 后来被证明是错的、浅的或偏离 mission，应移除它，而不是埋在列表里。五个 sharp sources 胜过三十个 mediocre ones。
-- **Record community preferences.** 如果用户已经选择不加入 communities，在这里记录，避免 future sessions 反复建议。
+- **只要高可信度的。** 优先选择 primary sources、公认的专家、经过同行评审的成果，以及管理严格的 community。如果某个 resource 是披着教育外衣的营销，就不要收录它。
+- **为每一条都加上注释。** 一个光秃秃的链接三个月后就毫无用处。加上一行：它涵盖什么，以及什么时候该去用它。
+- **按 Knowledge / Wisdom 分组。** 这与 [SKILL.md](./SKILL.md) 中的理念相呼应。一个 resource 只出现在其中一个分组里也没问题。
+- **明确暴露缺口。** 如果 mission 所需的某个领域没有好的 resource，就写一个 `## Gaps` section，列出缺了什么。这会驱动未来的搜索。
+- **毫不留情地修剪。** 一个后来被证明是错的、浅薄的或偏离 mission 的 resource，应当被移除，而不是被埋没。五个精挑的来源胜过三十个平庸的来源。
+- **记录 community 偏好。** 如果用户已经选择不加入 community，就在这里注明，这样未来的 session 就不会一再提议。

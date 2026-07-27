@@ -1,15 +1,15 @@
 ---
 name: batch-grill-me
-description: 持续追问式访谈，每一轮同时提出当前 frontier 上的所有问题。
+description: 一场不留情面的访谈，一轮一轮地把 frontier 上的所有问题一次性问完。
 disable-model-invocation: true
 ---
 
-持续访谈用户，直到达成共同理解。把它绘制成一棵 **design tree**：每项 decision 都会分支出依赖它的 decisions。
+不留情面地访谈用户，直到你们达成共识。把它建模成一棵 **design tree**：每一个 decision 都会分叉出挂在它下面的那些 decisions。
 
-按 **rounds** 遍历这棵树。**Frontier** 是 prerequisites 已经确定的所有 decisions，也就是无需猜测尚未听到的答案、现在就能提出的问题。每一轮询问整个 frontier：给每个问题编号并提供推荐答案，然后等待用户回答，再开始下一轮。
+按 **rounds** 推进这棵树。**frontier** 是所有前置条件已经敲定的 decisions —— 也就是那些你*现在*就能问、不必去猜你还没听到的答案的问题。一轮之内把整个 frontier 问完：给每个问题编号，并给出你推荐的答案。然后等用户回答，再进入下一轮。
 
-用户对每一轮的回答都会重塑这棵树：已经确定的 decisions 会把 frontier 向外推进，并解锁依赖它们的问题。重新计算 frontier，然后询问下一轮。如果某个问题依赖本轮仍未解决的另一个问题，就把它留到*后续*轮次，而不是放在本轮。
+用户每回答一轮，都会重塑这棵树 —— 敲定的 decisions 会把 frontier 向外推，并解锁那些依赖它们的问题。重新计算 frontier，然后问下一轮。一个问题的答案如果取决于本轮中仍未解决的另一个问题，那它就属于*后面*的轮次，而不是本轮。
 
-查找 *facts* 是你的工作，绝不是用户的工作。如果 frontier 上的问题需要 environment（filesystem、tools 等）中的事实，派 sub-agent 查找；任何可以自行查询的内容都不要问用户。不要因此阻塞整轮：仍在运行的 exploration 是尚未解决的 prerequisite，只有依赖它的问题需要等待 sub-agent 回报；现在就询问 frontier 上的其他问题。*Decisions* 属于用户——逐项交给用户并等待回答。
+查找*事实*是你的工作，绝不是用户的。当某个 frontier 问题需要从环境（文件系统、工具等）中获取一个事实时，派一个 sub-agent 去找 —— 任何你自己能查到的东西都不要去问用户。不要卡在上面等：一次正在进行的探索就是一个尚未敲定的前置条件，所以只有它下游的那些问题要等 sub-agent 回报 —— frontier 上其余的问题现在就问。*decisions* 是用户的 —— 把每一条都抛给他们，然后等待。
 
-Frontier 为空时 session 才结束：design tree 的每个分支都已访问，没有默默留下任何假设。在用户确认已经达成共同理解前，不要采取行动。
+当 frontier 为空时，这场 session 就结束了：design tree 的每一个分支都已走到，没有任何东西被悄悄当作默认。在用户确认你们已达成共识之前，不要据此采取任何行动。

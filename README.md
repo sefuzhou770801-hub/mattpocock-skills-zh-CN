@@ -14,7 +14,7 @@
 
 本仓库按内容刷新方式同步上游，不同步上游 Git 历史或仓库管理状态。维护规则见 [`.skills/translate-skill/SKILL.md`](./.skills/translate-skill/SKILL.md)。
 
-本仓库的最近一次同步翻译由 OpenAI Codex（GPT-5 coding agent）执行，并由仓库维护者通过提交记录纳入 `main`。翻译策略是 **skill-guided content localization**：把上游 `mattpocock/skills` 当作英文内容来源，只翻译自然语言说明，保留目录名、skill name、frontmatter key、命令、代码块、路径、URL、package/tool/API identifiers 和行为关键 labels。用户可见的安装路径统一保持为 `vinvcn/mattpocock-skills-zh-CN`。
+翻译策略是 **skill-guided content localization**：把上游 `mattpocock/skills` 当作英文内容来源，只翻译自然语言说明，保留目录名、skill name、frontmatter key、命令、代码块、路径、URL、package/tool/API identifiers 和行为关键 labels。用户可见的安装路径统一保持为 `vinvcn/mattpocock-skills-zh-CN`。
 
 ## 30 秒安装
 
@@ -42,9 +42,9 @@ npx skills@latest add vinvcn/mattpocock-skills-zh-CN
 
 开发真实应用很难。GSD、BMAD、Spec-Kit 这类方法试图通过接管流程来帮你。但它们在接管流程的同时，也拿走了你的控制权，并让流程里的 bug 更难解决。
 
-这些 skills 被设计得小、易改、可组合。它们适用于任何模型，背后是数十年的工程经验。你可以 hack 它们，让它们变成自己的东西。
+这些 skills 被设计得小、易改、可组合。它们适用于任何模型，背后是数十年的工程经验。尽管去 hack 它们，把它们变成你自己的东西。Enjoy。
 
-如果你想跟进这些 skills 的更新，以及我后续创建的新 skill，可以加入大约 60,000 名开发者订阅的 newsletter：
+如果你想跟进这些 skills 的更新，以及我后续创建的任何新 skill，可以加入我 newsletter 上大约 60,000 名其他开发者：
 
 [订阅 Newsletter](https://www.aihero.dev/s/skills-newsletter)
 
@@ -56,45 +56,45 @@ npx skills@latest add vinvcn/mattpocock-skills-zh-CN
 npx skills@latest add vinvcn/mattpocock-skills-zh-CN
 ```
 
-2. 选择你想安装的 skills，以及要安装到哪些 coding agents。**确保选择 `/setup-matt-pocock-skills`**。
+2. 选择你想要的 skills，以及你想把它们安装到哪些 coding agents 上。**确保选中 `/setup-matt-pocock-skills`**。
 
 3. 在你的 agent 中运行 `/setup-matt-pocock-skills`。它会：
-   - 询问你要使用哪个 issue tracker（GitHub、Linear 或 local files）
-   - 询问你 triage issues 时使用哪些 labels（`/triage` 会使用这些 labels）
-   - 询问要把创建的 docs 保存到哪里
+   - 询问你想使用哪个 issue tracker（GitHub、Linear，或 local files）
+   - 询问你在 triage tickets 时套用哪些 labels（`/triage` 使用 labels）
+   - 询问你想把我们创建的 docs 保存到哪里
 
-4. 完成后即可开始使用。
+4. Bam——你就准备好了。
 
 ### 作为 Claude Code plugin 安装
 
-如果你更喜欢无需手动维护的即装即用方式，这些 skills 也以原生 [Claude Code plugin](https://code.claude.com/docs/en/plugins) 发布。与把可编辑文件复制进 repo 不同，plugin 会把整套 skills 安装为受管理的 bundle；新版本发布后可以统一更新。
+更想要一种无需手动维护的即插即用安装？这些 skills 也以原生 [Claude Code plugin](https://code.claude.com/docs/en/plugins) 的形式发布。与把可编辑文件复制进你的 repo 不同，plugin 会把整套 skill 安装为一个受管理的 bundle，在我发布新版本时更新——你是订阅，而不是 fork。
 
-在 Claude Code 中运行：
+在 Claude Code 内部：
 
 ```
 /plugin marketplace add vinvcn/mattpocock-skills-zh-CN
 /plugin install mattpocock-skills@mattpocock
 ```
 
-或在 shell 中运行：
+或从你的 shell：
 
 ```bash
 claude plugin marketplace add vinvcn/mattpocock-skills-zh-CN
 claude plugin install mattpocock-skills@mattpocock
 ```
 
-然后像上面的 quickstart 一样，在每个 repo 中运行一次 `/setup-matt-pocock-skills`。
+然后像上面的 quickstart 一样，每个 repo 运行一次 `/setup-matt-pocock-skills`。
 
-两种安装方式代表两种使用取向：
+两种安装方式，两种理念：
 
-- **[skills.sh](https://skills.sh/vinvcn/mattpocock-skills-zh-CN)** 会把 skills 复制进项目，方便你修改并定制。
-- **Plugin** 把它们作为受管理的只读 bundle 安装，适合只想直接使用并持续跟进更新的用户。
+- **[skills.sh](https://skills.sh/vinvcn/mattpocock-skills-zh-CN)** 把 skills 复制进你的项目，这样你就可以 hack 它们、把它们变成自己的。
+- **plugin** 把它们保存为一个只读、始终最新的 bundle，你不编辑它——当你只想让我这套 skills 能用、并随着它演进跟进时，这是最佳选择。
 
-> 使用 Codex 或其他 agent？[skills.sh installer](https://skills.sh/vinvcn/mattpocock-skills-zh-CN) 已经可以把这些 skills 安装到 Codex 和其他兼容 Agent Skills 的 harnesses；目前尚未提供原生 Codex plugin。
+> 使用 Codex 或其他 agent？[skills.sh installer](https://skills.sh/vinvcn/mattpocock-skills-zh-CN) 目前已经能把这些 skills 安装进 Codex 以及其他兼容 Agent Skills 标准的 harnesses。原生 Codex plugin 在 roadmap 上——见 [`.agents/adr/0002-ship-as-a-claude-code-plugin.md`](./.agents/adr/0002-ship-as-a-claude-code-plugin.md)。
 
 ### 为什么这些 Skills 存在
 
-我创建这些 skills，是为了解决我在 Claude Code、Codex 和其他 coding agents 中反复看到的常见失败模式。
+我构建这些 skills，是为了修复我在 Claude Code、Codex 和其他 coding agents 中看到的常见失败模式。
 
 #### #1: Agent 没有做我想要的东西
 
@@ -102,16 +102,16 @@ claude plugin install mattpocock-skills@mattpocock
 >
 > David Thomas & Andrew Hunt, [The Pragmatic Programmer](https://www.amazon.co.uk/Pragmatic-Programmer-Anniversary-Journey-Mastery/dp/B0833F1T3V)
 
-**问题**：软件开发中最常见的失败模式是 misalignment。你以为开发者理解了你想要什么；等看到做出来的东西，才发现对方完全没理解。
+**问题**。软件开发中最常见的失败模式是 misalignment。你以为开发者明白了你想要什么。然后你看到他们做出来的东西——才意识到对方根本没理解你。
 
-AI 时代也是一样。你和 agent 之间存在沟通缺口。修复方式是一次 **grilling session**，让 agent 针对你要构建的东西提出详细问题。
+在 AI 时代完全一样。你和 agent 之间存在沟通缺口。对此的修复是一次 **grilling session**——让 agent 就你正在构建的东西向你提出细致的问题。
 
 **解决方式**是使用：
 
 - [`/grill-me`](./skills/productivity/grill-me/SKILL.md) - 用于非代码场景
-- [`/grill-with-docs`](./skills/engineering/grill-with-docs/SKILL.md) - 与 [`/grill-me`](./skills/productivity/grill-me/SKILL.md) 类似，但会加入更多文档能力（见下文）
+- [`/grill-with-docs`](./skills/engineering/grill-with-docs/SKILL.md) - 与 [`/grill-me`](./skills/productivity/grill-me/SKILL.md) 相同，但增加了更多好东西（见下文）
 
-这些是我最常用的 skills。它们帮助你在开始前和 agent 对齐，并深入思考你要做的变更。每次想做变更时都值得使用。
+这些是我最受欢迎的 skills。它们帮助你在动手前与 agent 对齐，并深入思考你正在做的变更。**每次**你想做变更时都用上它们。
 
 #### #2: Agent 太啰嗦
 
@@ -119,36 +119,36 @@ AI 时代也是一样。你和 agent 之间存在沟通缺口。修复方式是�
 >
 > Eric Evans, [Domain-Driven-Design](https://www.amazon.co.uk/Domain-Driven-Design-Tackling-Complexity-Software/dp/0321125215)
 
-**问题**：项目开始时，开发者和真正使用软件的人（domain experts）通常说着不同语言。
+**问题**：在一个项目开始时，开发者和他们要为之构建软件的人（domain experts）通常说着不同的语言。
 
-我在 agents 身上也感受到同样张力。Agents 往往被丢进一个项目，然后被要求边做边弄懂术语。于是它们用 20 个词解释本来 1 个词就够的东西。
+我在我的 agents 身上也感受到了同样的张力。Agents 通常被丢进一个项目，被要求边进行边搞清楚行话。于是它们用 20 个词去说本来 1 个词就够的东西。
 
-**解决方式**是 shared language。它是一份帮助 agents 解码项目术语的文档。
+**解决方式**是 shared language。它是一份帮助 agents 解码项目中所用行话的文档。
 
 <details>
 <summary>
 示例
 </summary>
 
-这是我 `course-video-manager` repo 中的一个 [`CONTEXT.md`](https://github.com/mattpocock/course-video-manager/blob/076a5a7a182db0fe1e62971dd7a68bcadf010f1c/CONTEXT.md) 示例。哪一个更容易读？
+这是一个 [`CONTEXT.md`](https://github.com/mattpocock/course-video-manager/blob/076a5a7a182db0fe1e62971dd7a68bcadf010f1c/CONTEXT.md) 示例，来自我的 `course-video-manager` repo。哪一个更容易读？
 
 - **BEFORE**: "There's a problem when a lesson inside a section of a course is made 'real' (i.e. given a spot in the file system)"
 - **AFTER**: "There's a problem with the materialization cascade"
 
-这种简洁性会在一次又一次 session 中持续回报。
+这种简洁会一次又一次 session 地持续回报。
 
 </details>
 
-这已经内置在 [`/grill-with-docs`](./skills/engineering/grill-with-docs/SKILL.md) 中。它是一场 grilling session，同时帮助你和 AI 建立 shared language，并把难解释的决策记录到 ADR 中。
+这已经内置在 [`/grill-with-docs`](./skills/engineering/grill-with-docs/SKILL.md) 中。它是一场 grilling session，但同时帮助你与 AI 建立 shared language，并把难以解释的决策记录进 ADR。
 
-很难解释这件事有多强。它可能是这个 repo 里最酷的技术之一。试试看就知道。
+很难说清这有多强大。它可能是这个 repo 里最酷的一项技术。试一下，你就明白了。
 
 > [!TIP]
-> Shared language 除了减少啰嗦，还有很多其他好处：
+> shared language 除了减少啰嗦，还有许多其他好处：
 >
-> - **变量、函数和文件命名更一致**，因为都使用 shared language
-> - 因此 **agent 更容易浏览 codebase**
-> - Agent 也会 **花更少 tokens 思考**，因为它能使用更简洁的语言
+> - **变量、函数和文件的命名更一致**，因为使用了 shared language
+> - 结果是，**codebase 对 agent 来说更容易导航**
+> - agent 还会 **在思考上花更少的 tokens**，因为它能使用一种更简洁的语言
 
 #### #3: 代码跑不起来
 
@@ -156,19 +156,19 @@ AI 时代也是一样。你和 agent 之间存在沟通缺口。修复方式是�
 >
 > David Thomas & Andrew Hunt, [The Pragmatic Programmer](https://www.amazon.co.uk/Pragmatic-Programmer-Anniversary-Journey-Mastery/dp/B0833F1T3V)
 
-**问题**：假设你和 agent 已经对要构建什么达成一致。那如果 agent 仍然产出一堆不能用的东西呢？
+**问题**：假设你和 agent 已经在要构建什么上达成一致。如果 agent _仍然_ 产出一堆垃圾，会怎样？
 
-这时要看你的 feedback loops。没有对生成代码真实运行情况的反馈，agent 就是在盲飞。
+是时候看看你的 feedback loops 了。如果没有关于它所产出的代码实际运行情况的反馈，agent 就是在盲飞。
 
-**解决方式**：你需要常规的一组 feedback loops：static types、browser access 和 automated tests。
+**解决方式**：你需要那一组常规的 feedback loops：static types、browser access，以及 automated tests。
 
-对 automated tests 来说，red-green-refactor 循环非常关键。Agent 先写一个失败测试，再修到测试通过。这能给 agent 稳定反馈，最终得到更好的代码。
+对 automated tests 来说，red-green-refactor 循环至关重要。这就是 agent 先写一个失败测试，再修复测试的过程。这有助于给 agent 一个稳定水平的反馈，从而产出好得多的代码。
 
-我做了一个可以放进任何项目的 **[`/tdd`](./skills/engineering/tdd/SKILL.md) skill**。它鼓励 red-green-refactor，并给 agent 足够多关于好测试和坏测试的指导。
+我构建了一个 **[`/tdd`](./skills/engineering/tdd/SKILL.md) skill**，你可以把它塞进任何项目。它鼓励 red-green-refactor，并就什么造就了好测试和坏测试给 agent 大量指导。
 
-调试方面，我也做了一个 **[`/diagnosing-bugs`](./skills/engineering/diagnosing-bugs/SKILL.md)** skill，把最佳调试实践包装成一个简单循环。
+对于调试，我还构建了一个 **[`/diagnosing-bugs`](./skills/engineering/diagnosing-bugs/SKILL.md)** skill，把最佳调试实践包装进一个简单的循环。
 
-#### #4: 我们做出了 Ball Of Mud
+#### #4: 我们造出了一个 Ball Of Mud
 
 > "Invest in the design of the system _every day_."
 >
@@ -178,23 +178,23 @@ AI 时代也是一样。你和 agent 之间存在沟通缺口。修复方式是�
 >
 > John Ousterhout, [A Philosophy Of Software Design](https://www.amazon.co.uk/Philosophy-Software-Design-2nd/dp/173210221X)
 
-**问题**：大多数用 agents 构建的应用都复杂且难以修改。因为 agents 能极大加速编码，它们也会以空前速度加速软件熵增。Codebase 会变得越来越复杂。
+**问题**：大多数用 agents 构建的应用都复杂且难以更改。因为 agents 能极大地加速编码，它们也会加速软件熵增。Codebase 以前所未有的速度变得越来越复杂。
 
-**解决方式**是 AI-powered development 的一种新办法：关心代码设计。
+**解决方式**是一种激进的 AI-powered development 新办法：在乎代码的设计。
 
-这些 skills 的每一层都内置了这种思路：
+这被内置进这些 skills 的每一层：
 
-- [`/to-spec`](./skills/engineering/to-spec/SKILL.md) 会在创建 spec 前追问你准备改动哪些 modules
+- [`/to-spec`](./skills/engineering/to-spec/SKILL.md) 在创建 spec 之前，会追问你将要触碰哪些 modules
 
-更重要的是，[`/improve-codebase-architecture`](./skills/engineering/improve-codebase-architecture/SKILL.md) 能帮助你拯救已经变成 ball of mud 的 codebase。我建议每隔几天就在你的 codebase 上跑一次。
+而至关重要的是，[`/improve-codebase-architecture`](./skills/engineering/improve-codebase-architecture/SKILL.md) 帮助你拯救一个已经变成 ball of mud 的 codebase。我建议每隔几天就在你的 codebase 上运行一次。
 
 #### 小结
 
-软件工程基本功比以往任何时候都更重要。这些 skills 是我把这些基本功压缩成可重复实践的一次尝试，目标是帮你交付职业生涯中最好的应用。
+软件工程基本功比以往任何时候都更重要。这些 skills 是我把这些基本功浓缩为可重复实践的最大努力，为的是帮助你交付你职业生涯中最好的应用。Enjoy。
 
 ### 参考
 
-这些 skills 按一个维度区分：谁能调用它们。**User-invoked** skills 只有在你输入名称时才能触达（例如 `/grill-me`）；它们的工作是编排。**Model-invoked** skills 可以由你调用，也可以在任务匹配时由 agent 自动触达；它们承载可复用纪律。User-invoked skill 可以调用 model-invoked skills，但不能调用另一个 user-invoked skill。
+这些 skills 沿着一个维度划分——谁能调用它们。**User-invoked** skills 只有在你输入它们时才可触达（例如 `/grill-me`）；它们的工作是编排。**Model-invoked** skills 可以由你调用，_也可以_在任务契合时被 agent 自动取用；它们承载可复用的纪律。一个 user-invoked skill 可以调用 model-invoked skills，但绝不能调用另一个 user-invoked skill。
 
 #### Engineering
 
@@ -202,53 +202,49 @@ AI 时代也是一样。你和 agent 之间存在沟通缺口。修复方式是�
 
 **User-invoked**
 
-- **[ask-matt](./skills/engineering/ask-matt/SKILL.md)** - 询问当前情境适合哪个 skill 或 flow；它是本仓库 user-invoked skills 的 router。
-- **[grill-with-docs](./skills/engineering/grill-with-docs/SKILL.md)** - 追问式访谈，同时构建项目的 domain model、打磨术语，并内联更新 `CONTEXT.md` 与 ADRs。
-- **[triage](./skills/engineering/triage/SKILL.md)** - 通过 triage roles state machine 推进 issues。
-- **[improve-codebase-architecture](./skills/engineering/improve-codebase-architecture/SKILL.md)** - 扫描 codebase 中的 deepening opportunities，生成可视化 HTML report，然后围绕你选中的候选项继续 grilling。
-- **[setup-matt-pocock-skills](./skills/engineering/setup-matt-pocock-skills/SKILL.md)** - 配置 issue tracker、triage labels 和 domain docs 布局。每个 repo 运行一次。
-- **[to-spec](./skills/engineering/to-spec/SKILL.md)** - 把当前对话整理成 spec 并发布到 issue tracker。不做访谈，只综合已经讨论过的内容。
-- **[to-tickets](./skills/engineering/to-tickets/SKILL.md)** - 把 plan、spec 或 conversation 拆成 tracer-bullet tickets，每个 ticket 声明 blocking edges——在 local file 中写成文本，或在真实 tracker 上写成 native blocking links。
-- **[wayfinder](./skills/engineering/wayfinder/SKILL.md)** - 把超出单个 agent session 的大块工作规划成 issue tracker 上的 decision tickets 共享 map，逐一解决直到通往 destination 的路清晰。
-- **[implement](./skills/engineering/implement/SKILL.md)** - 基于 spec 或 ticket 集合实现一段工作，在预先约定的 seams 处驱动 `/tdd`，并在提交前以 `/code-review` 收尾。
+- **[ask-matt](./skills/engineering/ask-matt/SKILL.md)** — 询问哪个 skill 或 flow 适合你的情境。本仓库 user-invoked skills 之上的一个 router。
+- **[grill-with-docs](./skills/engineering/grill-with-docs/SKILL.md)** — Grilling session，同时构建你项目的 domain model，打磨术语，并内联更新 `CONTEXT.md` 和 ADR。
+- **[triage](./skills/engineering/triage/SKILL.md)** — 让 issues 穿过一个 triage roles 状态机。
+- **[improve-codebase-architecture](./skills/engineering/improve-codebase-architecture/SKILL.md)** — 扫描一个 codebase 寻找 deepening opportunities，把它们呈现为一份可视化 HTML report，然后就你挑选的那一个进行 grilling。
+- **[setup-matt-pocock-skills](./skills/engineering/setup-matt-pocock-skills/SKILL.md)** — 为 engineering skills 配置这个 repo（issue tracker、triage labels、domain doc 布局）。在使用其他 engineering skills 之前，每个 repo 运行一次。
+- **[to-spec](./skills/engineering/to-spec/SKILL.md)** — 把当前对话变成一份 spec 并发布到 issue tracker。没有访谈——只是综合你已经讨论过的内容。
+- **[to-tickets](./skills/engineering/to-tickets/SKILL.md)** — 把任何 plan、spec 或 conversation 拆成一组 tracer-bullet tickets，每个都声明它的 blocking edges——在 local file 中写成文本，或在真实 tracker 上写成 native blocking links。
+- **[implement](./skills/engineering/implement/SKILL.md)** — 构建一份 spec 或一组 tickets 所描述的工作，在预先约定的 seams 处驱动 `/tdd`，并在提交前以 `/code-review` 收尾。
+- **[wayfinder](./skills/engineering/wayfinder/SKILL.md)** — 把一大块工作——多到单个 agent session 装不下——规划成 issue tracker 上一张共享的 investigation tickets map，一次解决一个，直到通往 destination 的路变得清晰。
 
 **Model-invoked**
 
-- **[prototype](./skills/engineering/prototype/SKILL.md)** - 构建 throwaway prototype，回答 state/business-logic 问题或探索 UI 变体。
-- **[diagnosing-bugs](./skills/engineering/diagnosing-bugs/SKILL.md)** - 面向棘手 bug 和性能回退的纪律化诊断循环：reproduce -> minimise -> hypothesise -> instrument -> fix -> regression-test。
-- **[research](./skills/engineering/research/SKILL.md)** - 对照 high-trust primary sources 调研问题，并把带引用的 findings 保存为 Markdown 文件。
-- **[tdd](./skills/engineering/tdd/SKILL.md)** - 使用 red-green-refactor 循环做 test-driven development；一次一个 vertical slice 地构建功能或修复 bug。
-- **[domain-modeling](./skills/engineering/domain-modeling/SKILL.md)** - 主动构建和打磨项目 domain model：挑战术语、用 edge-case scenarios 做压力测试，并内联更新 `CONTEXT.md` 与 ADRs。
-- **[codebase-design](./skills/engineering/codebase-design/SKILL.md)** - 设计 deep modules 的共享纪律和词汇：小 interface、clean seam、通过 interface 测试。
-- **[code-review](./skills/engineering/code-review/SKILL.md)** - 对 fixed point 以来的 diff 做双轴 review：Standards 与 Spec 分开检查，并用并行 sub-agents 运行。
-- **[resolving-merge-conflicts](./skills/engineering/resolving-merge-conflicts/SKILL.md)** - 逐个 hunk 处理正在进行的 git merge/rebase conflict，按追溯到各方 primary source 的 intent 解决，然后完成操作——绝不 `--abort`。
+- **[prototype](./skills/engineering/prototype/SKILL.md)** — 构建一个 throwaway prototype 来回答一个设计问题——针对 state/logic 问题的可运行 terminal app，或几个截然不同、可从单个 route 切换的 UI 变体。
+- **[diagnosing-bugs](./skills/engineering/diagnosing-bugs/SKILL.md)** — 针对棘手 bug 和性能回退的纪律化诊断循环：reproduce → minimise → hypothesise → instrument → fix → regression-test。
+- **[research](./skills/engineering/research/SKILL.md)** — 对照 high-trust primary sources 调查一个问题，并把 findings 作为一份带引用的 Markdown 文件捕获进 repo，作为 background agent 运行。
+- **[tdd](./skills/engineering/tdd/SKILL.md)** — 带 red-green-refactor 循环的 Test-driven development。一次一个 vertical slice 地构建功能或修复 bug。
+- **[domain-modeling](./skills/engineering/domain-modeling/SKILL.md)** — 主动构建并打磨一个项目的 domain model——对照 glossary 挑战术语，用 edge-case scenarios 做压力测试，并内联更新 `CONTEXT.md` 和 ADR。
+- **[codebase-design](./skills/engineering/codebase-design/SKILL.md)** — 设计 deep modules 的共享纪律和词汇：大量 behaviour 藏在一个小 interface 之后，放置在一个干净的 seam 上，可通过那个 interface 测试。
+- **[code-review](./skills/engineering/code-review/SKILL.md)** — 对自某个 fixed point 以来的 diff 做双轴 review：**Standards**（是否遵循 repo 的编码标准，外加一个 Fowler smell baseline？）与 **Spec**（是否忠实地实现了源头的 issue/PRD？），作为并行 sub-agents 运行，使两者互不污染。
+- **[resolving-merge-conflicts](./skills/engineering/resolving-merge-conflicts/SKILL.md)** — 逐个 hunk 地处理一个进行中的 git merge 或 rebase conflict，按追溯到各方 primary source 的 intent 来解决，然后完成这个操作——绝不 `--abort`。
 
 #### Productivity
 
-通用工作流工具，不限于代码。
+通用工作流工具，不针对代码。
 
 **User-invoked**
 
-- **[grill-me](./skills/productivity/grill-me/SKILL.md)** - 围绕计划或设计持续追问，直到 decision tree 的每个分支都被解决。
-- **[handoff](./skills/productivity/handoff/SKILL.md)** - 把当前对话压缩成 handoff document，让另一个 agent 可以继续。
-- **[teach](./skills/productivity/teach/SKILL.md)** - 使用当前目录作为 stateful teaching workspace，在多个 sessions 中教用户一个新 skill 或概念。
-- **[writing-great-skills](./skills/productivity/writing-great-skills/SKILL.md)** - 编写和编辑优秀 skills 的 reference：让 skill 可预测的词汇和原则。
+- **[grill-me](./skills/productivity/grill-me/SKILL.md)** — 就一个 plan 或 design 被无情地访谈，直到 decision tree 的每一个分支都被解决。
+- **[handoff](./skills/productivity/handoff/SKILL.md)** — 把当前对话压缩成一份 handoff document，让另一个 agent 可以继续这项工作。
+- **[teach](./skills/productivity/teach/SKILL.md)** — 跨越多个 sessions 教用户一项新 skill 或概念，使用当前目录作为一个 stateful teaching workspace。
+- **[writing-great-skills](./skills/productivity/writing-great-skills/SKILL.md)** — 写好和编辑好 skills 的参考：让一个 skill 可预测的词汇与原则。
 
 **Model-invoked**
 
-- **[grilling](./skills/productivity/grilling/SKILL.md)** - 围绕计划、decision 或 idea 持续访谈用户，直到 decision tree 的每个分支都被解决。它是 `grill-me` 和 `grill-with-docs` 背后的 reusable loop。
+- **[grilling](./skills/productivity/grilling/SKILL.md)** — 就一个 plan、decision 或 idea 无情地访谈用户，直到 decision tree 的每一个分支都被解决。`grill-me` 和 `grill-with-docs` 背后的可复用循环。
 
 #### Misc
 
-本地保留但很少使用的工具。
-
-**User-invoked**
-
-- 当前没有 user-invoked skills。
+保留但很少使用、不推广的工具。
 
 **Model-invoked**
 
-- **[git-guardrails-claude-code](./skills/misc/git-guardrails-claude-code/SKILL.md)** - 设置 Claude Code hooks，在危险 git 命令（push、reset --hard、clean 等）执行前阻止它们。
-- **[migrate-to-shoehorn](./skills/misc/migrate-to-shoehorn/SKILL.md)** - 将测试文件中的 `as` 类型断言迁移到 @total-typescript/shoehorn。
-- **[scaffold-exercises](./skills/misc/scaffold-exercises/SKILL.md)** - 创建包含 sections、problems、solutions 和 explainers 的练习目录结构。
-- **[setup-pre-commit](./skills/misc/setup-pre-commit/SKILL.md)** - 设置 Husky pre-commit hooks，集成 lint-staged、Prettier、type checking 和 tests。
+- **[git-guardrails-claude-code](./skills/misc/git-guardrails-claude-code/SKILL.md)** — 设置 Claude Code hooks，在危险 git 命令（push、reset --hard、clean 等）执行前阻止它们。
+- **[migrate-to-shoehorn](./skills/misc/migrate-to-shoehorn/SKILL.md)** — 将测试文件中的 `as` 类型断言迁移到 @total-typescript/shoehorn。
+- **[scaffold-exercises](./skills/misc/scaffold-exercises/SKILL.md)** — 创建包含 sections、problems、solutions 和 explainers 的练习目录结构。
+- **[setup-pre-commit](./skills/misc/setup-pre-commit/SKILL.md)** — 设置 Husky pre-commit hooks，集成 lint-staged、Prettier、type checking 和 tests。

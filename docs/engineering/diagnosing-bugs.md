@@ -12,13 +12,13 @@ npx skills update diagnosing-bugs
 
 ## What it does
 
-`diagnosing-bugs` 为棘手 bug 和性能回退运行一套纪律化的诊断循环——构建一个 repro，把它最小化，对 hypotheses 排序，instrument，然后带着 regression test 修复。
+`diagnosing-bugs` 为棘手 bug 和性能回退运行一套有纪律的诊断循环——构建一个 repro，把它最小化，对 hypotheses 排序，做 instrumentation，然后带着一个 regression test 修复。
 
-它拒绝在你拥有 **tight feedback loop** 之前就提出假设——那是一条已经能在*这个* bug 上变红的可运行命令。在那条命令存在之前读代码来构建理论，正是本 skill 要防止的那个失败。没有能变红的 loop，就没有诊断。
+它拒绝在你拥有一个 **tight feedback loop** 之前就去提出假设——那是一条已经能在*这个* bug 上变红的可运行命令。在那条命令存在之前先读代码去构建理论，正是本 skill 要防止的那个失败。没有能变红的 loop，就没有诊断。
 
 ## When to reach for it
 
-输入 `/diagnosing-bugs`，或者当任务契合时由 agent 自动调用——它会在 "diagnose" / "debug this" 时触发，或者当你报告某些东西 broken、throwing、failing 或 slow 时触发。
+输入 `/diagnosing-bugs`，或者当任务契合时由 agent 自动取用——它会在 "diagnose" / "debug this" 时触发，或者当你报告某些东西 broken、throwing、failing 或 slow 时触发。
 
 在那些难啃的问题上使用它：一眼看不出的 bug、间歇性的 flake、在两个 known-good states 之间悄悄潜入的 regression。如果只是想快速做一个用完即弃的东西来检验一个设计问题，而不是追查一个缺陷，请改用 [prototype](https://aihero.dev/skills-prototype)。
 

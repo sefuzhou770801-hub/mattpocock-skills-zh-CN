@@ -1,6 +1,6 @@
 # GLOSSARY.md Format
 
-`GLOSSARY.md` 是这个 teaching workspace 的 canonical language。所有 explainers、exercises 和 learning records 都应遵守它的 terminology。构建它本身就是学习的一部分：把一个 concept 压缩成 tight definition，是用户理解它的证据。
+`GLOSSARY.md` 是这个 teaching workspace 的规范语言。所有的 explainers、exercises 和 learning records 都应当遵守它的术语。构建它本身就是学习的一部分：把一个概念压缩成一条紧凑的定义，正是用户理解了它的证据。
 
 ## Structure
 
@@ -26,10 +26,10 @@ _Avoid_: Effort score, intensity rating
 
 ## Rules
 
-- **Add a term only when the user understands it.** Glossary 是 compressed knowledge 的记录，不是给用户阅读学习的 dictionary。如果用户刚接触一个 concept，等到他们能正确使用它后，再把它提升到这里。
-- **Be opinionated.** 当同一 concept 有多个词时，选择最好的那个，并把其他词列为应避免的 aliases。这就是 language compression 的方式。
-- **Keep definitions tight.** 一两句话。定义这个 term 是什么，而不是它做什么或怎么做。
-- **Use the glossary's own terms inside definitions.** 一旦某个 term 进入 glossary，就在所有地方优先使用它，包括其他 definitions 内部。这会让复杂 terms 之后更容易理解。
-- **Group under subheadings** when natural clusters emerge（例如 `## Anatomy`、`## Programming`）。当 terms 自然内聚时，扁平列表也可以。
-- **Flag ambiguities explicitly.** 如果一个 term 在更大领域中被宽泛使用，记录本 workspace 的 resolution："In this workspace, 'set' always means a working set — warm-ups are tracked separately."
-- **Revise as understanding deepens.** 用户第一周写的 definition 到第六周可能是错的。就地更新，不要留下 stale entries。
+- **只有当用户理解了某个术语，才添加它。** Glossary 是对压缩后知识的记录，而不是供用户阅读学习的词典。如果用户刚刚接触一个概念，要等到他们能够正确使用它之后，再把它提升到这里。
+- **要有主见。** 当同一个概念有多个说法时，挑出最好的那个，把其余的列为应当避免的别名。语言就是这样压缩的。
+- **保持定义紧凑。** 一到两句话。定义这个术语_是_什么，而不是它做什么或怎么做。
+- **在定义内部使用 glossary 自己的术语。** 一旦某个术语进入了 glossary，就在所有地方优先使用它——包括在其他定义的内部。正是这一点让复杂的术语日后更容易被理解。
+- **当自然的聚类出现时，按子标题分组**（例如 `## Anatomy`、`## Programming`）。当各个术语彼此内聚时，一个扁平的列表也没问题。
+- **明确标出歧义。** 如果某个术语在更大的领域里被宽泛地使用，记下本 workspace 的取舍：“In this workspace, 'set' always means a working set — warm-ups are tracked separately.”
+- **随着理解的加深而修订。** 用户在第一周写下的定义，到了第六周可能就已经错了。就地更新；不要留下过时的条目。

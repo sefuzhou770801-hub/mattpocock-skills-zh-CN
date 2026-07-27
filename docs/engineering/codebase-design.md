@@ -14,11 +14,11 @@ npx skills update codebase-design
 
 `codebase-design` 为你提供一套共享、精确的词汇，用于设计 **deep modules**——大量行为藏在一个小 interface 后面，放置在一条干净的 seam 上，并且可以通过那个 interface 来测试。
 
-它是一种**语言，而不是一套流程**。它不会重构你的代码，也不会递给你一份 refactor 计划——它修正的是那些词（module、interface、depth、seam、adapter、leverage、locality），让每一次设计对话以及每一个涉及设计的 skill 都用同样的方式说话。语言的一致性是全部要点；"component"、"service"、"API" 和 "boundary" 被刻意禁用，因为它们模糊了那些重要的区分。
+它是一种**语言，而不是一套流程**。它不会重构你的代码，也不会递给你一份 refactor 计划——它修正的是那些词（module、interface、depth、seam、adapter、leverage、locality），让每一次设计对话以及每一个涉及设计的 skill 都用同样的方式说话。语言的一致性是全部意义所在；"component"、"service"、"API" 和 "boundary" 被刻意禁用，因为它们模糊了那些重要的区分。
 
 ## When to reach for it
 
-输入 `/codebase-design`，或者当任务契合时由 agent 自动调用。
+输入 `/codebase-design`，或者当任务契合时由 agent 自动取用。
 
 当你在设计或改进某个 module 的 interface、寻找 deepening 的机会、决定 seam 该放在哪里，或者让代码更易测试、更易被 AI 导航时，使用它。其他 skills 在需要 deep-module 词汇时也会引入它。如果你想打磨的是项目的*领域*术语而非 module 设计，请改用 [domain-modeling](https://aihero.dev/skills-domain-modeling)；要对现有 codebase 做一整轮架构梳理，用 [improve-codebase-architecture](https://aihero.dev/skills-improve-codebase-architecture)。
 

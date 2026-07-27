@@ -1,53 +1,53 @@
 ---
 name: to-questionnaire
-description: 把你无法完整回答的 decision 转成一份交给他人填写的 questionnaire。
+description: 把一个你无法完整回答的 decision 变成一份 questionnaire，交给别人去填写。
 disable-model-invocation: true
 ---
 
-把用户无法独自回答的事情转成一份 **questionnaire**——一份交给某个人异步填写，或在会议中一起填写的 Markdown document。Recipient 掌握用户缺少的知识；questionnaire 要把这些知识提取出来。
+把用户无法独自回答的事情变成一份 **questionnaire** —— 一份 Markdown 文档，他们可以交给某个人异步填写，或者在一场会议里一起填完。接收者掌握着用户所缺的知识；questionnaire 负责把这些知识从他们那里引出来。
 
-**Grill the send, not the subject。** 只围绕用户始终能够回答的 _send_ 进行访谈：发送给谁，以及需要对方返回什么。Document 中的问题再针对 recipient 所知与用户所需之间的 **gap**。
+**Grill the send, not the subject.** 只围绕 _send_ 访谈用户，这是他们总能回答的：交给谁，以及需要从对方那里拿回什么。文档里的那些问题，则瞄准接收者所知与用户所需之间的 **gap**。
 
-1. **发送给谁？** 在一次交流中询问 recipient 的 role、expertise 和与用户的关系。这会确定 questionnaire 的语气，以及需要携带多少 context。知道 recipient 是谁，以及对方掌握哪些用户不掌握的知识后，这一步完成。
+1. **Who is it going to?** 在一轮交流里，问清接收者的角色、专长，以及与用户的关系。这决定了 questionnaire 的语气，以及它必须承载多少 context。当你知道接收者是谁、以及他们知道哪些用户不知道的东西时，这一步就完成了。
 
-2. **需要返回什么？** 在一次交流中询问用户无法独自解决、需要此人提供的具体 decisions 或 facts。当你得到一份具体清单，明确用户最终必须能做什么或决定什么时，这一步完成。
+2. **What do you need back?** 在一轮交流里，问清用户无法独自敲定、需要此人提供的具体 decisions 或事实。当你拿到一份具体清单，清楚用户离开时必须能够去做或决策什么时，这一步就完成了。
 
-3. **编写 questionnaire。** 根据步骤 1–2 的 gap 起草问题，并遵循下面的 Document structure。把文件写到当前目录的 `to-questionnaire-<slug>.md`（slug 来自主题），然后报告路径。当文件存在，且步骤 2 中用户列出的每项内容都有问题覆盖时完成。
+3. **Write the questionnaire.** 针对第 1–2 步中的 gap 起草问题，遵循下面的 Document structure。把它写到当前目录的 `to-questionnaire-<slug>.md`（slug 取自主题），并报告路径。当文件存在、且用户在第 2 步中点名的每一项都有一个问题覆盖时，这一步就完成了。
 
 ## Document structure
 
-把 document 定位为 **discovery questionnaire**：用户缺少 context，而 recipient 掌握它。按重要程度降序排列问题——异步沟通可能只有一次机会；问题超过少量时，按主题放在 `##` headings 下。使用以下 template。
+把这份文档定位成一份 **discovery questionnaire**：用户缺少 context，接收者掌握着它。把问题按最重要的排在最前面来排序 —— 异步意味着你可能只有一次机会 —— 一旦问题超过寥寥几条，就按主题归到 `##` 标题下。用下面的模板来写。
 
 <questionnaire-template>
 
 # <Questionnaire title>
 
-**Purpose:** <这份 questionnaire 为什么存在，以及它关系到哪项 decision>
+**Purpose:** 这份 questionnaire 为何存在，以及系于其上的那个 decision。
 
-**From:** <用户> — **To:** <recipient> — **How your answers will be used:** <答案将用于哪里>
+**From:** <the user> — **To:** <the recipient> — **How your answers will be used:** <它们会去往何处>
 
 ## Context
 
-用一个 paragraph 帮助不了解用户思路的 recipient 建立 context。内容足以让对方认真回答，但不要写满一页。
+用一段话为一位并不在用户脑中的接收者定向。足以让对方好好作答即可，不要写成一整页。
 
 ## How to answer
 
-说明 deadline 和大致所需时间。部分回答和“我不知道”也有价值；不确定时请标记出来，而不是直接跳过。
+截止日期和大致需要花的功夫。部分作答和"我不知道"都是有用的 —— 有任何不确定的地方都请标注出来，而不是跳过它。
 
 ## <Theme heading>
 
-每个 theme 使用一个 `##` section，问题按重要性降序排列。每个问题只包含一个 idea，绝不要组合多个问题；在正下方放 answer stub。只有问题可能被误解或得到敷衍回答时，才添加一行 _why this matters_。
+每个主题一个 `##` section。每个主题之下放它的问题，最重要的排在最前面。每个问题只承载一个想法 —— 绝不复合 —— 正下方直接跟一个作答留白，并且只在问题可能被误读或可能招来敷衍作答时，才加一行 _why this matters_。
 
 <question-example>
-### 系统上线时预计需要承受多大负载？
+### What load is the system expected to handle at launch?
 
-_Why this matters: 这决定我们现在就为突发流量预留资源，还是推迟处理。_
+_Why this matters: it decides whether we provision for burst traffic now or defer it._
 
 >
 </question-example>
 
 ## Anything else?
 
-最后提供一个兜底问题：还有哪些我们没问、但应该知道的内容？
+一个收尾的兜底项：有哪些我们没问、但应该知道的事情？
 
 </questionnaire-template>

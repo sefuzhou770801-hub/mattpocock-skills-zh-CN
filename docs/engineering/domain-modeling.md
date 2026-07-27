@@ -14,11 +14,11 @@ npx skills update domain-modeling
 
 `domain-modeling` 在你做设计的同时，构建并打磨一个项目的 **ubiquitous language**——挑战模糊的术语，用具体场景对关系做压力测试，并在术语和决策成形的那一刻就把它们写下来。
 
-这是**主动的**纪律，而不是被动的。仅仅读 `CONTEXT.md` 来借用它的词汇，是任何 skill 都能做到的一行习惯；这个 skill 用于你正在*改变*模型的时候——确立一个规范术语、捕捉代码与你刚说的话之间的矛盾、记录一个难以逆转的决策。它还保持 glossary 的干净：`CONTEXT.md` 就是一份 glossary，别无其他——没有实现细节，没有 spec，没有草稿本。
+这是**主动的**纪律，而不是被动的那一种。仅仅读一下 `CONTEXT.md` 来借用它的词汇，是任何 skill 都能做到的一行习惯；这个 skill 用于你正在*改变*模型的时候——确立一个规范术语、捕捉代码与你刚说的话之间的矛盾、记录一个难以逆转的决策。它还保持 glossary 的干净：`CONTEXT.md` 就是一份 glossary，别无其他——没有实现细节，没有 spec，没有草稿本。
 
 ## When to reach for it
 
-输入 `/domain-modeling`，或者当任务契合时由 agent 自动调用——当你在敲定术语、解决一个被过度使用的词，或记录一个架构决策时。
+输入 `/domain-modeling`，或者当任务契合时由 agent 自动取用——当你在敲定术语、解决一个被过度使用的词，或记录一个架构决策时。
 
 当问题出在*词语*上时使用它：两个人对 "cancellation" 的理解不同，"account" 在干三份工作，或者一场设计对话总是卡在一个从未被精确命名过的概念上。如果问题出在 module 的*形状*上——seam 放在哪里、interface 有多深——用 [codebase-design](https://aihero.dev/skills-codebase-design)。如果你想让计划本身在构建之前被审问，用 [grilling](https://aihero.dev/skills-grilling)。
 
@@ -43,4 +43,4 @@ npx skills update domain-modeling
 
 ## Where it fits
 
-`domain-modeling` 是一个**随时可调用的 standalone**，它*位于*其他 skills 之下运行的频率，与在固定步骤上运行一样高。它最接近的邻居是 [codebase-design](https://aihero.dev/skills-codebase-design)，因为共享语言正是让你能精确命名一个 deep module 及其 seam 的东西；往下游，一份敲定的 glossary 正是 [to-spec](https://aihero.dev/skills-to-spec) 合成为一份用项目自己的措辞写成的 spec 的东西。当你不确定哪个 skill 或 flow 契合时，[ask-matt](https://aihero.dev/skills-ask-matt) 会为你路由。
+`domain-modeling` 是一个**随时可调用的 standalone**，它*垫在*其他 skills 之下运行的次数，和作为固定步骤运行的次数一样多。它最接近的邻居是 [codebase-design](https://aihero.dev/skills-codebase-design)，因为共享语言正是让你能精确命名一个 deep module 及其 seam 的东西；往下游，一份敲定的 glossary 正是 [to-spec](https://aihero.dev/skills-to-spec) 合成为一份用项目自己的措辞写成的 spec 的东西。当你不确定哪个 skill 或 flow 契合时，[ask-matt](https://aihero.dev/skills-ask-matt) 会为你路由。
