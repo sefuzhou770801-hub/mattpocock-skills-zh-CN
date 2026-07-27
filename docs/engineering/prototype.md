@@ -22,7 +22,7 @@ npx skills update prototype
 
 当你有一个难以在纸面上定夺的设计问题时使用它——一个 case 多到你无法在脑中同时握住的 state machine，或者一个不看到几个版本并排就想象不出来的界面。如果情况相反，是某个已经构建好的东西行为异常、你需要查明原因，那就用 [diagnosing-bugs](https://aihero.dev/skills-diagnosing-bugs)；prototyping 探索的是该构建什么，而不是为什么已构建的东西坏了。
 
-## Two branches
+## 两个分支
 
 问题决定形状，而形状有两种：
 
@@ -31,7 +31,7 @@ npx skills update prototype
 
 选错分支会浪费掉整个 prototype，所以问题要先于一切。两个分支都把 state 保存在内存中、用一条命令运行，并在每一步都呈现完整 state。
 
-## Keep the prototype as a primary source
+## 把 prototype 保留为第一手来源
 
 一个完成的 prototype 会留下两样东西。**答案**——结论加上它所定夺的那个问题——是你要持久捕获的东西（一条 commit message、一份 ADR、一个 issue）。**prototype 本身则是一份 primary source**——答案赖以得出的可运行证据。
 

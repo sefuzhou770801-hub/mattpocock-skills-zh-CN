@@ -22,7 +22,7 @@ npx skills update implement
 
 当工作已经写成一份 spec 或拆成 tickets、并且你准备把它变成代码时，就使用它。如果 spec 还不存在，先写出来——为此用 [to-spec](https://aihero.dev/skills-to-spec)，或用 [to-tickets](https://aihero.dev/skills-to-tickets) 把一份 spec 拆成 tickets。如果你只想在没有完整 spec 的情况下以 test-first 的方式构建某个东西，直接落到 [tdd](https://aihero.dev/skills-tdd)。
 
-## Pre-agreed seams
+## 预先约定的 seams
 
 `implement` 赖以运行的那个概念是 **seam**——一个 feature 被测试其上的稳定 interface，在写任何代码之前就选定。它不在构建中途发明 seams；它使用已经选定的那些（在 [to-spec](https://aihero.dev/skills-to-spec) 期间选定的），并通过 [tdd](https://aihero.dev/skills-tdd) 针对它们写 tests。在预先达成一致的 seams 上工作，正是让实现保持诚实的原因：tests 瞄准的是持久的东西，因此底下的代码可以移动，而 tests 不必跟着移动。
 

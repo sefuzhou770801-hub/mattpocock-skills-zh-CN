@@ -24,7 +24,7 @@ npx skills update code-review
 
 **Spec** 轴线需要有地方找到来源 spec——commit messages 中的一个 issue reference、你传入的一个路径，或者 `docs/`/`specs/` 下的一份 spec。那条 issue-tracker 接线来自 [setup-matt-pocock-skills](https://aihero.dev/skills-setup-matt-pocock-skills)；没有 spec 时，Spec 轴线会直接跳过并说明这一点。**Standards** 轴线不需要任何配置——即便在一个没有记录任何约定的仓库里，它也始终自带一套内置的 Fowler smell baseline。
 
-## Two axes, never merged
+## 两条轴，永不合并
 
 决定性的理念是**两条轴线**。**Standards** 问的是 diff 是否符合本仓库写代码的方式——它的 `CODING_STANDARDS.md` 或 `CONTRIBUTING.md`，外加一个固定的、约 12 个 Fowler code smells 的 baseline（Mysterious Name、Duplicated Code、Feature Envy、Data Clumps 等）。有两条规则让 baseline 保持安全：有文档记录的 repo standard 始终覆盖它，并且每一个 smell 都是一个需要判断的权衡，而绝不是一条硬性违规。**Spec** 问的是正交的问题——代码是否做了 issue 或 spec 真正要求的事，没有遗漏需求，也没有夹带 scope creep？
 

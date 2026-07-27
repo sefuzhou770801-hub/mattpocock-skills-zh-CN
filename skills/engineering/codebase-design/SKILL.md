@@ -3,11 +3,11 @@ name: codebase-design
 description: 用于设计 deep module 的共享词汇。当用户想设计或改进一个 module 的 interface、寻找深化机会、决定 seam 放在哪里、让代码更可测试或更适合 AI 导航，或当另一个 skill 需要 deep-module 词汇时使用。
 ---
 
-# Codebase Design
+# codebase 设计
 
 设计 **deep module**：在一个干净的 seam 后面，用一个小 interface 承载大量行为，并且可以通过那个 interface 来测试。只要在设计或重构代码，就使用这套语言和这些原则。目标是为调用方提供 leverage，为维护者提供 locality，并为所有人提供可测试性。
 
-## Glossary
+## 术语表
 
 精确使用这些术语 — 不要替换成 “component”、“service”、“API” 或 “boundary”。语言一致正是重点所在。
 
@@ -27,7 +27,7 @@ description: 用于设计 deep module 的共享词汇。当用户想设计或改
 
 **Locality** — 维护者从 depth 中获得的东西：变更、bug、知识和验证集中在一处，而不是散布在各个调用方之间。修一次，处处修好。
 
-## Deep vs shallow
+## deep 与 shallow
 
 **Deep module** = 小 interface + 大量 implementation：
 
@@ -57,14 +57,14 @@ description: 用于设计 deep module 的共享词汇。当用户想设计或改
 - 我能简化参数吗？
 - 我能在内部隐藏更多复杂性吗？
 
-## Principles
+## 原则
 
 - **Depth 是 interface 的属性，而不是 implementation 的属性。** 一个 deep module 在内部可以由小的、可 mock 的、可替换的部分组成 — 它们只是不属于 interface。一个 module 既可以有**内部 seam**（其 implementation 私有的，供它自己的 test 使用），也可以有 interface 处的**外部 seam**。
 - **删除测试。** 想象删掉这个 module。如果复杂性消失了，它就是一个 pass-through。如果复杂性在 N 个调用方之间重新出现，它就在挣得自己的存在。
 - **interface 就是测试面。** 调用方和 test 穿过同一个 seam。如果你想测试 interface *之外*的东西，那这个 module 很可能形状不对。
 - **一个 adapter 意味着一个假想的 seam。两个 adapter 意味着一个真实的 seam。** 除非确实有东西在 seam 两侧变化，否则不要引入 seam。
 
-## Designing for testability
+## 为可测性而设计
 
 好的 interface 让测试变得自然：
 
@@ -94,7 +94,7 @@ description: 用于设计 deep module 的共享词汇。当用户想设计或改
 
 3. **小的表面积。** 更少的方法 = 需要更少的 test。更少的参数 = 更简单的 test 搭建。
 
-## Relationships
+## 关系
 
 - 一个 **Module** 恰好有一个 **Interface**（它呈现给调用方和 test 的表面）。
 - **Depth** 是一个 **Module** 的属性，相对于它的 **Interface** 来衡量。
@@ -102,13 +102,13 @@ description: 用于设计 deep module 的共享词汇。当用户想设计或改
 - 一个 **Adapter** 坐落在一个 **Seam** 处，并满足该 **Interface**。
 - **Depth** 为调用方产生 **Leverage**，为维护者产生 **Locality**。
 
-## Rejected framings
+## 被否决的框定方式
 
 - **把 Depth 当作 implementation 行数与 interface 行数之比**（Ousterhout）：这会奖励把 implementation 撑大。我们改用 depth-as-leverage。
 - **把 “Interface” 当作 TypeScript 的 `interface` 关键字或一个类的 public 方法**：太窄 — 这里的 interface 包括调用方必须知道的每一个事实。
 - **“Boundary”**：与 DDD 的 bounded context 过载。说 **seam** 或 **interface**。
 
-## Going deeper
+## 进一步深入
 
 - **在给定依赖的情况下深化一个集群** — 见 [DEEPENING.md](DEEPENING.md)：依赖类别、seam 纪律，以及 replace-don't-layer 的测试方式。
 - **探索备选 interface** — 见 [DESIGN-IT-TWICE.md](DESIGN-IT-TWICE.md)：启动并行的 sub-agent，以几种截然不同的方式设计 interface，然后在 depth、locality 和 seam 放置上加以比较。

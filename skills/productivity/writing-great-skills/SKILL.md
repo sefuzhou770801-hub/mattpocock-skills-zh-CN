@@ -8,7 +8,7 @@ disable-model-invocation: true
 
 **粗体术语** 在 [`GLOSSARY.md`](GLOSSARY.md) 中定义；需要完整含义时到那里查阅。
 
-## Invocation
+## 调用
 
 两种选择，各自付出不同的代价：
 
@@ -19,7 +19,7 @@ disable-model-invocation: true
 
 当 user-invoked 的 skills 多到你记不住时，这份堆积起来的 cognitive load 可以由一个 **router skill** 来治愈：一个 user-invoked 的 skill，点名其余的那些，并说明何时该去用哪一个。
 
-## Writing the description
+## 撰写 description
 
 一段 model-invoked 的 **description** 要做两件事——说明这个 skill 是什么，并列出应当触发它的各个 **branch**。每一个词都会增加 **context load**，所以 description 比正文更需要狠狠地修剪：
 
@@ -27,7 +27,7 @@ disable-model-invocation: true
 - **每个 branch 一个触发。** 只是给同一个 branch 换个名字的同义词就是 **duplication**——“build features using TDD … asks for test-first development” 就是把同一个 branch 写了两次。把它们合并；只保留真正不同的 branch。
 - **删掉正文里已经有的身份信息。** 让 description 只留下触发，外加任何 “when another skill needs…” 之类的触达子句。
 
-## Information hierarchy
+## 信息层级
 
 一个 skill 由两类内容构成——**steps** 和 **reference**——它们可以自由混合：一个 skill 可以全是 steps、全是 reference，或者两者兼有。核心的决策是用哪一类，以及每一块内容落在 **information hierarchy** 的哪一级——这是一架梯子，按 agent 需要这份材料的即时程度来排序：
 
@@ -43,14 +43,14 @@ disable-model-invocation: true
 
 如果说梯子决定一块内容_往下放多远_，那么 **co-location** 决定一旦到了那里_什么与它并排_：把一个概念的定义、规则和注意事项放在同一个标题下，而不是散落各处，这样读到其中一部分时，它的邻居也就随之而来了。
 
-## When to split
+## 何时拆分
 
 **Granularity** 是你切分 skills 的精细程度，而每一次切分都会花费两种 load 中的一种，所以只有当这一刀值得时才切。有两种切法：
 
 - **按 invocation 切**——当你有一个独立的 **leading word** 应当自行触发它，或者另一个 skill 必须触达它时，就拆出一个 **model-invoked** 的 skill。你要为那个新的、始终加载的 **description** 付出 **context load**，所以那份独立的触达能力必须值得。
 - **按 sequence 切**——当前方仍有的 steps（一个 step 的 **post-completion steps**）会诱使 agent 急着草草了结它前面那一步（**premature completion**）时，就把一连串 **steps** 拆开。把它们藏到视线之外，会鼓励 agent 在当前任务上做更多 **legwork**。
 
-## Pruning
+## 修剪
 
 让每一个含义都有一个 **single source of truth**：一个权威的位置，这样改变行为就只是一处的编辑。
 
@@ -58,7 +58,7 @@ disable-model-invocation: true
 
 然后逐句搜寻 **no-ops**，而不只是逐行：对每一个句子单独跑 no-op 检验，当某一句不合格时，删掉整句，而不是从里面修剪几个词。要狠——大多数不合格的散文应当被删除，而不是被改写。
 
-## Leading words
+## leading words
 
 一个 **leading word** 是一个已经活在模型预训练里的紧凑概念，agent 在运行这个 skill 时会用它来思考（例如 _lesson_、_fog of war_、_tracer bullets_）。它在整篇文本中反复出现（但也不一定——一个强的 leading word 可能只需要出现一次），累积出一个分布式的定义，并通过征召模型已经持有的先验，用最少的 token 锚定整片行为。
 
@@ -71,7 +71,7 @@ disable-model-invocation: true
 
 你一举两得：更少的 token，_以及_ 一个更锋利的钩子，让 agent 把它的思考挂上去。假定每一个 skill 都背负着可以被 leading words 退役的反复陈述——去把它们找出来。
 
-## Failure modes
+## 失败模式
 
 用这些来诊断用户在使用这个 skill 时可能遇到的问题。
 

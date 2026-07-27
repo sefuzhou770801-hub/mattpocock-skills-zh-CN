@@ -8,7 +8,7 @@ disable-model-invocation: true
 
 issue tracker 和 triage label 词汇表应该已经提供给你了——如果没有，运行 `/setup-matt-pocock-skills`。
 
-## Process
+## 流程
 
 1. 探索仓库以理解代码库的当前状态（如果你还没有这么做的话）。在整份 spec 中始终使用项目领域词汇表的词汇，并尊重你所涉及区域中的任何 ADR。
 
@@ -20,15 +20,15 @@ issue tracker 和 triage label 词汇表应该已经提供给你了——如果�
 
 <spec-template>
 
-## Problem Statement
+## 问题陈述
 
 用户正在面对的问题，从用户的视角描述。
 
-## Solution
+## 方案
 
 问题的解决方案，从用户的视角描述。
 
-## User Stories
+## 用户故事
 
 一份很长的、带编号的 user story 列表。每条 user story 应采用如下格式：
 
@@ -40,7 +40,7 @@ issue tracker 和 triage label 词汇表应该已经提供给你了——如果�
 
 这份 user story 列表应当极其详尽，覆盖该功能的方方面面。
 
-## Implementation Decisions
+## 实现决策
 
 一份已做出的实现决策列表。可以包括：
 
@@ -56,7 +56,7 @@ issue tracker 和 triage label 词汇表应该已经提供给你了——如果�
 
 例外：如果某个 prototype 产出了一段比散文更能精确编码某个决策的片段（state machine、reducer、schema、type 形状），就把它内联到相关决策之中，并简要注明它来自一个 prototype。裁剪到富含决策的部分——不是一个可运行的 demo，只是重要的那几处。
 
-## Testing Decisions
+## 测试决策
 
 一份已做出的测试决策列表。包括：
 
@@ -64,11 +64,11 @@ issue tracker 和 triage label 词汇表应该已经提供给你了——如果�
 - 哪些 module 会被测试
 - 这些 test 的 prior art（即代码库中类似类型的 test）
 
-## Out of Scope
+## 范围之外
 
 对不在本 spec 范围之内的事项的描述。
 
-## Further Notes
+## 补充说明
 
 关于该功能的任何进一步说明。
 

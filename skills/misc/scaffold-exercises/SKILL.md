@@ -3,18 +3,18 @@ name: scaffold-exercises
 description: 创建能通过 lint 的练习目录结构，包含 section、problem、solution 和 explainer。适用于用户想要搭建练习骨架、创建练习占位（stub），或新建一个课程 section 时。
 ---
 
-# Scaffold Exercises
+# 搭建练习脚手架
 
 创建能通过 `pnpm ai-hero-cli internal lint` 的练习目录结构，然后用 `git commit` 提交。
 
-## Directory naming
+## 目录命名
 
 - **Section**：`exercises/` 内的 `XX-section-name/`（例如 `01-retrieval-skill-building`）
 - **练习**：section 内的 `XX.YY-exercise-name/`（例如 `01.03-retrieval-with-bm25`）
 - Section 编号 = `XX`，练习编号 = `XX.YY`
 - 名称使用 dash-case（小写、连字符）
 
-## Exercise variants
+## 练习变体
 
 每个练习至少需要以下子文件夹之一：
 
@@ -24,7 +24,7 @@ description: 创建能通过 lint 的练习目录结构，包含 section、probl
 
 搭建占位（stub）时，默认使用 `explainer/`，除非计划另有指定。
 
-## Required files
+## 必备文件
 
 每个子文件夹（`problem/`、`solution/`、`explainer/`）都需要一个 `readme.md`，要求：
 
@@ -41,7 +41,7 @@ Description here
 
 如果子文件夹里有代码，还需要一个 `main.ts`（大于 1 行）。但对于占位而言，只有 readme 的练习就可以。
 
-## Workflow
+## 工作流
 
 1. **解析计划** - 提取 section 名称、练习名称和 variant 类型
 2. **创建目录** - 对每个路径执行 `mkdir -p`
@@ -49,7 +49,7 @@ Description here
 4. **运行 lint** - 用 `pnpm ai-hero-cli internal lint` 校验
 5. **修复所有错误** - 迭代直到 lint 通过
 
-## Lint rules summary
+## lint 规则摘要
 
 linter（`pnpm ai-hero-cli internal lint`）检查：
 
@@ -62,7 +62,7 @@ linter（`pnpm ai-hero-cli internal lint`）检查：
 - readme 中没有 `pnpm run exercise` 命令
 - 每个子文件夹都需要 `main.ts`，除非它是纯 readme
 
-## Moving/renaming exercises
+## 移动/重命名练习
 
 重新编号或移动练习时：
 
@@ -76,7 +76,7 @@ linter（`pnpm ai-hero-cli internal lint`）检查：
 git mv exercises/01-retrieval/01.03-embeddings exercises/01-retrieval/01.04-embeddings
 ```
 
-## Example: stubbing from a plan
+## 示例：从一份 plan 生成骨架
 
 给定如下计划：
 

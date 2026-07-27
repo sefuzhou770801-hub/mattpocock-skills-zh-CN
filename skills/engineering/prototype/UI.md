@@ -4,24 +4,24 @@
 
 如果问题关乎逻辑/状态，而不是某个东西该长什么样 —— 走错分支了。用 [LOGIC.md](LOGIC.md)。
 
-## When this is the right shape
+## 何时这是合适的形态
 
 - "What should this page look like?"
 - "I want to see a few options for this dashboard before committing."
 - "Try a different layout for the settings screen."
 - 任何用户本来要花一整天在脑子里三个模糊的 mockup 之间做选择的情况。
 
-## Two sub-shapes — strongly prefer sub-shape A
+## 两种 sub-shape —— 强烈倾向 sub-shape A
 
 当一个 UI prototype **紧挨着应用的其余部分**时，它要好评判得多 —— 真实的 header、真实的 sidebar、真实的数据、真实的密度。一个孤立的一次性路由是真空环境：每个变体单独看都还行。只要有合理的现有页面可以承载这些变体，就默认选 sub-shape A。只有当 prototype 确实找不到附近的落脚点时，才用 sub-shape B。
 
-### Sub-shape A — adjustment to an existing page (preferred)
+### Sub-shape A —— 对现有页面的调整（首选）
 
 路由已经存在。各个变体渲染在**同一个路由**上，由 `?variant=` URL 搜索参数控制。现有的数据获取、参数和鉴权全部保留 —— 只替换渲染部分。这是默认选项；除非有具体理由不这么做，否则就选它。
 
 如果 prototype 针对的东西还没有页面，但*天然应该存在于某个页面内部*（dashboard 的一个新分区、设置页的一张新卡片、现有流程中的一个新步骤）—— 那仍然是 sub-shape A。把各个变体挂载到宿主页面内部。
 
-### Sub-shape B — a new page (last resort)
+### Sub-shape B —— 一个新页面（最后手段）
 
 只有当被 prototype 的东西确实没有现有页面可以容纳时才用 —— 例如一个全新的顶层界面，或者一个无法合理嵌入任何地方的流程。
 
@@ -31,9 +31,9 @@
 
 在两种 sub-shape 中，浮动底栏都是一样的。
 
-## Process
+## 流程
 
-### 1. State the question and pick N
+### 1. 陈述问题并选定 N
 
 默认做 **3 个变体**。超过 5 个就不再是截然不同，而是噪音了 —— 上限就是 5 个。
 
@@ -43,7 +43,7 @@
 
 无论用户此刻是否在场提出反对意见，这都管用。
 
-### 2. Generate radically different variants
+### 2. 生成截然不同的变体
 
 起草每个变体。对每一个都要求做到：
 
@@ -53,7 +53,7 @@
 
 各个变体必须在**结构上不同** —— 不同的布局、不同的信息层级、不同的主要操作入口，而不只是颜色不同。三个略微调整过的卡片网格不是 UI prototype，那是壁纸。如果两个草稿出来太像，就带着明确的 "do not use a card grid" 指令重做其中一个。
 
-### 3. Wire them together
+### 3. 把它们串起来
 
 在路由上创建一个切换器组件：
 
@@ -74,7 +74,7 @@ return (
 
 对于 sub-shape B（新页面）：`/prototype/<name>` 下的一次性路由挂载同一个切换器。
 
-### 4. Build the floating switcher
+### 4. 构建浮动切换器
 
 在屏幕底部居中放一个小的固定定位栏，包含三个部分：
 
@@ -91,11 +91,11 @@ return (
 
 把切换器放进一个共享组件里，让两种 sub-shape 都能复用它。把它放在项目中共享 UI 所在的地方。
 
-### 5. Hand it over
+### 5. 交付
 
 把 URL（以及 `?variant=` 的各个键）告诉用户。他们会在方便的时候自己切换。有意思的反馈通常是 **"I want the header from B with the sidebar from C"** —— 那才是他们真正想要的设计。
 
-### 6. Capture the answer and clean up
+### 6. 捕获答案并清理
 
 一旦某个变体胜出，就把答案记录下来 —— 哪个变体、为什么 —— 然后按 [SKILL](SKILL.md) 描述的方式把 prototype 记录下来。把胜出者并入真实代码，把其余的移到一次性分支上，而不是 main：
 
@@ -104,7 +104,7 @@ return (
 
 完整的变体集合是 primary source，所以它落在一次性分支上，而不是垃圾桶里 —— 留在 main 分支上的变体组件和切换器会很快腐烂，并让下一个读者困惑。
 
-## Anti-patterns
+## 反模式
 
 - **只在颜色或文案上不同的变体。** 那是微调，不是 prototype。真正的变体在结构上就互相分歧。
 - **变体之间共享太多代码。** 共享一个 `<Header>` 没问题；共享一个 `<Layout>` 就违背了初衷。每个变体都应该可以自由地抛弃布局。

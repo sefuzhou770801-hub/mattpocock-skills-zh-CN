@@ -22,7 +22,7 @@ npx skills update ask-matt
 
 每当你不确定某个情境该用哪个 skill 或 flow 时，就用它：你有一个 idea 却不知道从哪开始；你有一堆 bug report 却不知道它们是不是该交给 `/triage`；或者有两个看起来可以互换的 skill 而你分不清它们。如果你已经知道想要哪个 skill，就跳过 router，直接调用它。
 
-## Flows, not just skills
+## flows，而不只是 skills
 
 `ask-matt` 给你用来思考的那个概念是 **flow**——一条*穿过*各个 skills 的路径，而不是单个 skill。大多数工作都沿着一条 **main flow** 行进（idea → ship：grill → spec → tickets → implement → review），有两条 **on-ramp** 汇入它（一条处理进来的 bug 和请求的 triage 通道；一条生成 idea 的 codebase-health 通道），其余一切都是各自独立取用的 **standalone**。提一个问题，你就会被放到正确的 flow 上、正确的步骤处——而不只是被递到一个工具。
 

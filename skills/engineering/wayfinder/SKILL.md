@@ -8,15 +8,15 @@ disable-model-invocation: true
 
 目的地因每次努力而异，而为它命名是绘制地图的第一个动作——它塑造每一个 ticket。它可能是一份要交接出去并反复迭代的 spec、一个要在规划开始前锁定的决策，或一项就地完成的变更（比如一次数据结构迁移）。这张地图与领域无关——工程工作、课程内容，任何符合这个形状的东西都行。
 
-## Plan, don't do
+## 规划，而非执行
 
 Wayfinder 默认做的是**规划**：每个 ticket 解决一个决策，而当路径清晰——在有人动手去做那件事之前再没有什么需要决定的了——地图就算完成了。那种想干脆直接把活干了的冲动，通常正是你已经抵达地图边缘、该交接出去的信号。一次努力可以在它的 **Notes** 里覆盖这一点——把执行也带进地图本身——但若无此说明，就产出决策，而不是交付物。
 
-## Refer by name
+## 按名称引用
 
 每张地图和每个 ticket 都是一个 issue，因此它有一个**名称**——它的标题。在人类会读到的一切内容里——叙述、地图的 Decisions-so-far——都用那个名称来指代它，绝不用光秃秃的 id、编号或 slug。一堵 `#42, #43, #44` 的墙是无法卒读的；名称一眼就能看懂。id 和 URL 并不会消失——名称包裹着它的链接——但它们骑在名称*里面*，绝不取而代之。
 
-## The Map
+## 地图
 
 地图是本仓库 issue tracker 上的单个 issue，标记为 `wayfinder:map`——它是规范产物。它的 ticket 是地图的子 issue。
 
@@ -24,7 +24,7 @@ Wayfinder 默认做的是**规划**：每个 ticket 解决一个决策，而当�
 
 **地图、它的子 ticket、blocking 以及 frontier 查询在物理上落在哪里，是随 tracker 而定的。** issue tracker 应该已经提供给你了——如果没有，运行 `/setup-matt-pocock-skills`。查阅 tracker 文档的 "Wayfinding operations" 一节，了解*本*仓库如何表达它们。如果没有提供 tracker，就默认使用 local-markdown tracker。
 
-### The map body
+### 地图正文
 
 整张地图的低分辨率视图，每个 session 加载一次。未关闭的 ticket **不**列在其中——它们是未关闭的子 issue，通过查询找到。
 
@@ -52,7 +52,7 @@ Wayfinder 默认做的是**规划**：每个 ticket 解决一个决策，而当�
 <!-- see "Out of scope": work ruled beyond the destination; closed, never graduates -->
 ```
 
-### Tickets
+### tickets
 
 每个 ticket 都是地图的一个**子 issue**；tracker 的 issue id 就是它的身份。它的正文就是那个问题，大小控制在单个 100K token 的 agent session 之内：
 
@@ -70,7 +70,7 @@ Blocking 使用 tracker 的**原生**依赖关系——这一点至关重要，�
 
 答案不是正文的一部分——它在解决时被记录下来（见 [Work through the map](#work-through-the-map)）。解决一个 ticket 期间创建的资产从该 issue 链接出去，而不是粘贴进去。
 
-## Ticket Types
+## ticket 类型
 
 每个 ticket 要么是 **HITL**——human in the loop，与一个为自己代言的人类*一起*工作——要么是 **AFK**，由 agent 独自驱动。一个 HITL ticket 只能通过那场实时交流来解决；agent 绝不替人类那一侧代言（一个自问自答的 grilling agent 就已经违背了这一点）。
 
@@ -79,7 +79,7 @@ Blocking 使用 tracker 的**原生**依赖关系——这一点至关重要，�
 - **Grilling**（HITL）：通过 /grilling 和 /domain-modeling skill 进行对话，一次一个问题。这是默认情形。
 - **Task**（HITL 或 AFK）：在一个*决策*能够做出之前必须发生的手工工作——没有什么可决定、可 prototype 或可调研的，但在它完成之前讨论被卡住了。注册一个服务好让它的 API 能被评判、配置访问权限、搬动数据好让它的形状能被看见。这是唯一一个*去做*而非去决策的类型——而它之所以有立足之地，是因为它解锁了一个决策，而不是因为它交付了目的地。在能独自完成的地方由 agent 独自驱动它（AFK）；否则交给人类一份精确的清单（HITL）。工作完成时即告解决；答案记录做了什么，以及后来的 ticket 所依赖的任何由此产生的事实（凭证位置、新的 URL、行数）。
 
-## Fog of war
+## 战争迷雾
 
 地图是*刻意*不完整的：不要绘制你还看不见的东西。在活跃 ticket 之外躺着**战争迷雾**——那些你能看出正在到来、却还无法钉死的决策和调研的朦胧视野，因为它们悬置在仍然敞开的问题之上。解决一个 ticket 会清除它前方的迷雾，把此刻已可定义的东西毕业成新的 ticket——一次一个，直到通往目的地的路径清晰、再没有 ticket 剩下。
 
@@ -92,7 +92,7 @@ Blocking 使用 tracker 的**原生**依赖关系——这一点至关重要，�
 
 **Not yet specified** 排除已经决定的东西（Decisions so far）、已经是活跃 ticket 的东西，以及超出范围的东西（下一节）。
 
-## Out of scope
+## 范围之外
 
 迷雾只会聚集在*朝向*目的地的方向。目的地固定了范围，因此超出它的工作就是**超出范围**——它不是迷雾，也不属于 **Not yet specified**。它在地图上有自己专属的 **Out of scope** 一节：你已有意把其排除在*本次*努力之外的工作。是范围、而非锐利度，让它落在这里。
 
@@ -100,11 +100,11 @@ Blocking 使用 tracker 的**原生**依赖关系——这一点至关重要，�
 
 把某样东西裁定为超出范围，是一个划定范围的动作，而不是路线上的一步。当一个已经存在的 ticket 结果落到了目的地之外——绘制地图时被错误地划了进来，或被某次解决所暴露——就**关闭它**（一个已关闭的 ticket 明确不在 frontier 上），并在 **Out of scope** 一节留下一行：梗概加上它为何超出范围，链接到那个已关闭的 ticket。它留在 **Decisions so far** 之外，后者记录的是实际走过的路线——一道范围边界不是它上面的一步。
 
-## Invocation
+## 调用
 
 两种模式。无论哪种，**每个 session 绝不解决多于一个 ticket**——research ticket 除外。
 
-### Chart the map
+### 绘制地图
 
 用户带着一个松散的想法调用。
 
@@ -115,7 +115,7 @@ Blocking 使用 tracker 的**原生**依赖关系——这一点至关重要，�
 5. **Fire the research subagents.** 对你刚刚创建的每一个 `research` ticket，启动一个 `/research` subagent 并行解决它，把它的发现捕获到一个一次性的 `research/<name>` 分支上，并从该 ticket 留下一个 context pointer。
 6. 停下——绘制地图是一个 session 的工作；它不亲手解决任何东西。
 
-### Work through the map
+### 推进地图
 
 用户带着一张地图（URL 或编号）调用。一个 ticket 是**可选的**——没有它时，由你来挑选下一个决策，而不是用户。
 

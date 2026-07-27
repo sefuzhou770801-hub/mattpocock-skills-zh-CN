@@ -22,7 +22,7 @@ npx skills update resolving-merge-conflicts
 
 当你正处于 merge 或 rebase 中途、而 git 在它自己无法解决的 conflict 上停下来时，使用它。它针对的是你眼前的这个 conflict——不是用来规划 merge，也不是用来调试事后坏掉的行为。如果 merge 已经完成，但现在有东西因为看不出的原因在失败，那就改用 [diagnosing-bugs](https://aihero.dev/skills-diagnosing-bugs)。
 
-## Resolving by intent
+## 按 intent 解决
 
 conflict 中的陷阱是把它当成文本问题——为了让冲突标记消失而选择 “ours” 或 “theirs”。这个 skill 把它当成一个 **intent** 问题。一个 hunk 的每一侧之所以存在，都是因为有人想要某样东西；解决方案必须在能做到的地方尊重双方的诉求，而在它们确实互不相容的地方，选择与 merge 所声明目标相符的那一个，并明确说出其中的取舍。
 

@@ -1,6 +1,6 @@
-# Good and Bad Tests
+# 好 test 与坏 test
 
-## Good Tests
+## 好的 test
 
 **Integration-style**：通过真实 interface 测试，而不是 mock 内部部件。
 
@@ -22,7 +22,7 @@ test("user can checkout with valid cart", async () => {
 - 描述 WHAT，而不是 HOW
 - 每个 test 一个逻辑断言
 
-## Bad Tests
+## 坏的 test
 
 **Implementation-detail tests**：与内部结构耦合。
 

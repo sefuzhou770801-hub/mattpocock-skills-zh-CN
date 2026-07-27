@@ -1,4 +1,4 @@
-# Triage Labels
+# triage labels
 
 各个 skill 使用五个规范的 triage 角色。本文件把这些角色映射到本 repo 的 issue tracker 中实际使用的 label 字符串。
 

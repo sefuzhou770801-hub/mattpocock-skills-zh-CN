@@ -26,7 +26,7 @@ npx skills update domain-modeling
 
 这个 skill 写入两个地方，两者都是惰性创建的——只有在有东西要记录时才创建。已敲定的术语进入根目录的 `CONTEXT.md`（或者，在一个由 `CONTEXT-MAP.md` 标记的多 context 仓库中，进入各自 context 的 `CONTEXT.md`）。决策进入 `docs/adr/`。事先什么都不需要存在；第一个敲定的术语创建 glossary，第一个真正的权衡创建 ADR。
 
-## Glossary vs. ADR
+## 术语表 vs. ADR
 
 两种产物，两种不同的门槛：
 
@@ -35,7 +35,7 @@ npx skills update domain-modeling
 
 让它运转起来的那一步：当你陈述某样东西如何运作时，这个 skill 会交叉引用代码并浮现出矛盾——「你的代码取消的是整个 Order，但你刚说部分取消是可能的——哪个是对的？」语言和代码被迫达成一致。
 
-## Pulled out on purpose
+## 刻意抽出
 
 `domain-modeling` 是构建项目 ubiquitous language 的**唯一权威来源**，它被拆出来作为自己的 model-invoked skill，这样任何其他 skill 都能触达它。[grill-with-docs](https://aihero.dev/skills-grill-with-docs) 依赖它在 grilling 会话进行时记录术语和决策，[triage](https://aihero.dev/skills-triage) 用它让 tickets 保持使用项目自己的措辞，而 [improve-codebase-architecture](https://aihero.dev/skills-improve-codebase-architecture) 在工作时会调用它。
 

@@ -4,25 +4,25 @@ description: 把一份 plan、spec 或当前对话拆解为一组 tracer-bullet 
 disable-model-invocation: true
 ---
 
-# To Tickets
+# 转成 tickets
 
 把一份 plan、spec 或对话拆解为一组 **ticket**——tracer-bullet 式的 vertical slice，每个 ticket 都声明那些 **block** 它的 ticket。
 
 issue tracker 和 triage label 词汇表应该已经提供给你了——如果没有，运行 `/setup-matt-pocock-skills`。
 
-## Process
+## 流程
 
-### 1. Gather context
+### 1. 收集背景
 
 基于对话上下文中已有的任何东西来工作。如果用户把一个引用（一个 spec 路径、一个 issue 编号或 URL）作为参数传入，就获取它并读取其完整正文和评论。
 
-### 2. Explore the codebase (optional)
+### 2. 探索 codebase（可选）
 
 如果你还没有探索过代码库，就探索一下以理解代码的当前状态。Ticket 的标题和描述应使用项目领域词汇表的词汇，并尊重你所涉及区域中的 ADR。
 
 寻找对代码进行 prefactor 以让实现更容易的机会。"Make the change easy, then make the easy change."
 
-### 3. Draft vertical slices
+### 3. 起草垂直 slice
 
 把工作拆解为 **tracer bullet** 式的 ticket。
 
@@ -39,7 +39,7 @@ issue tracker 和 triage label 词汇表应该已经提供给你了——如果�
 
 **宽幅 refactor 是 vertical slicing 的例外。** **宽幅 refactor** 是这样一种机械式变更——重命名一个列、重新标注一个共享符号的类型——其**波及半径**扇形展开覆盖整个代码库，以至于单次编辑就会一次性弄坏成千上万个调用点，没有任何 vertical slice 能以 green 落地。不要硬把它塞进 tracer bullet；而是把它编排为 **expand–contract**。先 expand：在旧形式旁边加上新形式，让什么都不被弄坏。然后按波及半径确定批次大小（按包、按目录），分批迁移调用点，每一批都是它自己的 ticket、被 expand 所 block，由于旧形式仍然存在，批次与批次之间 CI 保持 green。最后 contract：一旦没有任何调用方残留，就删掉旧形式，放在一个被每一个 migrate 批次所 block 的 ticket 里。当连各批次都无法独自保持 green 时，保留这个序列，但让它们共享一个 integration 分支，这些批次全部 block 一个最终的 integrate-and-verify ticket——只有在那里才承诺 green。
 
-### 4. Quiz the user
+### 4. 追问用户
 
 把提议的拆解方案作为一个带编号的列表呈现出来。对每个 ticket，展示：
 
@@ -55,7 +55,7 @@ issue tracker 和 triage label 词汇表应该已经提供给你了——如果�
 
 反复迭代，直到用户认可这个拆解方案。
 
-### 5. Publish the tickets to the configured tracker
+### 5. 把 tickets 发布到配置好的 tracker
 
 发布已获认可的 ticket。**如何**发布取决于 `/setup-matt-pocock-skills` 所配置的 tracker——无论哪种情况 ticket 都是一样的，只有 blocking edge 的形态会变化：
 
@@ -83,20 +83,20 @@ issue tracker 和 triage label 词汇表应该已经提供给你了——如果�
 
 <issue-template>
 
-## Parent
+## 父级
 
 tracker 上父 issue 的一个引用（如果来源是一个已存在的 issue，否则省略本节）。
 
-## What to build
+## 要构建什么
 
 这个 ticket 让其跑通的端到端行为，从用户的视角描述——不是逐层的实现。
 
-## Acceptance criteria
+## 验收标准
 
 - [ ] Criterion 1
 - [ ] Criterion 2
 
-## Blocked by
+## 被阻塞于
 
 - 对每个 blocking ticket 的一个引用，或 "None — can start immediately"。
 

@@ -1,12 +1,12 @@
-# Writing Agent Briefs
+# 撰写 agent brief
 
 Agent brief 是在 GitHub issue 或 PR 转入 `ready-for-agent` 时发布在其上的一条结构化评论。它是 AFK agent 开展工作所依据的权威 spec。原始的 issue 正文和讨论只是上下文——agent brief 才是契约。
 
 Brief 要说明 **agent 应该做什么**，这一点在两种场景下都成立：对于 issue，是从零开始构建变更；对于 PR，是*在现有 diff 上*还需要做什么——完成它、补齐缺口、处理 review 意见。两种场景遵循相同的原则；下面的 PR 示例展示了其中的差异。
 
-## Principles
+## 原则
 
-### Durability over precision
+### 持久性优先于精确性
 
 Issue 可能会在 `ready-for-agent` 中停留数天甚至数周。在此期间代码库会发生变化。写 brief 时要确保即使文件被重命名、移动或 refactor，它依然有用。
 
@@ -16,7 +16,7 @@ Issue 可能会在 `ready-for-agent` 中停留数天甚至数周。在此期间�
 - **Don't** 引用行号
 - **Don't** 假设当前的实现结构会保持不变
 
-### Behavioral, not procedural
+### 行为式，而非过程式
 
 描述系统应该做**什么**，而不是**如何**实现。Agent 会重新探索代码库，并自行做出实现决策。
 
@@ -25,18 +25,18 @@ Issue 可能会在 `ready-for-agent` 中停留数天甚至数周。在此期间�
 - **Good:** "When a user runs `/triage` with no arguments, they should see a summary of issues needing attention"
 - **Bad:** "Add a switch statement in the main handler function"
 
-### Complete acceptance criteria
+### 完整的验收标准
 
 Agent 需要知道什么时候算完成。每个 agent brief 都必须有具体、可测试的验收标准。每条标准都应可独立验证。
 
 - **Good:** "Running `gh issue list --label needs-triage` returns issues that have been through initial classification"
 - **Bad:** "Triage should work correctly"
 
-### Explicit scope boundaries
+### 明确的范围边界
 
 说明什么不在范围内。这可以防止 agent 过度打磨（gold-plating），或对相邻功能做出假设。
 
-## Template
+## 模板
 
 ```markdown
 ## Agent Brief
@@ -67,9 +67,9 @@ Be specific about edge cases and error conditions.
 - Adjacent feature that might seem related but is separate
 ```
 
-## Examples
+## 示例
 
-### Good agent brief (bug)
+### 好的 agent brief（bug）
 
 ```markdown
 ## Agent Brief
@@ -104,7 +104,7 @@ and append "..." to indicate truncation.
 - Multi-line description support
 ```
 
-### Good agent brief (enhancement)
+### 好的 agent brief（增强）
 
 ```markdown
 ## Agent Brief
@@ -145,7 +145,7 @@ checked for matches.
 - Bug reports (only enhancement rejections go to `.out-of-scope/`)
 ```
 
-### Good agent brief (PR)
+### 好的 agent brief（PR）
 
 对于 PR，"Current behavior" 描述的是 diff 的状态，brief 要求 agent 完成或修复它，而不是从零构建。
 
@@ -182,7 +182,7 @@ is untouched when the flag is absent.
 - Changing the JSON shape of the success payload the PR already defined
 ```
 
-### Bad agent brief
+### 坏的 agent brief
 
 ```markdown
 ## Agent Brief

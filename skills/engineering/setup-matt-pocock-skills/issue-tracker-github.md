@@ -1,8 +1,8 @@
-# Issue tracker: GitHub
+# issue tracker：GitHub
 
 本 repo 的 issue 和 PRD 以 GitHub issue 的形式存在。所有操作都使用 `gh` CLI。
 
-## Conventions
+## 约定
 
 - **创建 issue**：`gh issue create --title "..." --body "..."`。多行 body 使用 heredoc。
 - **读取 issue**：`gh issue view <number> --comments`，用 `jq` 过滤评论，同时获取 label。
@@ -13,7 +13,7 @@
 
 从 `git remote -v` 推断 repo —— 在 clone 内部运行时 `gh` 会自动完成这件事。
 
-## Pull requests as a triage surface
+## 把 pull request 当作 triage 面
 
 **PR 作为请求入口：no。** _（如果本 repo 把外部 PR 当作功能请求，则设为 `yes`；`/triage` 会读取这个标志。）_
 
@@ -25,15 +25,15 @@
 
 GitHub 的 issue 和 PR 共用一个编号空间，所以光秃秃的 `#42` 可能是其中任何一种 —— 先用 `gh pr view 42` 解析，失败则回退到 `gh issue view 42`。
 
-## When a skill says "publish to the issue tracker"
+## 当某个 skill 说「发布到 issue tracker」
 
 创建一个 GitHub issue。
 
-## When a skill says "fetch the relevant ticket"
+## 当某个 skill 说「取用相关 ticket」
 
 运行 `gh issue view <number> --comments`。
 
-## Wayfinding operations
+## wayfinding 操作
 
 供 `/wayfinder` 使用。**map** 是单个 issue，以**子** issue 作为 ticket。
 

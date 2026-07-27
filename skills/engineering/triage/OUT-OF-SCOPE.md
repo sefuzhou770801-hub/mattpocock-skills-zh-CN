@@ -1,11 +1,11 @@
-# Out-of-Scope Knowledge Base
+# 范围之外知识库
 
 仓库中的 `.out-of-scope/` 目录保存被拒绝 feature request 的持久记录。它有两个用途：
 
 1. **Institutional memory** — 记录某个 feature 为何被拒绝，避免 issue 关闭后理由随之丢失
 2. **Deduplication** — 当新 issue 与既往拒绝相匹配时，skill 可以指出之前的决策，而不是重新争论一遍
 
-## Directory structure
+## 目录结构
 
 ```
 .out-of-scope/
@@ -16,7 +16,7 @@
 
 每个**概念**一个文件，而不是每个 issue 一个文件。多个请求同一件事的 issue 归入同一个文件。
 
-## File format
+## 文件格式
 
 文件应以轻松、可读的风格撰写——更像一份简短的 design document，而不是一条数据库记录。用段落、代码示例和例子把理由讲清楚，让第一次读到它的人也能理解并受用。
 
@@ -53,11 +53,11 @@ interface ThemeConfig {
 - #134 — "Dark theme option"
 ```
 
-### Naming the file
+### 给文件命名
 
 为概念使用简短、具描述性的 kebab-case 名称：`dark-mode.md`、`plugin-system.md`、`graphql-api.md`。名称应足够清晰，让浏览目录的人无需打开文件就能知道被拒绝的是什么。
 
-### Writing the reason
+### 写出理由
 
 理由应有实质内容——不是 "we don't want this"，而是说明为什么。好的理由会引用：
 
@@ -67,7 +67,7 @@ interface ThemeConfig {
 
 理由应当持久。避免引用临时性情况（"we're too busy right now"）——那不是真正的拒绝，而是延期。
 
-## When to check `.out-of-scope/`
+## 何时检查 `.out-of-scope/`
 
 在 triage 期间（Step 1: Gather context），读取 `.out-of-scope/` 中的所有文件。评估新 issue 时：
 
@@ -81,7 +81,7 @@ Maintainer 可能会：
 - **Reconsider** — 删除或更新该 out-of-scope 文件，issue 走正常 triage 流程
 - **Disagree** — 这些 issue 相关但彼此独立，继续正常 triage
 
-## When to write to `.out-of-scope/`
+## 何时写入 `.out-of-scope/`
 
 只有当一个 **enhancement**（而非 bug）被*拒绝*为 `wontfix` 时才写入。这对 enhancement PR 与对 issue 完全适用——被拒绝的 PR 同样记录在这里，以免同样的请求以新代码的形式再次出现。
 
@@ -96,7 +96,7 @@ Maintainer 可能会：
 5. 在 issue 上发布评论，说明决策并提及该 `.out-of-scope/` 文件
 6. 以 `wontfix` label 关闭 issue
 
-## Updating or removing out-of-scope files
+## 更新或移除范围之外的文件
 
 如果 maintainer 改变了对某个既往被拒绝概念的看法：
 

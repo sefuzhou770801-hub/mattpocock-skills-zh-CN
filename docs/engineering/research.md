@@ -20,7 +20,7 @@ npx skills update research
 
 当下一步是*弄清楚某件事*时使用它——一个 API 如何表现、一份 spec 实际说了什么、某个说法是否成立——而你不想为了做这些阅读而卡住自己的 thread。要通过访谈而非阅读来打磨一份计划，用 [grilling](https://aihero.dev/skills-grilling)；要用 throwaway code 探索该构建什么，用 [prototype](https://aihero.dev/skills-prototype)。
 
-## Delegated legwork
+## 委派的 legwork
 
 它的标志性动作是：阅读以 **background agent** 的形式运行。你继续工作；它离开去把每条说法追溯回其 primary source，然后把一份带引用的 Markdown 文件放进 repo 存放此类笔记的地方。Research 是你委派出去的 legwork，而不是你外包出去的思考——你拿回的是一份可供你回应的文档，附带它的来源。
 

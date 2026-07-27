@@ -7,7 +7,7 @@ description: 构建一个一次性 prototype 来回答一个设计问题。适�
 
 Prototype 是**用来回答一个问题的 throwaway code**。问题决定了它的形态。
 
-## Pick a branch
+## 选一个分支
 
 识别正在回答的是哪个问题——从用户的 prompt、周围的代码中判断，或者在用户在线时直接询问：
 
@@ -16,7 +16,7 @@ Prototype 是**用来回答一个问题的 throwaway code**。问题决定了它
 
 这两个分支会产出非常不同的 artifact——选错会浪费整个 prototype。如果问题确实含糊且用户联系不上，就默认选择与周围代码更匹配的那个分支（backend module → logic；page 或 component → UI），并在 prototype 顶部说明这一假设。
 
-## Rules that apply to both
+## 对两者都适用的规则
 
 1. **从第一天起就是 throwaway，并且明确如此标记。** 把 prototype 代码放在它实际会被使用的地方附近（紧挨着它所 prototype 的 module 或 page），这样上下文一目了然——但命名要让随手一读的读者能看出它是 prototype，而不是 production。对于 throwaway 的 UI 路由，遵守项目已经在用的路由约定；不要发明一套新的顶层结构。
 2. **一条命令即可运行。** 用项目现有 task runner 所支持的任何方式——`pnpm <name>`、`python <path>`、`bun <path>` 等等。用户必须能不假思索地启动它。

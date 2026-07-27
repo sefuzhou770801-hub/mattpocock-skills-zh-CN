@@ -22,7 +22,7 @@ npx skills update tdd
 
 当有一个具体的 behavior 要构建、并且你希望 tests 能在一次 refactor 后存活下来时，使用它。如果 behavior 还没有钉死，那就先把 spec 定下来——为此使用 [to-spec](https://aihero.dev/skills-to-spec)。当工作真正关乎的是 interface 的形状而非 tests 时，使用 [codebase-design](https://aihero.dev/skills-codebase-design)；`tdd` 在 planning 期间会调用它来获取 deep-module 的词汇。
 
-## Red-green, one slice at a time
+## red-green，一次一个 slice
 
 主导思想是 **red-green loop**：写一个 failing test（red），加上刚好足够通过它的代码（green），然后为下一个 behavior 重复——每一个 cycle 都基于上一个 cycle 教会你的东西。第一个 cycle 是一颗 **tracer bullet**：一个证明单条路径 end-to-end 可用的 test，然后你才从它向外构建。因为代码是你刚写的，你确切地知道哪个 behavior 重要、如何验证它——你永远不会因为承诺了一个自己尚未理解的 test 结构而冲出车灯照亮的范围。
 

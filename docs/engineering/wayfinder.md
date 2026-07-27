@@ -24,7 +24,7 @@ npx skills update wayfinder
 
 Map 及其 tickets 位于 repo 的 issue tracker 上，因此 wayfinder 需要 [setup-matt-pocock-skills](https://aihero.dev/skills-setup-matt-pocock-skills) 铺设的 tracker wiring——它会播种一个 “Wayfinding operations” 小节，描述 map、child tickets、blocking 和 frontier queries 在 GitHub、GitLab 或 local-markdown 上如何表达。缺少那份文档时，wayfinder 默认使用 local-markdown map。
 
-## The map is an index, fog is the frontier
+## 地图是索引，迷雾是前沿
 
 **Map** 是一个单一的 `wayfinder:map` issue，其 tickets 是它的 child issues——一个整个团队都能关注的共享 URL。它是一个 **index, not a store**：每个 decision 恰好存在于一个地方（它的 ticket），map 只做摘要和链接，绝不复述。一个 session 以低分辨率加载 map，并按需放大到各个 ticket。
 

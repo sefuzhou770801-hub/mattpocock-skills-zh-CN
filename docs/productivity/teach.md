@@ -34,11 +34,11 @@ npx skills update teach
 - `./assets/*`——可复用的组件（首先是一份共享的 stylesheet），好让课程看起来像同一门课。
 - `NOTES.md`——你的教学偏好。
 
-## Mission, and the zone of proximal development
+## 使命，以及最近发展区
 
 每一节课都挂在 **mission** 之下。没有它，知识就没有可以附着的东西，课程也会显得抽象——所以 mission 是 `teach` 首先确定下来的东西，并会随着你的成长不断更新。从 mission 和你的 learning records 出发，它计算出你的 **zone of proximal development**（最近发展区）：下一节课应当*恰好*挑战你到足够的程度，不多也不少。
 
-## Storage strength, not fluency
+## 存储强度，而非流畅度
 
 用来思考的词是 **storage strength**——长期保持——与之相对的是 **fluency**，那种当下的、感觉像精通但其实不是的即时回忆。`teach` 通过 desirable difficulty 刻意地构建前者：retrieval practice、spacing 和 interleaving。知识先被教授（在这里难度是敌人），然后 skills 通过一个紧密的反馈 loop 被反复操练（在这里难度是工具）。
 

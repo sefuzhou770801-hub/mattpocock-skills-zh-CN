@@ -26,11 +26,11 @@ npx skills update triage
 
 `triage` 会读写你的 issue tracker，因此 [setup-matt-pocock-skills](https://aihero.dev/skills-setup-matt-pocock-skills) 必须先配置好 tracker 和 label 映射。上面的 role 名称是 **canonical** 的——你 tracker 中实际的 label 字符串可能不同，而那份映射正是 setup 所提供的。Config 还决定了外部 PRs 是否算作一个 request surface，以及谁算作 external。
 
-## A PR is an issue with attached code
+## PR 就是附带代码的 issue
 
 在 tracker 把外部 pull requests 当作一个 request surface 的地方，`triage` 会让它们经过*同一台*机器：相同的 category roles、相同的 states、相同的 transitions——只不过 states 是对着 diff 而非 report 来读。`ready-for-agent` 意味着已经附上一份 brief、agent 应该对代码采取下一步；`ready-for-human` 意味着它已经可以合并。Discovery 只呈现外部 PRs，但一个被明确点名的 PR 无论作者是谁都会被 triage。
 
-## Verify before you brief
+## 先核实，再写 brief
 
 把 `triage` 与随手打 label 区分开来的那一步，是 verification。它会从 reporter 的步骤复现 bug，或者 checkout PR 并运行 tests，然后回报：已确认并附上代码路径、失败，或细节不足（这本身就是一个强烈的 `needs-info` 信号）。它还会运行两项 codebase 检查——**redundancy**（这是否已经实现了？如果是，那就是 `wontfix`）和 **prior rejection**（`.out-of-scope/` 是否已经说过 no？）。一次已确认的 verification 会构成一份强得多的 agent brief；猜测则不会。
 

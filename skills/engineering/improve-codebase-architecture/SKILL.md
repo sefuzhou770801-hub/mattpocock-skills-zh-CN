@@ -4,7 +4,7 @@ description: 扫描代码库中的 deepening 机会，将其呈现为可视化 H
 disable-model-invocation: true
 ---
 
-# Improve Codebase Architecture
+# 改进 codebase 架构
 
 暴露架构上的摩擦，并提出 **deepening opportunities**——把 shallow module 变成 deep module 的 refactor。目标是可测试性与 AI 可导航性。
 
@@ -13,9 +13,9 @@ disable-model-invocation: true
 - 运行 `/codebase-design` skill 以获取架构词汇（**module**、**interface**、**depth**、**seam**、**adapter**、**leverage**、**locality**）及其原则（deletion test、"the interface is the test surface"、"one adapter = hypothetical seam, two = real"）。在每一条建议中都精确使用这些术语——不要漂移到 "component"、"service"、"API" 或 "boundary"。
 - `CONTEXT.md` 中的领域语言为好的 seam 命名；`docs/adr/` 中的 ADR 记录了本命令不应重新争论的决策。
 
-## Process
+## 流程
 
-### 1. Explore
+### 1. 探索
 
 **先划定范围再扫描——YAGNI。** Deepening 一个 module 的回报在于让它未来的修改更容易，所以要给代码库中最近发生变化的部分更多权重。在查看之前先决定*去哪里*看：
 
@@ -34,7 +34,7 @@ disable-model-invocation: true
 
 对你怀疑是 shallow 的任何东西应用 **deletion test**：删掉它会让复杂度集中，还是仅仅把它挪走？"yes, concentrates" 才是你想要的信号。
 
-### 2. Present candidates as an HTML report
+### 2. 把候选呈现为一份 HTML report
 
 把一个自包含的 HTML 文件写到操作系统的临时目录，这样就不会有任何东西落进仓库。从 `$TMPDIR` 解析临时目录，回退到 `/tmp`（Windows 上为 `%TEMP%`），并写入 `<tmpdir>/architecture-review-<timestamp>.html`，让每次运行都得到一个全新文件。为用户打开它——Linux 上用 `xdg-open <path>`，macOS 上用 `open <path>`，Windows 上用 `start <path>`——并告诉他们绝对路径。
 
@@ -59,7 +59,7 @@ disable-model-invocation: true
 
 现在不要提出 interface。文件写完后，询问用户："Which of these would you like to explore?"
 
-### 3. Grilling loop
+### 3. grilling 循环
 
 一旦用户选定一个候选项，就运行 `/grilling` skill，与他们一起走查决策树——约束、依赖、deepened module 的形态、seam 背后放着什么、哪些 test 能存活下来。
 

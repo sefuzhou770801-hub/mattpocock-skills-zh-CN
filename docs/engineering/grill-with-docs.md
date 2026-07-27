@@ -26,7 +26,7 @@ npx skills update grill-with-docs
 
 这个 skill 是有状态的——它在 grilling 的同时写入你的 repo。已敲定的术语落入根目录的一份 `CONTEXT.md` glossary（或者，如果一个 `CONTEXT-MAP.md` 标记了多 context 仓库，则落入相关 context 的 `CONTEXT.md`），而真正难以逆转的决策则作为 ADRs 落入 `docs/adr/` 之下。两者都是惰性创建的——在第一个术语或决策成形之前什么都不存在——所以你不需要事先搭建任何脚手架，但你确实需要身处一个可以安全写入这些文件的地方。
 
-## The grill
+## 这场 grill
 
 引擎是一个 **grill**：沿着决策树 relentless 地、一次一个问题地行进，在继续之前先解决决策之间的依赖，并为每个问题提供一个推荐答案。codebase 能回答的问题，会通过阅读 codebase 来回答，而不是来问你。
 

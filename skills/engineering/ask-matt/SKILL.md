@@ -4,13 +4,13 @@ description: 询问当前情境适合哪个 skill 或 flow。它是本仓库所�
 disable-model-invocation: true
 ---
 
-# Ask Matt
+# 问 Matt
 
 你不可能记住每个 skill，所以直接问。
 
 **flow** 是穿过这些 skills 的一条路径。大多数路径都沿着一条 **main flow** 前进，有两条 **on-ramp** 会汇入它。其余的要么是 standalone，要么是在底层运行的 vocabulary layer。
 
-## The main flow: idea → ship
+## 主流程：idea → ship
 
 大多数工作所走的路线。你有一个想法，想把它构建出来。
 
@@ -25,13 +25,13 @@ disable-model-invocation: true
 
    无论哪种情况，**`/implement`** 都会在内部驱动 **`/tdd`** 来构建每个 issue — 一次一个 red-green slice — 然后在提交前运行 **`/code-review`** 收尾，对 diff 做一次双轴（Standards + Spec）review。当你只想 test-first 地构建一个具体行为、而不需要完整 spec 时，单独使用 **`/tdd`**；当你想针对一个固定点 review 某个 branch 或 PR 时，随时单独使用 **`/code-review`**。
 
-### Context hygiene
+### context 卫生
 
 把步骤 1–3 保持在**一个不间断的 context window** 里 — 在 `/to-tickets` 之前不要 compact 或清空 — 这样 grilling、spec 和 tickets 都建立在同一套思考之上。之后每个 `/implement` 都全新开始，只依据 ticket 工作。
 
 这件事的上限是 **[smart zone](https://www.aihero.dev/ai-coding-dictionary/smart-zone)**：即模型仍能敏锐推理的那个窗口（在最先进的模型上约 120k tokens）。如果某个 session 在 `/to-tickets` 之前就逼近它，不要在降级状态下硬撑 — 用 `/handoff`，在一个新 thread 里继续。
 
-## On-ramps
+## 入口
 
 一种会产生工作、然后汇入 main flow 的起始情境。
 
@@ -45,25 +45,25 @@ disable-model-invocation: true
 
   当地图变得清晰时，**它做的是交接，而不是构建**：在 **`/to-spec`** 处汇入 main flow，由它把地图上相互链接的 decisions 收敛成一份可构建的计划，然后照常 `/to-tickets` 和 `/implement`。把地图直接绕进 `/implement` 会跳过那次收敛，把链接的细节丢掉 — 只有当这项工程结果确实很小时，才直接去 `/implement`。
 
-## Codebase health
+## codebase 健康
 
 不是 feature 工作 — 而是维护。
 
 - **`/improve-codebase-architecture`** — 只要你有一点空闲，就运行它，让 codebase 保持适合 agent 在其中运作。它会浮现出**深化机会**；选中其中一个，就会_产生一个 idea_，你可以把它带进 `/grill-with-docs` 的 main flow。它是发现候选者的勘察；而 **`/codebase-design`**（见下文）则是你在其上设计所选方案的工作台。
 
-## Vocabulary underneath
+## 底下的词汇
 
 两个由 model 调用的参考，运行在其他 skills _之下_ — 每一个都是其词汇表的唯一事实来源。当问题出在**措辞**而非流程上时，直接使用它们；或者让上面的 skills 把它们拉进来。
 
 - **`/domain-modeling`** — 打磨项目的 *domain* 语言：质疑一个含糊的术语，解决一个过载的词（“account” 身兼三职），把一个难以逆转的决定记录成 ADR。它是 `/grill-with-docs` 所驱动的那门主动纪律，用来让 `CONTEXT.md` 保持为一部干净的术语表。
 - **`/codebase-design`** — deep-module 的词汇表（module、interface、depth、seam、adapter、leverage、locality），用于设计一个 module 的_形状_：在一个干净的 seam 后面，用一个小 interface 承载大量行为。`/tdd` 和 `/improve-codebase-architecture` 都说这门语言。
 
-## Crossing sessions
+## 跨越 sessions
 
 - **`/handoff`** — 当一个 thread 满了，或你需要分叉出去（例如进入一个 `/prototype` session）时，它会把对话压缩进一个 markdown 文件。你不会原地继续 — 而是**开一个新 session 并引用那个文件**，把 context 带过去。它是 context window 之间的桥梁，两个方向都行。当你想要一个**全新的 session**、但又需要**保留当前对话**时使用它。
 - **`/compact`**（内置）— 留在**同一个对话**里，让较早的轮次被摘要。在**阶段之间有意的停顿处**使用它，此时你不介意丢掉逐字的历史。不要在一个阶段进行到一半时 compact — agent 会迷失方向。`/handoff` 分叉；`/compact` 继续。
 
-## Standalone
+## standalone
 
 完全脱离 main flow。
 
@@ -73,6 +73,6 @@ disable-model-invocation: true
 - **`/teach`** — 跨多个 session 学习一个概念，把当前目录当作一个 stateful 的工作区。
 - **`/writing-great-skills`** — 关于如何写好和编辑好 skills 的参考。
 
-## Precondition
+## 前置条件
 
 **`/setup-matt-pocock-skills`** — 在你的第一个工程 flow 之前运行它，配置好其他 skills 所假定的 issue tracker、triage labels 和文档布局。自定义的 issue tracker 也可以。

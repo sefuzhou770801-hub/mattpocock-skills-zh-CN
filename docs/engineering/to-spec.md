@@ -26,7 +26,7 @@ npx skills update to-spec
 
 `to-spec` 会发布到你的 issue tracker，因此 [setup-matt-pocock-skills](https://aihero.dev/skills-setup-matt-pocock-skills) 必须先为这个 repo 配置好 tracker 和 triage labels。它自行应用 `ready-for-agent` label——不需要单独的 triage 环节。
 
-## What the spec includes
+## 这份 spec 包含什么
 
 - **Problem statement** — 用项目自己的词汇说明什么坏了或缺失了，以及为什么值得解决。
 - **Solution** — 高层的修复形状，先于任何 implementation detail。
@@ -36,7 +36,7 @@ npx skills update to-spec
 - **Out-of-scope items** — 这个 change 刻意*不*覆盖的内容，以让 ticket 保持有界。
 - **Further notes** — 其他值得延续、但不适合上面各小节的内容。
 
-## Deep modules
+## deep modules
 
 在写 spec 之前，`to-spec` 会勾勒 feature 将被测试的 **seams**，并寻找 **deep module** 的机会——大量功能藏在一个小而稳定的 interface 之后。它优先使用 existing seams 而非新建，并尽可能使用最高的 seam，理想情况下整个 change 只有一个。
 

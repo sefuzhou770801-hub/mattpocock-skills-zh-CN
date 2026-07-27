@@ -1,4 +1,4 @@
-# Explicit `/setup-matt-pocock-skills` pointer only for hard dependencies
+# 只为 hard dependency 放置显式的 `/setup-matt-pocock-skills` 指针
 
 Engineering skills 依赖由 `/setup-matt-pocock-skills` 播种的 per-repo 配置（issue tracker、triage label vocabulary、domain doc 布局）。有些 skill 没有这些配置就无法正常工作——它们必须发布到特定的 issue tracker，或套用特定的 label 字符串。另一些 skill 只是用它来打磨输出（vocabulary、ADR awareness），没有它也能优雅降级。
 

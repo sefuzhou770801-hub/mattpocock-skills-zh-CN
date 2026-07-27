@@ -1,8 +1,8 @@
-# GLOSSARY.md Format
+# GLOSSARY.md 格式
 
 `GLOSSARY.md` 是这个 teaching workspace 的规范语言。所有的 explainers、exercises 和 learning records 都应当遵守它的术语。构建它本身就是学习的一部分：把一个概念压缩成一条紧凑的定义，正是用户理解了它的证据。
 
-## Structure
+## 结构
 
 ```md
 # {Topic} Glossary
@@ -24,7 +24,7 @@ A 1–10 self-rating of how hard a set felt, where 10 is failure and 8 means two
 _Avoid_: Effort score, intensity rating
 ```
 
-## Rules
+## 规则
 
 - **只有当用户理解了某个术语，才添加它。** Glossary 是对压缩后知识的记录，而不是供用户阅读学习的词典。如果用户刚刚接触一个概念，要等到他们能够正确使用它之后，再把它提升到这里。
 - **要有主见。** 当同一个概念有多个说法时，挑出最好的那个，把其余的列为应当避免的别名。语言就是这样压缩的。

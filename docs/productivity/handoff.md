@@ -22,7 +22,7 @@ npx skills update handoff
 
 当一场对话已经长到它的 context 岌岌可危时——你快要触及 context 上限、准备收工、或者有意把工作交给另一个 agent——就用它，好让这条 thread 被保存下来，而不必拖着整份 transcript 一起走。
 
-## What the document carries
+## 这份文档承载什么
 
 - **Live thread**——用对话自己的措辞，说明什么事情正在进行中、为什么，并减去任何已经在别处写下来的内容。
 - **Suggested skills**——一个指针，指向下一个 agent 应该调用哪些 skills 来继续。

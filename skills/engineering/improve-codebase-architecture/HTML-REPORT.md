@@ -1,8 +1,8 @@
-# HTML Report Format
+# HTML report 格式
 
 架构评审被渲染为操作系统临时目录中的单个自包含 HTML 文件。Tailwind 和 Mermaid 都来自 CDN。Mermaid 能可靠地处理图形类图表；手写的 div 和内联 SVG 则负责更具编辑感的视觉元素（质量图、剖面图）。两者混用 —— 不要什么都依赖 Mermaid，否则它会开始显得千篇一律。
 
-## Scaffold
+## 脚手架
 
 ```html
 <!doctype html>
@@ -33,11 +33,11 @@
 </html>
 ```
 
-## Header
+## 头部
 
 repo 名称、日期，以及一个紧凑的图例：实线框 = module，虚线 = seam，红色箭头 = leakage，深色粗框 = deep module。不要引言段落 —— 直接进入各个候选。
 
-## Candidate card
+## 候选卡片
 
 图表承担主要分量。文字要稀疏、平实，并且不加修饰地使用术语表中的词（来自 `/codebase-design` skill）。
 
@@ -54,7 +54,7 @@ repo 名称、日期，以及一个紧凑的图例：实线框 = module，虚线
 
 不要写解释性段落。如果一张图需要一段话才能看懂，那就重画这张图。
 
-## Diagram patterns
+## 图示模式
 
 挑选适合该候选的模式。混用它们。不要让每张图看起来都一样 —— 多样性本身就是要点的一部分。
 
@@ -91,7 +91,7 @@ repo 名称、日期，以及一个紧凑的图例：实线框 = module，虚线
 
 Before：一棵函数调用树，渲染成嵌套的方框。After：同一棵树坍缩成一个方框，如今已成为内部的调用在其中以淡化方式显示。
 
-## Style guidance
+## 样式指引
 
 - 偏向编辑感，而不是企业仪表盘。留白要大方。标题可选用衬线体（`font-serif` 与 stone/slate 很搭）。
 - 用色要克制：一个强调色（emerald 或 indigo），外加红色表示 leakage、amber 表示警告。
@@ -99,11 +99,11 @@ Before：一棵函数调用树，渲染成嵌套的方框。After：同一棵树
 - 图表内部的 module 标签用 `text-xs uppercase tracking-wider` —— 它们应该读起来像示意图，而不是像 UI。
 - 唯一的脚本就是 Tailwind CDN 和 Mermaid ESM 导入。报告其余部分是静态的 —— 没有应用代码，除了 Mermaid 自身的渲染之外没有交互。
 
-## Top recommendation section
+## 顶部推荐区
 
 一张更大的卡片。候选名称、一句话说明理由、指向其卡片的锚点链接。就这些。
 
-## Tone
+## 语气
 
 平实的英文，简洁 —— 但架构名词和动词直接取自 `/codebase-design` skill。简洁不是术语漂移的借口。
 

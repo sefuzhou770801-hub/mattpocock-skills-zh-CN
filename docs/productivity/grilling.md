@@ -22,11 +22,11 @@ npx skills update grilling
 
 当计划或设计仍有软肋、你想在写代码之前把它们暴露出来时，就用它。实践中你通常通过它的两个 wrapper 之一来调用，而不是直接点名：纯 grilling session 用 [grill-me](https://aihero.dev/skills-grill-me)；想让 session 在过程中同时写出 ADR 和 glossary，用 [grill-with-docs](https://aihero.dev/skills-grill-with-docs)。
 
-## The decision tree
+## 这棵 decision tree
 
 心智模型是一棵 **decision tree**：每个计划都会分支成若干 decisions，而 decisions 之间相互依赖。`grilling` 一次下降一个节点，因此早期的答案能够重塑接下来会出现哪些问题。这正是问题逐个出现、并按依赖顺序排列的原因——并行问题的“消防水龙”会丢掉让访谈收敛到共同理解的那个结构。
 
-## Pulled out on purpose
+## 刻意抽出
 
 `grilling` 是这套访谈技术的 **single source of truth**，被拆出来作为一个 model-invoked **primitive**，让每一个需要访谈的 skill 都能调用它，而不必各自重新发明一套。[grill-me](https://aihero.dev/skills-grill-me) 和 [grill-with-docs](https://aihero.dev/skills-grill-with-docs) 是它的两个 user-invoked 前门，但 [improve-codebase-architecture](https://aihero.dev/skills-improve-codebase-architecture) 和 [triage](https://aihero.dev/skills-triage) 也依赖它来 pressure-test 它们自己的 decisions。
 

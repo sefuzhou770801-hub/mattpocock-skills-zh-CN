@@ -12,9 +12,9 @@ description: 从一个固定点（commit、branch、tag 或 merge-base）开始�
 
 issue tracker 应该已经提供给你了 — 如果 `docs/agents/issue-tracker.md` 缺失，请运行 `/setup-matt-pocock-skills`。
 
-## Process
+## 流程
 
-### 1. Pin the fixed point
+### 1. 钉住固定点
 
 无论用户说的是什么，那就是固定点 — 一个 commit SHA、branch 名、tag、`main`、`HEAD~5` 等等。如果他们没指定，就问。
 
@@ -22,7 +22,7 @@ issue tracker 应该已经提供给你了 — 如果 `docs/agents/issue-tracker.
 
 在继续之前，确认固定点可以解析（`git rev-parse <fixed-point>`）且 diff 非空。一个坏的 ref 或空 diff 应该在这里就失败 — 而不是在两个并行的 sub-agent 里面。
 
-### 2. Identify the spec source
+### 2. 确定 spec 来源
 
 按以下顺序寻找来源 spec：
 
@@ -31,7 +31,7 @@ issue tracker 应该已经提供给你了 — 如果 `docs/agents/issue-tracker.
 3. `docs/`、`specs/` 或 `.scratch/` 下与 branch 名或 feature 匹配的 PRD/spec 文件。
 4. 如果什么都没找到，就问用户 spec 在哪里。如果他们说没有，**Spec** sub-agent 就跳过，并报告 “no spec available”。
 
-### 3. Identify the standards sources
+### 3. 确定标准来源
 
 仓库中任何记录了代码应如何编写的东西，例如 `CODING_STANDARDS.md` 或 `CONTRIBUTING.md`。
 
@@ -55,7 +55,7 @@ issue tracker 应该已经提供给你了 — 如果 `docs/agents/issue-tracker.
 - **Middle Man** — 一个基本上只是向下委派的类或函数。→ 砍掉它，直接调用真正的目标。
 - **Refused Bequest** — 一个子类或实现者忽略或覆盖了它所继承的大部分内容。→ 放弃继承，改用组合。
 
-### 4. Spawn both sub-agents in parallel
+### 4. 并行派发两个 sub-agents
 
 发送一条包含两个 `Agent` 工具调用的消息。两者都使用 `general-purpose` subagent。
 
@@ -73,13 +73,13 @@ issue tracker 应该已经提供给你了 — 如果 `docs/agents/issue-tracker.
 
 如果 spec 缺失，跳过 Spec sub-agent，并在最终报告中注明这一点。
 
-### 5. Aggregate
+### 5. 汇总
 
 把两份报告分别呈现在 `## Standards` 和 `## Spec` 标题下，逐字保留或只做轻微清理。**不要**合并或重新排序发现 — 两条轴线是刻意分开的（见 _Why two axes_）。
 
 以一行总结收尾：每条轴线的发现总数，以及_每条轴线内部_最严重的问题（如果有）。不要跨轴线挑出一个唯一的赢家 — 那正是这种分离所要防止的重新排序。
 
-## Why two axes
+## 为什么是两条轴
 
 一个变更可能通过一条轴线却在另一条上失败：
 

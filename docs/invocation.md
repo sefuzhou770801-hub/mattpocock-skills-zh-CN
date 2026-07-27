@@ -1,4 +1,4 @@
-# Model-invoked 与 user-invoked
+# 模型触发与用户触发
 
 本仓库中的每个 `SKILL.md` 都是一个 skill。它们只按一个维度区分：**invocation**，也就是谁能调用它：
 

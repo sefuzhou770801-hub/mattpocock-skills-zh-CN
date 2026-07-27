@@ -22,7 +22,7 @@ npx skills update diagnosing-bugs
 
 在那些难啃的问题上使用它：一眼看不出的 bug、间歇性的 flake、在两个 known-good states 之间悄悄潜入的 regression。如果只是想快速做一个用完即弃的东西来检验一个设计问题，而不是追查一个缺陷，请改用 [prototype](https://aihero.dev/skills-prototype)。
 
-## The tight loop is the skill
+## 这个 tight loop 就是 skill 本身
 
 其他一切——bisection、hypothesis-testing、instrumentation——一旦你有了信号就都是机械操作。所以本 skill 在 Phase 1 上投入了不成比例的精力：构建一个 pass/fail 命令，它驱动真正的 bug 代码路径并断言用户的确切症状，然后**收紧**它，直到它快速、确定、并且可由 agent 运行。一个 30 秒的 flaky loop 几乎和没有一样糟；一个 2 秒的确定性 loop 则是调试超能力。
 

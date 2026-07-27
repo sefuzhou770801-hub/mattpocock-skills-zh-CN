@@ -22,7 +22,7 @@ npx skills update setup-matt-pocock-skills
 
 **每个 repo 使用一次，在首次使用任何其他 engineering skill 之前**。如果 [triage](https://aihero.dev/skills-triage)、[to-spec](https://aihero.dev/skills-to-spec) 或 [to-tickets](https://aihero.dev/skills-to-tickets) 开始猜测你的 issues 放在哪里，或套用并不存在的 labels，说明它们还没有在这里完成配置。只有在切换 issue tracker 或想从头来过时才重新运行——日常的微调只是编辑 `docs/agents/*.md`。
 
-## The three decisions
+## 这三个决策
 
 它为每一项都先给出一个推荐答案，你可以一个词就接受，并跳过它已经能推断出的内容——所以大多数运行只是几次快速确认：
 

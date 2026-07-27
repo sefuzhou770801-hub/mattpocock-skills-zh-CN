@@ -1,10 +1,10 @@
-# ADR Format
+# ADR 格式
 
 ADR 存放在 `docs/adr/` 中，使用连续编号：`0001-slug.md`、`0002-slug.md`，依此类推。
 
 `docs/adr/` 目录延迟创建 —— 只有在需要第一个 ADR 时才创建。
 
-## Template
+## 模板
 
 ```md
 # {Short title of the decision}
@@ -14,7 +14,7 @@ ADR 存放在 `docs/adr/` 中，使用连续编号：`0001-slug.md`、`0002-slug
 
 就是这样。一个 ADR 可以只是一段话。价值在于记录*做出了*某个决策以及*为什么* —— 而不在于填满各个章节。
 
-## Optional sections
+## 可选小节
 
 只有在它们确实增加价值时才加入。大多数 ADR 用不到它们。
 
@@ -22,11 +22,11 @@ ADR 存放在 `docs/adr/` 中，使用连续编号：`0001-slug.md`、`0002-slug
 - **Considered Options** —— 只有当被否决的备选方案值得记住时才写
 - **Consequences** —— 只有当需要点明不明显的下游影响时才写
 
-## Numbering
+## 编号
 
 扫描 `docs/adr/` 中现有的最大编号，然后加一。
 
-## When to offer an ADR
+## 何时提供一份 ADR
 
 以下三条必须全部成立：
 
@@ -36,7 +36,7 @@ ADR 存放在 `docs/adr/` 中，使用连续编号：`0001-slug.md`、`0002-slug
 
 如果一个决策容易逆转，就跳过它 —— 到时候直接逆转就好。如果它并不令人意外，就没人会纳闷为什么。如果没有真正的备选方案，那除了 "we did the obvious thing" 之外没什么可记录的。
 
-### What qualifies
+### 什么算数
 
 - **架构形态。** "We're using a monorepo." "The write model is event-sourced, the read model is projected into Postgres."
 - **context 之间的集成模式。** "Ordering and Billing communicate via domain events, not synchronous HTTP."

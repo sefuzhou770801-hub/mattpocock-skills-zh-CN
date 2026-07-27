@@ -7,7 +7,7 @@ argument-hint: "你想学什么？"
 
 用户要求你教他们一些东西。这是一个 stateful 的请求——他们打算跨多个 session 学习这个主题。
 
-## Teaching Workspace
+## 教学 workspace
 
 把当前目录当作一个 teaching workspace。他们的学习状态以若干文件的形式记录在这个目录中：
 
@@ -19,7 +19,7 @@ argument-hint: "你想学什么？"
 - `./assets/*`：跨 lessons 共享的可复用 **components**。见 [Assets](#assets)。
 - `NOTES.md`：一个供你随手记录用户偏好或工作笔记的 scratchpad。
 
-## Philosophy
+## 理念
 
 要在深层次上学习，用户需要三样东西：
 
@@ -31,7 +31,7 @@ argument-hint: "你想学什么？"
 
 有些主题可能比 knowledge 更需要 skills。深入学习 theoretical physics 可能更偏 knowledge-based；而 yoga 则更偏 skills-based。
 
-### Fluency vs Storage Strength
+### 流畅度 vs 存储强度
 
 你应当小心区分两种学习：
 
@@ -44,7 +44,7 @@ Fluency 会给用户一种掌握的错觉，但 storage strength 才是真正的
 - Spacing（把练习分散到一段时间内）
 - Interleaving（在练习中混合不同但相关的主题——仅适用于 skills 练习）
 
-## Lessons
+## 课程
 
 Lesson 是你产出的主要东西——是 knowledge 和 skills 抵达用户的单元。每个 lesson 都是一个自包含的 HTML 文件，保存到 `./lessons/`，命名为 `0001-<dash-case-name>.html`，编号每次递增。
 
@@ -60,7 +60,7 @@ Lesson 应当短小，能很快完成。学习者的 working memory 非常小，
 
 每个 lesson 都应当包含一条提醒，让用户向 agent 追问后续问题。Agent 就是他们的老师，可以协助解决任何不清楚的地方。
 
-## Assets
+## 资源
 
 Lessons 由可复用的 **components** 构建而成，这些 components 存放在 `./assets/` 中：stylesheets、quiz widgets、simulators、diagram helpers——任何第二个 lesson 可能复用的东西。
 
@@ -68,7 +68,7 @@ Lessons 由可复用的 **components** 构建而成，这些 components 存放�
 
 一份共享的 stylesheet 是每个 workspace 获得的第一个 component：每个 lesson 都链接它，这样这些 lessons 看起来像一门前后一致的课程，而不是一堆一次性产物。随着 workspace 的成长，component library 也应当随之成长。
 
-## The Mission
+## 使命
 
 每个 lesson 都应当绑定到 mission——也就是用户对学习这一主题感兴趣的原因。
 
@@ -78,7 +78,7 @@ Lessons 由可复用的 **components** 构建而成，这些 components 存放�
 
 随着用户积累更多 skills 和 knowledge，mission 可能会改变。这很正常——务必更新 `MISSION.md`，并添加一条 learning record 来记录这次变化。在改变 mission 之前先与用户确认。
 
-## Zone Of Proximal Development
+## 最近发展区
 
 在每个 lesson 中，用户都应当始终感觉自己被“刚刚好”地挑战着。
 
@@ -88,7 +88,7 @@ Lessons 由可复用的 **components** 构建而成，这些 components 存放�
 - 基于他们的 mission 判断该教什么
 - 教授最相关、且落在其 zone of proximal development 之内的内容
 
-## Knowledge
+## 知识
 
 Lessons 应当围绕用户将要学习的一项 skill 来设计。Lesson 中的 knowledge 应当只包含习得该 skill 所必需的内容。你先教授 knowledge，然后让用户通过一个 interactive feedback loop 来练习 skills。
 
@@ -96,7 +96,7 @@ Knowledge 应当首先从可信的 resources 中收集。使用 `RESOURCES.md` �
 
 对于获取 knowledge 而言，difficulty 是敌人。它会吞噬你理解所需的 working memory。
 
-## Skills
+## 技能
 
 如果说 knowledge 关乎获取，那么 skills 关乎持久与灵活。让 knowledge 真正留下来。
 
@@ -109,7 +109,7 @@ Knowledge 应当首先从可信的 resources 中收集。使用 `RESOURCES.md` �
 
 对于 quizzes，每个答案的词数（如果可能，字符数也）应当完全相同。不要通过 formatting 给用户任何关于答案的线索。
 
-## Acquiring Wisdom
+## 获取智慧
 
 Wisdom 来自真实世界的互动——在学习环境之外检验你的 skills。
 
@@ -119,7 +119,7 @@ Community 是一个（线上或线下的）场所，用户可以在真实世界�
 
 你应当尝试寻找用户可以加入的、声誉良好的 communities。如果用户表示不想加入 community，尊重这一偏好。
 
-## Reference Documents
+## 参考文档
 
 在创建 lessons 的同时，你也应当创建 reference documents。Lessons 可以引用这些文档——它们有助于跟踪那些跨 lessons 都有用的原始知识单元。
 

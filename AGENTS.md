@@ -28,3 +28,15 @@ Skills 按 bucket folder 组织在 `skills/` 下：
 ## 翻译刷新
 
 从 `mattpocock/skills` 刷新上游内容时，改文件前先使用 `.skills/translate-skill/SKILL.md`。本仓库采用 skill-guided content localization，不做 Git fork-sync：保留简体中文本地化身份，安装命令保持指向 `vinvcn/mattpocock-skills-zh-CN`，不要导入上游 repository-management state。
+
+## 翻译规则
+
+本地化时遵循以下约定（正文与标题都适用）：
+
+- **正文**：译成自然流畅的简体中文；`skill`、`agent`、`module`、`interface`、`seam`、`spec`、`ticket`、`triage`、`ADR`、`grilling`、`prototype`、`deep/shallow` 等工程术语在中文句中保留英文。
+- **标题**：`SKILL.md`、reference `.md`、`CONTEXT.md`、`docs/adr/*` 中的**内容标题**要翻译（例如 `## Glossary` → `## 术语表`、`## Delegated legwork` → `## 委派的 legwork`），术语仍按上一条保留英文；数字编号步骤保留数字（`### 1. Explore` → `### 1. 探索`）。
+- **结构锚点保留英文，不翻译**：docs page 的固定框架标题（`## What it does` / `## When to reach for it` / `## Where it fits` / `## Prerequisites` / `## It's working if`，见 [docs/writing-docs.md](./docs/writing-docs.md)）、README 的分组标签（`## User-invoked` / `## Model-invoked`）、各 bucket `README.md` 的 H1。
+- **代码块围栏内的 `#` 行不是标题**——它们是 shell 注释或模板占位符（例如 `# Search by filename`、`# Mission: {Topic}`），绝不翻译。标题里的行内代码与 `{...}`/`<...>` 占位符保持原样。
+- **frontmatter**：`name` slug 保持 ASCII 不变，只译 `description`/`argument-hint` 散文；`disable-model-invocation`、`policy.allow_implicit_invocation` 等标志位不动。
+- **安装路径**统一指向 `vinvcn/mattpocock-skills-zh-CN`；保留指向上游的归属性链接。
+- **归属性引文、示例字符串、`_Avoid_:` 列表、Good/Bad 片段**是数据，保留英文。

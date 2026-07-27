@@ -3,19 +3,19 @@ name: diagnosing-bugs
 description: 针对棘手 bug 和性能回退的诊断循环。当用户说 “diagnose”/“debug this”，或报告某些东西 broken/throwing/failing/slow 时使用。
 ---
 
-# Diagnosing Bugs
+# 诊断 bug
 
 一门针对棘手 bug 的纪律。只有在明确说明理由时才跳过各个阶段。
 
 在探索 codebase 时，阅读 `CONTEXT.md`（如果存在），对相关 module 建立清晰的心智模型，并检查你所触碰区域的 ADR。
 
-## Phase 1 — Build a feedback loop
+## 阶段 1 —— 构建一个 feedback loop
 
 **这就是这门 skill。** 其余一切都是机械性的。如果你对这个 bug 有一个**紧凑的** pass/fail 信号 — 一个在_这个_ bug 上会变红的信号 — 你就能找到原因；bisection、hypothesis-testing 和 instrumentation 都只是消费它。如果你没有这样一个信号，再怎么盯着代码看也救不了你。
 
 在这里投入不成比例的精力。**要激进。要有创造力。拒绝放弃。**
 
-### Ways to construct one — try them in roughly this order
+### 构建它的几种方式 —— 大致按这个顺序尝试
 
 1. **Failing test**，放在任何能触达该 bug 的 seam 上 — unit、integration、e2e。
 2. 针对正在运行的 dev server 的 **Curl / HTTP 脚本**。
@@ -30,7 +30,7 @@ description: 针对棘手 bug 和性能回退的诊断循环。当用户说 “d
 
 构建出正确的 feedback loop，这个 bug 就已经修好了 90%。
 
-### Tighten the loop
+### 收紧这个 loop
 
 把这个循环当作一个产品来对待。一旦你有了_一个_循环，就**收紧**它：
 
@@ -40,15 +40,15 @@ description: 针对棘手 bug 和性能回退的诊断循环。当用户说 “d
 
 一个 30 秒、时好时坏的循环几乎不比没有循环好；一个 2 秒、确定性的循环才是紧凑的 — 一种调试超能力。
 
-### Non-deterministic bugs
+### 非确定性 bug
 
 目标不是一个干净的重现，而是一个**更高的复现率**。把触发器循环 100 次、并行化、加压、收窄时间窗口、注入 sleep。一个 50% 复现率的 bug 是可调试的；1% 则不是 — 不断提高复现率，直到它可调试为止。
 
-### When you genuinely cannot build a loop
+### 当你确实无法构建一个 loop 时
 
 停下来，明确说出来。列出你尝试过的东西。向用户请求：(a) 对任何能复现它的环境的访问权限，(b) 一份捕获的产物（HAR 文件、日志转储、core dump、带时间戳的屏幕录像），或 (c) 添加临时生产 instrumentation 的许可。**不要**在没有循环的情况下继续去假设。
 
-### Completion criterion — a tight loop that goes red
+### 完成标准 —— 一个会变红的 tight loop
 
 当循环**紧凑**且**能变红**时，Phase 1 就完成了：你能说出**一条命令** — 一个脚本路径、一次 test 调用、一个 curl — 你**已经至少运行过一次**（粘贴出调用及其输出），并且它：
 
@@ -59,7 +59,7 @@ description: 针对棘手 bug 和性能回退的诊断循环。当用户说 “d
 
 如果你发现自己在这一条命令存在之前就在读代码以构建理论，**停下来 — 直接跳到假设正是这门 skill 所要防止的失败。** 没有能变红的命令，就没有 Phase 2。
 
-## Phase 2 — Reproduce + minimise
+## 阶段 2 —— 复现 + 最小化
 
 运行这个循环。看着它变红 — bug 出现了。
 
@@ -69,7 +69,7 @@ description: 针对棘手 bug 和性能回退的诊断循环。当用户说 “d
 - [ ] 这个失败在多次运行中可复现（或者，对于非确定性 bug，以一个足够高的、可据以调试的比率复现）。
 - [ ] 你已经捕获了确切的症状（错误消息、错误输出、缓慢的计时），这样后续阶段才能验证修复确实解决了它。
 
-### Minimise
+### 最小化
 
 一旦它变红，就把重现缩小到**仍然会变红的最小场景**。逐个削减输入、调用方、配置、数据和步骤，每次削减后重新运行循环 — 只保留对失败起承重作用的东西。
 
@@ -79,7 +79,7 @@ description: 针对棘手 bug 和性能回退的诊断循环。当用户说 “d
 
 在你既重现**又**最小化之前，不要继续。
 
-## Phase 3 — Hypothesise
+## 阶段 3 —— 提出假设
 
 在测试任何一个假设之前，先生成 **3–5 个排序的假设**。单一假设生成会锚定在第一个看似合理的想法上。
 
@@ -91,7 +91,7 @@ description: 针对棘手 bug 和性能回退的诊断循环。当用户说 “d
 
 **在测试之前，把排序后的列表展示给用户。** 他们往往有能瞬间重新排序的领域知识（“我们刚刚部署了一个针对 #3 的变更”），或者知道他们已经排除掉的假设。廉价的检查点，巨大的省时。不要为此阻塞 — 如果用户不在线，就按你的排序继续。
 
-## Phase 4 — Instrument
+## 阶段 4 —— 插桩
 
 每个探针都必须映射到 Phase 3 中的一个具体预测。**一次只改变一个变量。**
 
@@ -105,7 +105,7 @@ description: 针对棘手 bug 和性能回退的诊断循环。当用户说 “d
 
 **Perf 分支。** 对于性能回退，日志通常是错的。取而代之：建立一个基线测量（计时 harness、`performance.now()`、profiler、查询计划），然后做 bisect。先测量，后修复。
 
-## Phase 5 — Fix + regression test
+## 阶段 5 —— 修复 + 回归 test
 
 **在修复之前**写好 regression test — 但前提是存在一个**正确的 seam**。
 
@@ -121,7 +121,7 @@ description: 针对棘手 bug 和性能回退的诊断循环。当用户说 “d
 4. 看着它通过。
 5. 针对原始的（未最小化的）场景重新运行 Phase 1 的 feedback loop。
 
-## Phase 6 — Cleanup + post-mortem
+## 阶段 6 —— 清理 + 复盘
 
 在宣告完成之前必须做到：
 

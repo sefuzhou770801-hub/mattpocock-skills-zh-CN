@@ -1,4 +1,4 @@
-# When to Mock
+# 何时 mock
 
 只在**系统边界**处 mock：
 
@@ -13,7 +13,7 @@
 - 内部协作者
 - 任何你控制的东西
 
-## Designing for Mockability
+## 为可 mock 性而设计
 
 在系统边界处，设计易于 mock 的 interface：
 

@@ -1,8 +1,8 @@
-# Issue tracker: Local Markdown
+# issue tracker：本地 Markdown
 
 本 repo 的 issue 和 spec（你可能把 spec 称为 PRD）以 markdown 文件的形式存放在 `.scratch/` 中。
 
-## Conventions
+## 约定
 
 - 每个功能一个目录：`.scratch/<feature-slug>/`
 - spec 是 `.scratch/<feature-slug>/spec.md`
@@ -10,15 +10,15 @@
 - triage 状态记录为每个 issue 文件顶部附近的 `Status:` 行（角色字符串见 `triage-labels.md`）
 - 评论和对话历史追加到文件底部 `## Comments` 标题之下
 
-## When a skill says "publish to the issue tracker"
+## 当某个 skill 说「发布到 issue tracker」
 
 在 `.scratch/<feature-slug>/` 下创建一个新文件（必要时创建目录）。
 
-## When a skill says "fetch the relevant ticket"
+## 当某个 skill 说「取用相关 ticket」
 
 读取所引用路径处的文件。用户通常会直接给出路径或 issue 编号。
 
-## Wayfinding operations
+## wayfinding 操作
 
 供 `/wayfinder` 使用。**map** 是一个文件，每个 ticket 对应一个**子**文件。
 

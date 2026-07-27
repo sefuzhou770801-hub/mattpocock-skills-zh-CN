@@ -22,7 +22,7 @@ npx skills update writing-great-skills
 
 每当你在创作一个新 skill 或编辑一个既有 skill、并希望它每次都以同样的方式表现时，就用它：决定 invocation mode、撰写 description、选择什么放在 `SKILL.md` 里而什么放在链接的文件中，或者诊断一个 skill 为什么会失灵。
 
-## Cognitive load
+## cognitive load
 
 整份 reference 所围绕的核心概念是 **cognitive load**——以及它的对应面 **context load**。每个 skill 都要花费其中一种：
 
@@ -31,7 +31,7 @@ npx skills update writing-great-skills
 
 这些 skills 中的大多数是 user-invoked 的，这正是 cognitive load 成为整个系统被构建出来要管理的压力的原因：当 user-invoked skills 多到超出你能记在脑子里的程度时，解药就是一个 **router skill**，它点名其他 skills 以及何时调用每一个。一旦你开始用这两种 load 来思考，大多数创作决策——拆还是不拆、内联还是披露、model-invoked 还是 user-invoked——就变成了在不同地方做出的同一个权衡。
 
-## The other levers
+## 其余的杠杆
 
 这份 reference 的其余部分，是把那些 load 花得恰到好处的工具箱：
 

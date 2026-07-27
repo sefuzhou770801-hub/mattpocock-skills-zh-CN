@@ -1,8 +1,8 @@
-# MISSION.md Format
+# MISSION.md 格式
 
 `MISSION.md` 位于 workspace 的根目录。它记录用户学习这一主题的_原因_。每一个教学决策——下一步教什么、呈现哪些 resources、设计哪些练习——都应当追溯到这份文档。
 
-## Template
+## 模板
 
 ```md
 # Mission: {Topic}
@@ -22,7 +22,7 @@
 - {Adjacent topics the user explicitly does not want to chase right now — protects the zone of proximal development}
 ```
 
-## Rules
+## 规则
 
 - **每个 workspace 一个 mission。** 如果用户想学两样互不相关的东西，那就是两个 workspace。
 - **具体胜于抽象。** “Run a half marathon by October” 胜过 “get fitter”。“Ship a Rust CLI to my team” 胜过 “learn Rust”。

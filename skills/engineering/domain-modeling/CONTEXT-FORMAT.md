@@ -1,6 +1,6 @@
-# CONTEXT.md Format
+# CONTEXT.md 格式
 
-## Structure
+## 结构
 
 ```md
 # {Context Name}
@@ -22,14 +22,14 @@ A person or organization that places orders.
 _Avoid_: Client, buyer, account
 ```
 
-## Rules
+## 规则
 
 - **要有主见。** 当同一个概念存在多个词时，选出最好的那个，并把其余的列在 `_Avoid_` 下。
 - **定义要精炼。** 最多一两句话。定义它*是*什么，而不是它*做*什么。
 - **只收录本项目 context 特有的术语。** 通用编程概念（超时、错误类型、工具类模式）不属于这里，即使项目大量使用它们。添加术语前先问一句：这是本 context 独有的概念，还是一个通用编程概念？只有前者才属于这里。
 - **当出现自然的聚类时，把术语分组到子标题下。** 如果所有术语都属于同一个内聚领域，用平铺列表也可以。
 
-## Single vs multi-context repos
+## 单 context vs 多 context 的 repo
 
 **单一 context（大多数 repo）：** 在 repo 根目录放一个 `CONTEXT.md`。
 

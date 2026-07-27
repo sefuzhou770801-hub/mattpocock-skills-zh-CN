@@ -1,12 +1,12 @@
-# Design It Twice
+# 设计两次
 
 当用户想为某个选定的深化候选探索替代 interface 时，使用这个并行 sub-agent 模式。它基于 "Design It Twice"（Ousterhout）—— 你的第一个想法不太可能是最好的。
 
 使用 [SKILL.md](SKILL.md) 中的词汇 —— **module**、**interface**、**seam**、**adapter**、**leverage**。
 
-## Process
+## 流程
 
-### 1. Frame the problem space
+### 1. 框定问题空间
 
 在启动 sub-agent 之前，先为选定的候选写一份面向用户的问题空间说明：
 
@@ -16,7 +16,7 @@
 
 把它展示给用户，然后立即进入 Step 2。用户在 sub-agent 并行工作的同时阅读和思考。
 
-### 2. Spawn sub-agents
+### 2. 派发 sub-agents
 
 使用 Agent 工具并行启动 3 个以上的 sub-agent。每个都必须为深化后的 module 产出一个**截然不同**的 interface。
 
@@ -37,7 +37,7 @@
 4. 依赖策略与 adapter（见 [DEEPENING.md](DEEPENING.md)）
 5. 权衡 —— leverage 在哪里高，在哪里薄
 
-### 3. Present and compare
+### 3. 呈现并比较
 
 依次展示各个设计，让用户能逐个消化，然后用文字进行比较。按 **depth**（interface 处的 leverage）、**locality**（变化集中在哪里）和 **seam placement** 来对比。
 

@@ -22,7 +22,7 @@ npx skills update grill-me
 
 在构建之前，当一个计划大体上感觉对了、但你能感觉到其中藏着尚未解决的 decisions 时——也就是你想让软肋被找出来、被摊到台面上的那个时刻——就用它。如果你希望同样的追问还能留下一串 ADR 和 glossary 的书面痕迹，改用 [grill-with-docs](https://aihero.dev/skills-grill-with-docs)。而如果这件事大到一次 session 装不下、通往目标的路径仍然模糊——一个 greenfield 项目、一次庞大的功能构建——那就从更上游的 [wayfinder](https://aihero.dev/skills-wayfinder) 开始，它先把事情规划成一张 decisions 的地图，然后再汇回这条流程。
 
-## The decision tree
+## 这棵 decision tree
 
 Session 把计划当作一棵 decisions 组成的树来走，逐一解决它们之间的依赖关系——先确定 parent decision，再处理挂在它下面的那些 choices。重点不是尽快达成一致，而是让每一个隐含的判断都变得明确，好让任何重要的事情都不会被默默地当成理所当然。走到另一头时，你会得到一份所有分支都已被走过的计划。
 
