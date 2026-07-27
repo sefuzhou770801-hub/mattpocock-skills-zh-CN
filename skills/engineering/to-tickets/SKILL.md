@@ -22,7 +22,7 @@ issue tracker 和 triage label 词汇表应该已经提供给你了——如果�
 
 寻找对代码进行 prefactor 以让实现更容易的机会。"Make the change easy, then make the easy change."
 
-### 3. 起草垂直 slice
+### 3. 起草 vertical slice
 
 把工作拆解为 **tracer bullet** 式的 ticket。
 

@@ -36,8 +36,8 @@ npx skills update <name>
 
 你如何以及何时取用这个 skill——两个节拍，实际上总是都在：
 
-- **Invocation mode。** 说明是你输入它，还是 agent 触发它。一个 user-invoked skill："You invoke this by typing `/<name>` — the agent won't reach for it on its own." 一个 model-invoked skill："Type `/<name>`, or the agent reaches for it automatically when a task fits."
-- **Trigger boundary。** 索引条目："reach for this when …"。当这个 skill 容易和某个兄弟 skill 混淆时，加上另一半——"for <X> instead, use [<sibling>](https://aihero.dev/skills-<sibling>)."
+- **Invocation mode。** 说明是你输入它，还是 agent 触发它。一个 user-invoked skill："你通过输入 `/<name>` 来调用它——agent 不会自行调用。" 一个 model-invoked skill："输入 `/<name>`，或者当任务契合时由 agent 自动调用。"
+- **Trigger boundary。** 索引条目："在……时取用它"。当这个 skill 容易和某个兄弟 skill 混淆时，加上另一半——"若要 <X>，改用 [<sibling>](https://aihero.dev/skills-<sibling>)。"
 
 ## Prerequisites
 

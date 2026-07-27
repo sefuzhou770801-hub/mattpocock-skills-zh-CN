@@ -24,7 +24,7 @@ disable-model-invocation: true
 
 ## Grounding
 
-每一个 **concept** 都必须先被 **grounded**，某个 beat 才能依赖它：受众要么进场时就懂，要么在更早的某个 beat 里遇到过它。一个伸手去够尚未 grounded 的概念的 beat 会丢掉读者 —— 这是这段旅程唯一不能走的棋。这里的单位是 concept，而不是表达它的词：哪怕眼前一个术语都没有，一个 beat 也可能依赖一个读者并不具备的想法。当一个概念有名字 —— 一个 **term** —— 时，把它 grounding 意味着让这个想法和这个术语一起落地。
+每一个 **concept** 都必须先被 **grounded**，某个 beat 才能依赖它：受众要么进场时就懂，要么在更早的某个 beat 里遇到过它。一个触及尚未 grounded 的概念的 beat 会丢掉读者 —— 这是这段旅程唯一不能走的棋。这里的单位是 concept，而不是表达它的词：哪怕眼前一个术语都没有，一个 beat 也可能依赖一个读者并不具备的想法。当一个概念有名字 —— 一个 **term** —— 时，把它 grounding 意味着让这个想法和这个术语一起落地。
 
 一个概念通过两种方式之一被 grounded：
 

@@ -61,7 +61,7 @@ disable-model-invocation: true
 
 ### 3. grilling 循环
 
-一旦用户选定一个候选项，就运行 `/grilling` skill，与他们一起走查决策树——约束、依赖、deepened module 的形态、seam 背后放着什么、哪些 test 能存活下来。
+一旦用户选定一个候选项，就运行 `/grilling` skill，与他们一起走查 decision tree——约束、依赖、deepened module 的形态、seam 背后放着什么、哪些 test 能存活下来。
 
 随着决策逐渐清晰，副作用会内联发生——运行 `/domain-modeling` skill，在推进过程中让 domain model 保持最新：
 

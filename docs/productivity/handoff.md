@@ -33,4 +33,4 @@ npx skills update handoff
 
 ## Where it fits
 
-`handoff` 是一个随时可调用的 standalone——它位于两个 sessions 之间的接缝处，而不是某条 build chain 内部。它与那些产出 artifact 的 skills 天然搭配，因为它指向的正是它们的产出：[to-spec](https://aihero.dev/skills-to-spec)，因为一份完成的 spec 恰恰是那种 handoff 会引用而非重复的已定细节。当你不确定哪个 skill 适合当下时，[ask-matt](https://aihero.dev/skills-ask-matt) 会为你路由。
+`handoff` 是一个随时可调用的 standalone——它位于两个 sessions 之间的 seam 处，而不是某条 build chain 内部。它与那些产出 artifact 的 skills 天然搭配，因为它指向的正是它们的产出：[to-spec](https://aihero.dev/skills-to-spec)，因为一份完成的 spec 恰恰是那种 handoff 会引用而非重复的已定细节。当你不确定哪个 skill 适合当下时，[ask-matt](https://aihero.dev/skills-ask-matt) 会为你路由。

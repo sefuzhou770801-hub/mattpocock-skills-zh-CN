@@ -28,7 +28,7 @@ npx skills update grill-with-docs
 
 ## 这场 grill
 
-引擎是一个 **grill**：沿着决策树 relentless 地、一次一个问题地行进，在继续之前先解决决策之间的依赖，并为每个问题提供一个推荐答案。codebase 能回答的问题，会通过阅读 codebase 来回答，而不是来问你。
+引擎是一个 **grill**：沿着 decision tree relentless 地、一次一个问题地行进，在继续之前先解决决策之间的依赖，并为每个问题提供一个推荐答案。codebase 能回答的问题，会通过阅读 codebase 来回答，而不是来问你。
 
 让这个变体自成一个 skill 的，是那些答案的去向。随着 grill 的进行，模糊的语言被打磨成规范术语，并内联写入 glossary——而不是攒到最后批量写。glossary 始终保持为 glossary：纯粹的词汇，没有实现细节，没有 spec。ADR 被节制地提供，只有当一个决策难以逆转、没有上下文就会令人意外、并且是真正权衡的结果时才提供。大多数会话产出一份更锐利的 glossary 和很少或没有 ADR，而那正是预期的形态。
 

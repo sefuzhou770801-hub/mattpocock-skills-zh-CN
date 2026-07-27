@@ -13,6 +13,6 @@
 
 ## Model-invoked
 
-模型或用户都可以触达（带有丰富的触发措辞，好让模型能够到它们）。
+模型或用户都可以触达（带有丰富的触发措辞，好让模型能触达它们）。
 
 - **[grilling](./grilling/SKILL.md)** — 围绕一个计划、decision 或 idea，毫不留情地追问用户，直到 decision tree 的每一个分支都被解决。

@@ -20,7 +20,7 @@ npx skills update domain-modeling
 
 输入 `/domain-modeling`，或者当任务契合时由 agent 自动取用——当你在敲定术语、解决一个被过度使用的词，或记录一个架构决策时。
 
-当问题出在*词语*上时使用它：两个人对 "cancellation" 的理解不同，"account" 在干三份工作，或者一场设计对话总是卡在一个从未被精确命名过的概念上。如果问题出在 module 的*形状*上——seam 放在哪里、interface 有多深——用 [codebase-design](https://aihero.dev/skills-codebase-design)。如果你想让计划本身在构建之前被审问，用 [grilling](https://aihero.dev/skills-grilling)。
+当问题出在*词语*上时使用它：两个人对 "cancellation" 的理解不同，"account" 在干三份工作，或者一场设计对话总是卡在一个从未被精确命名过的概念上。如果问题出在 module 的*形状*上——seam 放在哪里、interface 有多深——用 [codebase-design](https://aihero.dev/skills-codebase-design)。如果你想让计划本身在构建之前被 grill，用 [grilling](https://aihero.dev/skills-grilling)。
 
 ## Prerequisites
 

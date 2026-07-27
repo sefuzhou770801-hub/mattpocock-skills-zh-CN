@@ -14,7 +14,7 @@ npx skills update resolving-merge-conflicts
 
 `resolving-merge-conflicts` 会逐个 hunk 地处理一场正在进行的 git merge 或 rebase conflict，并完成整个操作——解决、检查、然后提交。
 
-它按 **intent** 来解决，而不是按文本。在触碰一个 hunk 之前，它会把每一侧追溯回其 **primary source**——commit message、PR、原始 issue——以理解这个改动为什么被做出，然后在两者兼容的地方同时保留双方的 intent。它绝不发明新的行为来粉饰冲突，也绝不伸手去用 `--abort`：merge 总是要被完成的。
+它按 **intent** 来解决，而不是按文本。在触碰一个 hunk 之前，它会把每一侧追溯回其 **primary source**——commit message、PR、原始 issue——以理解这个改动为什么被做出，然后在两者兼容的地方同时保留双方的 intent。它绝不发明新的行为来粉饰冲突，也绝不动用 `--abort`：merge 总是要被完成的。
 
 ## When to reach for it
 
