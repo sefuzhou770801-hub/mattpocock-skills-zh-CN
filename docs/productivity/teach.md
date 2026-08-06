@@ -1,14 +1,14 @@
 Quickstart:
 
 ```bash
-npx skills add vinvcn/mattpocock-skills-zh-CN --skill=teach
+npx skills add sefuzhou770801-hub/mattpocock-skills-zh-CN --skill=teach
 ```
 
 ```bash
 npx skills update teach
 ```
 
-[Source](https://github.com/vinvcn/mattpocock-skills-zh-CN/tree/main/skills/productivity/teach)
+[Source](https://github.com/sefuzhou770801-hub/mattpocock-skills-zh-CN/tree/main/skills/productivity/teach)
 
 ## What it does
 

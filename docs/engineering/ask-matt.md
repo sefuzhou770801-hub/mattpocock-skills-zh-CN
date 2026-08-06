@@ -1,14 +1,14 @@
 Quickstart:
 
 ```bash
-npx skills add vinvcn/mattpocock-skills-zh-CN --skill=ask-matt
+npx skills add sefuzhou770801-hub/mattpocock-skills-zh-CN --skill=ask-matt
 ```
 
 ```bash
 npx skills update ask-matt
 ```
 
-[Source](https://github.com/vinvcn/mattpocock-skills-zh-CN/tree/main/skills/engineering/ask-matt)
+[Source](https://github.com/sefuzhou770801-hub/mattpocock-skills-zh-CN/tree/main/skills/engineering/ask-matt)
 
 ## What it does
 
@@ -28,4 +28,4 @@ npx skills update ask-matt
 
 ## Where it fits
 
-`ask-matt` 是 **router**——悬于整套 skills 之上的 standalone 地图。它是每个其他 docs 页面都回链到的节点（[ask-matt](https://aihero.dev/skills-ask-matt)），所以它从不*位于*某条 chain 之中；它*指向*每一条 chain。从这里你最常落到 [grill-with-docs](https://aihero.dev/skills-grill-with-docs)——main flow 的头部，或 [triage](https://aihero.dev/skills-triage)——那些不是你创建的工作的 on-ramp。当连 router 自己的图景都过期时，它的 [Source](https://github.com/vinvcn/mattpocock-skills-zh-CN/tree/main/skills/engineering/ask-matt) 才是权威地图。
+`ask-matt` 是 **router**——悬于整套 skills 之上的 standalone 地图。它是每个其他 docs 页面都回链到的节点（[ask-matt](https://aihero.dev/skills-ask-matt)），所以它从不*位于*某条 chain 之中；它*指向*每一条 chain。从这里你最常落到 [grill-with-docs](https://aihero.dev/skills-grill-with-docs)——main flow 的头部，或 [triage](https://aihero.dev/skills-triage)——那些不是你创建的工作的 on-ramp。当连 router 自己的图景都过期时，它的 [Source](https://github.com/sefuzhou770801-hub/mattpocock-skills-zh-CN/tree/main/skills/engineering/ask-matt) 才是权威地图。

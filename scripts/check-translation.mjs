@@ -54,10 +54,10 @@ if (files.includes("README.md")) {
   if (/vinvcn\/skills-zh-CN/.test(readme)) {
     fail("README.md", "README still points at vinvcn/skills-zh-CN");
   }
-  if (!/vinvcn\/mattpocock-skills-zh-CN/.test(readme)) {
+  if (!/sefuzhou770801-hub\/mattpocock-skills-zh-CN/.test(readme)) {
     fail(
       "README.md",
-      "README does not reference vinvcn/mattpocock-skills-zh-CN",
+      "README does not reference sefuzhou770801-hub/mattpocock-skills-zh-CN",
     );
   }
 }

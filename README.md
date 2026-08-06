@@ -14,17 +14,19 @@
 
 本仓库按内容刷新方式同步上游，不同步上游 Git 历史或仓库管理状态。维护规则见 [`.skills/translate-skill/SKILL.md`](./.skills/translate-skill/SKILL.md)。
 
-本仓库的最近一次同步翻译由 OpenAI Codex（GPT-5 coding agent）执行，并由仓库维护者通过提交记录纳入 `main`。翻译策略是 **skill-guided content localization**：把上游 `mattpocock/skills` 当作英文内容来源，只翻译自然语言说明，保留目录名、skill name、frontmatter key、命令、代码块、路径、URL、package/tool/API identifiers 和行为关键 labels。用户可见的安装路径统一保持为 `vinvcn/mattpocock-skills-zh-CN`。
+本仓库的最近一次同步翻译由 Grok Build 执行，并由仓库维护者通过提交记录纳入 `main`。翻译策略是 **skill-guided content localization**：把上游 `mattpocock/skills` 当作英文内容来源，只翻译自然语言说明，保留目录名、skill name、frontmatter key、命令、代码块、路径、URL、package/tool/API identifiers 和行为关键 labels。用户可见的安装路径统一保持为 `sefuzhou770801-hub/mattpocock-skills-zh-CN`（本 fork）。
+
+本 fork 同步范围只含 `skills/` 三桶（`engineering/`、`productivity/`、`misc/`）及公开索引元数据；**不同步 `docs/`**（网站文档页）。
 
 ## 30 秒安装
 
 ```bash
-npx skills@latest add vinvcn/mattpocock-skills-zh-CN
+npx skills@latest add sefuzhou770801-hub/mattpocock-skills-zh-CN
 ```
 
 选择你想安装的 skills，以及要安装到哪些 coding agents。首次安装时请确保选择 [`/setup-matt-pocock-skills`](./skills/engineering/setup-matt-pocock-skills/SKILL.md)，然后在 agent 中运行它来完成 issue tracker、labels 和 docs 目录配置。
 
-[![skills.sh](https://skills.sh/b/vinvcn/mattpocock-skills-zh-CN)](https://skills.sh/vinvcn/mattpocock-skills-zh-CN)
+[![skills.sh](https://skills.sh/b/sefuzhou770801-hub/mattpocock-skills-zh-CN)](https://skills.sh/sefuzhou770801-hub/mattpocock-skills-zh-CN)
 
 <p>
   <a href="https://www.aihero.dev/s/skills-newsletter">
@@ -48,49 +50,67 @@ npx skills@latest add vinvcn/mattpocock-skills-zh-CN
 
 [订阅 Newsletter](https://www.aihero.dev/s/skills-newsletter)
 
-### Quickstart（30 秒 setup）
+### Installation（30 秒 setup）
 
-1. 运行 skills.sh installer：
+两条路，两种取向。**Claude Code plugin** 把整套 skills 装成受管理的只读 bundle，上游发版即可更新——你是订阅，不是 fork。**[skills.sh](https://skills.sh/sefuzhou770801-hub/mattpocock-skills-zh-CN)** 把可编辑 skill 文件复制进项目，方便你改成自己的。二选一即可——两边都装会让每个 skill 出现两份。
+
+#### 1. 获取 skills
+
+<details>
+<summary><strong>Claude Code</strong></summary>
 
 ```bash
-npx skills@latest add vinvcn/mattpocock-skills-zh-CN
+claude plugins install mattpocock-skills
 ```
 
-2. 选择你想安装的 skills，以及要安装到哪些 coding agents。**确保选择 `/setup-matt-pocock-skills`**。
-
-3. 在你的 agent 中运行 `/setup-matt-pocock-skills`。它会：
-   - 询问你要使用哪个 issue tracker（GitHub、Linear 或 local files）
-   - 询问你 triage issues 时使用哪些 labels（`/triage` 会使用这些 labels）
-   - 询问要把创建的 docs 保存到哪里
-
-4. 完成后即可开始使用。
-
-### 作为 Claude Code plugin 安装
-
-如果你更喜欢无需手动维护的即装即用方式，这些 skills 也以原生 [Claude Code plugin](https://code.claude.com/docs/en/plugins) 发布。与把可编辑文件复制进 repo 不同，plugin 会把整套 skills 安装为受管理的 bundle；新版本发布后可以统一更新。
-
-在 Claude Code 中运行：
+或在 session 内：
 
 ```
-/plugin marketplace add vinvcn/mattpocock-skills-zh-CN
+/plugin install mattpocock-skills
+```
+
+本 fork 也可先加 marketplace：
+
+```
+/plugin marketplace add sefuzhou770801-hub/mattpocock-skills-zh-CN
 /plugin install mattpocock-skills@mattpocock
 ```
 
-或在 shell 中运行：
+</details>
+
+<details>
+<summary><strong>Codex 与其他 agents</strong></summary>
 
 ```bash
-claude plugin marketplace add vinvcn/mattpocock-skills-zh-CN
-claude plugin install mattpocock-skills@mattpocock
+npx skills@latest add sefuzhou770801-hub/mattpocock-skills-zh-CN
 ```
 
-然后像上面的 quickstart 一样，在每个 repo 中运行一次 `/setup-matt-pocock-skills`。
+选择你想安装的 skills，以及要装到哪些 coding agents。**Installer 允许挑选 skill——请确保包含 `setup-matt-pocock-skills`。**
 
-两种安装方式代表两种使用取向：
+</details>
 
-- **[skills.sh](https://skills.sh/vinvcn/mattpocock-skills-zh-CN)** 会把 skills 复制进项目，方便你修改并定制。
-- **Plugin** 把它们作为受管理的只读 bundle 安装，适合只想直接使用并持续跟进更新的用户。
+<details>
+<summary><strong>喜欢改源码的人</strong></summary>
 
-> 使用 Codex 或其他 agent？[skills.sh installer](https://skills.sh/vinvcn/mattpocock-skills-zh-CN) 已经可以把这些 skills 安装到 Codex 和其他兼容 Agent Skills 的 harnesses；目前尚未提供原生 Codex plugin。
+同一 installer，任意 agent（含 Claude Code）：
+
+```bash
+npx skills@latest add sefuzhou770801-hub/mattpocock-skills-zh-CN
+```
+
+它把 skills 写成你拥有、可编辑的普通文件。不会在背后自动更新；想跟进时用 `npx skills update`。
+
+</details>
+
+#### 2. 运行 `/setup-matt-pocock-skills`
+
+在 agent 中每个 repo 跑一次。它会：
+
+- 询问你要使用哪个 issue tracker（GitHub、Linear 或 local files）
+- 询问你 triage issues 时使用哪些 labels（`/triage` 会使用这些 labels）
+- 询问要把创建的 docs 保存到哪里
+
+完成后即可开始使用。
 
 ### 为什么这些 Skills 存在
 
@@ -214,14 +234,15 @@ AI 时代也是一样。你和 agent 之间存在沟通缺口。修复方式是�
 
 **Model-invoked**
 
-- **[prototype](./skills/engineering/prototype/SKILL.md)** - 构建 throwaway prototype，回答 state/business-logic 问题或探索 UI 变体。
-- **[diagnosing-bugs](./skills/engineering/diagnosing-bugs/SKILL.md)** - 面向棘手 bug 和性能回退的纪律化诊断循环：reproduce -> minimise -> hypothesise -> instrument -> fix -> regression-test。
+- **[prototype](./skills/engineering/prototype/SKILL.md)** - 构建 throwaway prototype：state/logic 用单个可分享 HTML 文件，或探索多个可切换 UI 变体。
+- **[diagnosing-bugs](./skills/engineering/diagnosing-bugs/SKILL.md)** - 面向棘手 bug 和性能回退的纪律化诊断循环：先建一个能在这个 bug 上变红的 feedback loop → minimise → hypothesise → instrument → fix → regression-test。
 - **[research](./skills/engineering/research/SKILL.md)** - 对照 high-trust primary sources 调研问题，并把带引用的 findings 保存为 Markdown 文件。
 - **[tdd](./skills/engineering/tdd/SKILL.md)** - 使用 red-green-refactor 循环做 test-driven development；一次一个 vertical slice 地构建功能或修复 bug。
 - **[domain-modeling](./skills/engineering/domain-modeling/SKILL.md)** - 主动构建和打磨项目 domain model：挑战术语、用 edge-case scenarios 做压力测试，并内联更新 `CONTEXT.md` 与 ADRs。
 - **[codebase-design](./skills/engineering/codebase-design/SKILL.md)** - 设计 deep modules 的共享纪律和词汇：小 interface、clean seam、通过 interface 测试。
 - **[code-review](./skills/engineering/code-review/SKILL.md)** - 对 fixed point 以来的 diff 做双轴 review：Standards 与 Spec 分开检查，并用并行 sub-agents 运行。
 - **[resolving-merge-conflicts](./skills/engineering/resolving-merge-conflicts/SKILL.md)** - 逐个 hunk 处理正在进行的 git merge/rebase conflict，按追溯到各方 primary source 的 intent 解决，然后完成操作——绝不 `--abort`。
+- **[wizard](./skills/engineering/wizard/SKILL.md)** - 生成交互式 bash wizard，引导人类完成只有他们能做的步骤：provision、credentials/CI secrets、第三方 dashboard，或一次性 migration/cutover。
 
 #### Productivity
 
@@ -229,14 +250,16 @@ AI 时代也是一样。你和 agent 之间存在沟通缺口。修复方式是�
 
 **User-invoked**
 
-- **[grill-me](./skills/productivity/grill-me/SKILL.md)** - 围绕计划或设计持续追问，直到 decision tree 的每个分支都被解决。
+- **[grill-me](./skills/productivity/grill-me/SKILL.md)** - 围绕计划或设计持续追问，直到 design tree 的每个分支都被解决。
 - **[handoff](./skills/productivity/handoff/SKILL.md)** - 把当前对话压缩成 handoff document，让另一个 agent 可以继续。
 - **[teach](./skills/productivity/teach/SKILL.md)** - 使用当前目录作为 stateful teaching workspace，在多个 sessions 中教用户一个新 skill 或概念。
-- **[writing-great-skills](./skills/productivity/writing-great-skills/SKILL.md)** - 编写和编辑优秀 skills 的 reference：让 skill 可预测的词汇和原则。
+- **[to-questionnaire](./skills/productivity/to-questionnaire/SKILL.md)** - 把你无法独自回答的决策，变成给能回答的人填写的 Markdown 问卷——可异步填，也可在会议里一起填。
+- **[wait-what](./skills/productivity/wait-what/SKILL.md)** - 消息没落地的瞬间就触发。Agent 用你缺的上下文、plain English，以及 `CONTEXT.md` 词汇重新 pitch。
 
 **Model-invoked**
 
-- **[grilling](./skills/productivity/grilling/SKILL.md)** - 围绕计划、decision 或 idea 持续访谈用户，直到 decision tree 的每个分支都被解决。它是 `grill-me` 和 `grill-with-docs` 背后的 reusable loop。
+- **[grilling](./skills/productivity/grilling/SKILL.md)** - 围绕计划、decision 或 idea 持续访谈用户，直到 design tree 的每个分支都被解决。它是 `grill-me` 和 `grill-with-docs` 背后的 reusable loop。
+- **[writing-for-agents](./skills/productivity/writing-for-agents/SKILL.md)** - 为 agent 撰写文档：skills、AGENTS.md/CLAUDE.md，以及经 pointer 触达的任何 doc。
 
 #### Misc
 
@@ -252,3 +275,16 @@ AI 时代也是一样。你和 agent 之间存在沟通缺口。修复方式是�
 - **[migrate-to-shoehorn](./skills/misc/migrate-to-shoehorn/SKILL.md)** - 将测试文件中的 `as` 类型断言迁移到 @total-typescript/shoehorn。
 - **[scaffold-exercises](./skills/misc/scaffold-exercises/SKILL.md)** - 创建包含 sections、problems、solutions 和 explainers 的练习目录结构。
 - **[setup-pre-commit](./skills/misc/setup-pre-commit/SKILL.md)** - 设置 Husky pre-commit hooks，集成 lint-staged、Prettier、type checking 和 tests。
+
+## 同步记录
+
+- 2026-08-06: 同步上游 `mattpocock/skills@8b36d4f`，本地 commit `b65a53e`（v1.2.2）。新增 `wizard`、`to-questionnaire`、`wait-what`；旧写作技能目录改名为 `writing-for-agents` 并重构；`grilling` 改为 round-by-round frontier；`prototype` logic 分支改为可分享 HTML demo；安装路径切到本 fork `sefuzhou770801-hub/mattpocock-skills-zh-CN`。本 fork 同步范围只含 skills 三桶与公开索引；docs 不同步上游内容（仅统一安装路径字符串）。
+
+### 验证结果（2026-08-06）
+
+- [x] `node scripts/check-translation.mjs` 通过
+- [x] 公开 skill 索引：顶层 README 与 `.claude-plugin/plugin.json` 与三桶目录一致
+- [x] 旧写作技能目录已删除，`writing-for-agents` 就位
+- [x] 安装路径指向 `sefuzhou770801-hub/mattpocock-skills-zh-CN`
+- [x] `git diff --check` 无 whitespace 问题
+- [x] docs 不同步上游内容；仅安装路径字符串切到本 fork

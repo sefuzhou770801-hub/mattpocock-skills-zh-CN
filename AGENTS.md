@@ -5,12 +5,10 @@ Skills 按 bucket folder 组织在 `skills/` 下：
 - `engineering/` - 日常代码工作
 - `productivity/` - 日常非代码工作流工具
 - `misc/` - 保留但很少使用
-- `in-progress/` - 仍在开发，暂不推广
-- `personal/` - 绑定我自己的设置，不推广
+- `in-progress/` - beta：有意公开、欢迎反馈，但不随 plugin 发布
 - `deprecated/` - 不再使用
 
-`engineering/`、`productivity/` 或 `misc/` 中的每个 skill，都必须在顶层 `README.md` 中有引用，并在 `.claude-plugin/plugin.json` 中有条目。`personal/` 和 `deprecated/` 中的 skills 不得出现在这两个位置。
-`in-progress/` 中的 skills 在毕业到稳定 bucket 前，必须留在顶层 `README.md` 和 `.claude-plugin/plugin.json` 之外。
+`engineering/`、`productivity/` 或 `misc/` 中的每个 skill，都必须在顶层 `README.md` 中有引用，并在 `.claude-plugin/plugin.json` 中有条目。`in-progress/` 和 `deprecated/` 中的 skills 不得出现在这两个位置。
 
 顶层 `README.md` 中的每个 skill 条目都必须把 skill 名称链接到对应的 `SKILL.md`。
 
@@ -22,4 +20,4 @@ Skills 按 bucket folder 组织在 `skills/` 下：
 
 ## 翻译刷新
 
-从 `mattpocock/skills` 刷新上游内容时，改文件前先使用 `.skills/translate-skill/SKILL.md`。本仓库采用 skill-guided content localization，不做 Git fork-sync：保留简体中文本地化身份，安装命令保持指向 `vinvcn/mattpocock-skills-zh-CN`，不要导入上游 repository-management state。
+从 `mattpocock/skills` 刷新上游内容时，改文件前先使用 `.skills/translate-skill/SKILL.md`。本仓库采用 skill-guided content localization，不做 Git fork-sync：保留简体中文本地化身份，安装命令保持指向 `sefuzhou770801-hub/mattpocock-skills-zh-CN`，不要导入上游 repository-management state。
