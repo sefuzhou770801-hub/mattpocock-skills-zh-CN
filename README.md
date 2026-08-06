@@ -278,7 +278,7 @@ AI 时代也是一样。你和 agent 之间存在沟通缺口。修复方式是�
 
 ## 同步记录
 
-- 2026-08-06: 同步上游 `mattpocock/skills@8b36d4f`，本地 commit `b65a53e`（v1.2.2）。新增 `wizard`、`to-questionnaire`、`wait-what`；旧写作技能目录改名为 `writing-for-agents` 并重构；`grilling` 改为 round-by-round frontier；`prototype` logic 分支改为可分享 HTML demo；安装路径切到本 fork `sefuzhou770801-hub/mattpocock-skills-zh-CN`。本 fork 同步范围只含 skills 三桶与公开索引；docs 不同步上游内容（仅统一安装路径字符串）。
+- 2026-08-06: 同步上游 `mattpocock/skills@8b36d4f`，本地 commit `ecc23e4`（v1.2.2）。新增 `wizard`、`to-questionnaire`、`wait-what`；旧写作技能目录改名为 `writing-for-agents` 并重构；`grilling` 改为 round-by-round frontier；`prototype` logic 分支改为可分享 HTML demo；安装路径切到本 fork `sefuzhou770801-hub/mattpocock-skills-zh-CN`。本 fork 同步范围只含 skills 三桶与公开索引；docs 不同步上游内容（仅统一安装路径字符串）。
 
 ### 验证结果（2026-08-06）
 
