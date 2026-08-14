@@ -1,45 +1,44 @@
 ---
 name: wizard
-description: 生成一个交互式 bash wizard，引导人完成一项手动流程——第三方 setup、一次性 migration、A→B 状态迁移——打开 URL、捕获值、逐步确认，并写入 .env 文件和 GitHub Actions secrets。
-disable-model-invocation: true
+description: 生成交互式 bash wizard，引导人类逐步完成只有他们能做的步骤。适用于 provision 基础设施、配置 credentials 或 CI secrets、操作不熟悉的第三方 dashboard，或执行一次性 migration / cutover。不要在 agent 自己能完成的步骤上调用本技能。
 ---
 
 # Wizard
 
-**Wizard** 是一个 bash 脚本，它一步一步引导人完成一项手动流程——这类流程手动做很繁琐，每次重新向 AI 解释一遍也很繁琐。它会打开每个 URL，准确说明该点什么、该复制什么，捕获这些值，把它们写到该去的地方（`.env`、GitHub secrets），在每个阶段确认，并显示还剩多少。它可能用于配置第三方服务、运行一次性 migration，或把项目从一种状态迁移到另一种状态。
+**Wizard** 是一个 bash 脚本，逐步引导人类完成一套手动流程：亲手做很烦，每次都向 AI 重新解释也很烦。它会打开每个 URL，精确说明要点哪里、复制什么，捕获这些值，写到该写的地方（`.env`、GitHub secrets），每一步都确认，并显示还剩多少。它可能配置第三方服务、跑一次性 migration，或把项目从一种状态迁到另一种状态。
 
-出色的 UX 已经由 [template.sh](template.sh) 解决——带剩余时间的进度、confirmation gates、跨平台 URL 打开（含 WSL）、隐藏的 secret 输入、幂等的 `.env` upsert、`gh secret`/`gh variable` 写入，以及收尾 summary。**你的工作只是确定流程范围并编写它的各个 stage。** `STAGES` 标记之上的 library 在每个 wizard 中都完全相同；这种一致性正是重点——永远不要手动编辑它。
+愉悦的 UX 已由 [template.sh](template.sh) 解决——带剩余时间的进度、确认门、跨平台打开 URL（含 WSL）、隐藏输入 secret、幂等的 `.env` upsert、`gh secret`/`gh variable` 写入，以及收尾摘要。**你的工作只是框定流程并编写各 stage。** `STAGES` 标记以上的库在每个 wizard 里完全相同；这种一致性正是重点——永远不要手改那一段。
 
-Wizard 默认是临时的——为单次运行而构建，保存到 scratch 或 `scripts/` 路径，任务完成后删除。只有当用户想要一条应留在 repo 中的可重复 setup 路径时，才 commit 它。
+Wizard 默认是临时的——为一次运行而建，存到 scratch 或 `scripts/` 路径，做完就删。只有当用户希望仓库里留下可重复的 setup 路径时才提交它。
 
 ## Process
 
 ### 1. Scope the procedure
 
-梳理出人必须执行的每一个手动步骤，以及沿途捕获的每一个值。先读 repo——不要凭空发问：
+弄清人类必须做的每一步手动操作，以及沿途要捕获的每个值。先读仓库，不要冷开场就问：
 
-- 对于 setup：`.env`、`.env.example`、`.env.*`、`README`、`docker-compose*`、framework config，以及 `.github/workflows/*`（每一处 `secrets.*` / `vars.*` 引用都是 wizard 必须产出的一个值）。
-- 对于 migration 或 transition：当前状态、目标状态，以及两者之间不可逆的操作。
+- 对 setup：`.env`、`.env.example`、`.env.*`、`README`、`docker-compose*`、framework config，以及 `.github/workflows/*`（每一个 `secrets.*` / `vars.*` 引用都是 wizard 必须产出的值）。
+- 对 migration 或 transition：当前状态、目标状态，以及两者之间的不可逆动作。
 
-然后向用户展示有序的 stages 列表以及每个 stage 产出的值，并确认——他们可能增删或重新排序。
+然后向用户展示按顺序排列的 stage 列表，以及每个 stage 产出的值，并请确认——他们可能增、删或重排。
 
-**Done when:** 每个 stage 都按顺序命名，并且对于每个捕获的值，你知道 (a) 人从哪里获取它，(b) 它写到哪里（`.env`、GitHub secret、两者，或都不写——有些 stage 是纯操作），以及 (c) 它是 secret（隐藏输入）还是 public。
+**Done when:** 每个 stage 都按顺序命名；对每个捕获的值，你都知道 (a) 人类从哪里拿到它，(b) 写到哪里（`.env`、GitHub secret、两者都写，或哪里都不写——有些 stage 是纯动作），以及 (c) 它是 secret（隐藏输入）还是 public。
 
 ### 2. Map each stage's journey
 
-对于每个 stage，写出人遵循的精确路径：打开哪个 URL、在那里做什么、值在哪里显示、它填充哪个变量——例如 "Dashboard → Developers → API keys → Reveal test key → copy"。在你确实不知道当前 UI 或确切命令的地方，如实说明并询问用户或查阅文档——永远不要编造可能不存在的步骤。
+对每个 stage，写出人类要走的精确路径：打开哪个 URL、在那里做什么、值显示在哪里、填入哪个变量——例如 “Dashboard → Developers → API keys → Reveal test key → copy”。你并不真正知道当前 UI 或确切命令时，就明说并问用户或查文档——永远不要编造可能不存在的步骤。
 
-**Done when:** 每个 stage 都能追溯到陌生人也能照做的具体指令。
+**Done when:** 每个 stage 都能落到陌生人也能跟着做的具体说明。
 
 ### 3. Author the wizard
 
-把 `template.sh` 复制到目标路径。用每个步骤一个 `stage` 替换示例 stage，按依赖顺序排列。使用 library helpers——`stage`、`say`/`step`、`open_url`、`ask`/`ask_secret`、`write_env`、`set_secret`/`set_var`、`pause`/`confirm`——并把 `TOTAL_STAGES` 和 `TOTAL_MINUTES` 设为诚实的估计值（这驱动剩余时间显示）。
+把 `template.sh` 复制到目标路径。把示例 stage 换成每个步骤一个 `stage`，按依赖顺序排列。使用库提供的 helpers——`stage`、`say`/`step`、`open_url`、`ask`/`ask_secret`、`write_env`、`set_secret`/`set_var`、`pause`/`confirm`——并把 `TOTAL_STAGES` 与 `TOTAL_MINUTES` 设成诚实的估计（这驱动剩余时间显示）。
 
-守住 template 设定的标准：在索取某个 URL 的值之前先打开它，对任何 secret 使用 `ask_secret`，对每个持久化的值使用 `write_env`，只对 CI 确实需要的值使用 `set_secret`，并在任何不可逆操作之前 `confirm`。每个 `stage` 都会清屏，因此只显示当前步骤——让一个 stage 只聚焦一项任务，这样人需要的内容就不会滚出视野。不要触碰标记之上的 library。
+守住模板立下的标准：在索取值之前先打开 URL；对任何 secret 用 `ask_secret`；每个要持久化的值都 `write_env`；只对 CI 真正需要的值 `set_secret`；任何不可逆动作前都 `confirm`。每个 `stage` 会清屏，所以屏幕上只留当前步骤——让每个 stage 只做一件聚焦的事，避免人类需要的信息滚出视野。不要动标记以上的库。
 
 ### 4. Verify and hand off
 
-- `bash -n <script>`；如果可用则运行 `shellcheck`。
+- `bash -n <script>`；若有 `shellcheck` 就跑。
 - `chmod +x <script>`。
-- 不要自己端到端运行它——它会打开浏览器并阻塞在人的输入上。改为静态追踪：step 1 中的每个值都被捕获并落到 step 1 所说的位置，并且每个 `set_secret` 名称都与 CI 中的某处 `secrets.*` 引用精确匹配。
-- 告诉用户如何运行它。如果它是一条可重复的 setup 路径，就 commit 它并从 README 链接过去，让下一个人运行脚本而不是询问 AI。
+- 不要自己端到端跑它——它会打开浏览器并阻塞等人输入。改为静态追踪：第 1 步的每个值都被捕获并落到第 1 步说定的位置，且每个 `set_secret` 名称与 CI 中的 `secrets.*` 引用精确匹配。
+- 告诉用户怎么运行。若是可重复的 setup 路径，提交它并在 README 里链过去，让下一个人跑脚本，而不是再问 AI。

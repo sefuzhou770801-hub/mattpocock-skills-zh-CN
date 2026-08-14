@@ -3,7 +3,7 @@ name: code-review
 description: 从固定点（commit、branch、tag 或 merge-base）开始，按 Standards（代码是否符合本仓库记录的编码标准？）和 Spec（代码是否符合来源 issue/spec 的要求？）两个轴线审查变更。两个审查会在并行子代理中运行，并并排报告。适用于用户想审查 branch、PR、进行中的变更，或要求 “review since X” 时。
 ---
 
-对用户提供的 fixed point 与 `HEAD` 之间的 diff 做双轴 review：
+对用户提供的 fixed point 与 `HEAD` 之间的 diff 做两项检查：
 
 - **Standards** — 代码是否符合这个 repo 记录下来的 coding standards？
 - **Spec** — 代码是否忠实实现来源 issue / spec？

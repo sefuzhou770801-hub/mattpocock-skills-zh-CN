@@ -7,6 +7,16 @@ description: 构建一次性原型来回答一个设计问题。适用于用户�
 
 Prototype 是**用来回答一个问题的 throwaway code**。问题决定形状。
 
+## 默认执行方式
+
+**原型默认派 grok 施工，不自己写。** 主控写好任务书（含要验证的问题、示例数据、交互设计、验收标准），经 `herdr-dispatch -a grok` 派出。grok 交付后，用 ego lite 浏览器打开产出物给老板看：
+
+```bash
+ego-browser open "file:///绝对路径/prototype/xxx.html"
+```
+
+老板点名自己做、或任务极小（< 50 行 HTML）时才在本格直接写。
+
 ## Pick a branch
 
 先识别正在回答哪个问题：来自用户 prompt、周围代码，或在用户在线时直接询问：
